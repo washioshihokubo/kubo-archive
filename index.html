@@ -7,40 +7,44 @@
   <style>
     * { box-sizing:border-box; }
     body {
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
-              "Hiragino Sans","Noto Sans JP",sans-serif;
-  margin:0;
-  /* 用久保ちゃん的圖 + 深色漸層當背景 */
-  background:
-  linear-gradient(rgba(2, 6, 23, 0.60), rgba(15, 23, 42, 0.65)),
-  url('G44VwrAaUAA98bZ.jpg') no-repeat center center fixed;
-background-size: cover;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
+                  "Hiragino Sans","Noto Sans JP",sans-serif;
+      margin:0;
 
-}
-
+      /* 用久保ちゃん的圖 + 深色漸層當背景 */
+      background:
+        linear-gradient(rgba(2, 6, 23, 0.60), rgba(15, 23, 42, 0.65)),
+        url('G44VwrAaUAA98bZ.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
 
     .wrapper {
       max-width:980px;
       margin:0 auto;
       padding:24px 14px 40px;
     }
+
     h1 {
       font-size:2rem;
       letter-spacing:.06em;
       margin:0 0 .3em;
+      color:#fff;
     }
+
     .subtitle {
       font-size:.9rem;
       color:#9ca3af;
       margin-bottom:1.5rem;
       line-height:1.6;
     }
+
     .nav-years {
       display:flex;
       flex-wrap:wrap;
       gap:8px;
       margin-bottom:1.5rem;
     }
+
     .year-chip {
       padding:4px 10px;
       border-radius:999px;
@@ -49,27 +53,32 @@ background-size: cover;
       color:#e5e7eb;
       text-decoration:none;
     }
+
     .year-chip:hover {
       border-color:#60a5fa;
       background:rgba(37,99,235,0.2);
     }
+
     .year-block {
       margin-top:1.8rem;
       padding-top:.5rem;
       border-top:1px solid #1f2937;
     }
+
     .year-title {
       font-size:1.2rem;
       font-weight:600;
       margin-bottom:.5rem;
       color:#f9fafb;
     }
+
     .list {
       border-radius:10px;
       background:rgba(15,23,42,0.75);
       border:1px solid #1f2937;
       overflow:hidden;
     }
+
     .row {
       display:flex;
       flex-wrap:wrap;
@@ -78,19 +87,24 @@ background-size: cover;
       font-size:.86rem;
       border-bottom:1px solid #111827;
     }
+
     .row:last-child {
       border-bottom:none;
     }
+
     .row:nth-child(2n) {
       background:rgba(15,23,42,0.85);
     }
+
     .col-date {
       width:110px;
       color:#9ca3af;
     }
+
     .col-source {
       width:110px;
     }
+
     .tag-source {
       display:inline-block;
       padding:2px 8px;
@@ -100,54 +114,85 @@ background-size: cover;
       font-weight:600;
       background:#e5e7eb;
     }
+
     .col-title {
       flex:1;
       min-width:140px;
     }
+
     a.post-link {
       color:#e5e7eb;
       text-decoration:none;
     }
+
     a.post-link:hover {
       text-decoration:underline;
       color:#bfdbfe;
     }
+
     .source-n46   { background:#2563eb; }
     .source-3ki   { background:#10b981; }
     .source-st    { background:#ec4899; }
+
     .top-links {
       margin-top:1rem;
       font-size:.8rem;
     }
+
     .top-links a {
       color:#93c5fd;
       text-decoration:none;
       margin-right:1rem;
     }
+
     .top-links a:hover {
       text-decoration:underline;
     }
+
     @media (max-width:640px){
       .col-date { width:88px; }
       .col-source { width:96px; margin-bottom:2px; }
       .row { align-items:flex-start; }
     }
-  </style>
-    
+
+    /* ⭐⭐ 新增：置中最上面的區塊（標題、副標、上方連結） ⭐⭐ */
+    .header-center {
+      text-align: center;
+    }
+
+    .header-center .top-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .header-center .subtitle {
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+</style>
+
+
 </head>
 <body>
-  <div class='wrapper'>
-    <h1>久保史緒里 全文タイムライン</h1>
-    <div class='subtitle'>
-      乃木坂46公式ブログ、3期生リレーブログ、Seventeen MODEL'S BLOG の記事を、日付順に並べたオフラインのタイムラインです。<br>
-      各行のタイトルをクリックすると、対応するローカルHTMLが開きます。
-    </div>
-    <div class='top-links'>
-      
-      <a href='offline_kubo/index.html'>乃木坂46 公式ブログ</a>
-      <a href='offline_3ki_relay_kubo/index.html'>3期生リレー</a>
-      <a href='offline_seventeen_kubo_site/index.html'>Seventeen BLOG</a>
-    </div>
+  <div class="wrapper header-center">
+  <h1>久保史緒里 全文タイムライン</h1>
+
+  <div class="subtitle">
+    乃木坂46公式ブログ、3期生リレーブログ、Seventeen MODEL'S BLOG の記事を、日付順に並べたオフラインのタイムラインです。<br>
+    各行のタイトルをクリックすると、対応するローカルHTMLが開きます。
+  </div>
+
+  <div class="top-links">
+    <a href="offline_kubo/index.html">乃木坂46 公式ブログ</a>
+    <a href="offline_3ki_relay_kubo/index.html">3期生リレー</a>
+    <a href="offline_seventeen_kubo_site/index.html">Seventeen BLOG</a>
+  </div>
+</div>
+
     <div class='nav-years'>
       <a class='year-chip' href='#year-2016'>2016 年</a>
       <a class='year-chip' href='#year-2017'>2017 年</a>
