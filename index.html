@@ -175,24 +175,23 @@
   margin-right: auto;
   line-height: 1.6;
 }   
-    /* 讓整個時間軸卡片半透明 */
+/* 更透明、更柔和的時間軸底色 */
 .list {
   border-radius:10px;
-  background:rgba(15,23,42,0.40); /* 主要透明度 */
-  backdrop-filter: blur(4px);     /* 霧面玻璃感 */
-  border:1px solid rgba(255,255,255,0.1);
+  background:rgba(15,23,42,0.28); /* 更透 */
+  backdrop-filter: blur(4px);
+  border:1px solid rgba(255,255,255,0.08);
   overflow:hidden;
 }
 
-/* 每一行基本底色（很淡） */
 .row {
-  background:rgba(15,23,42,0.15);
+  background:rgba(15,23,42,0.10); /* 更淡 */
 }
 
-/* 偶數行稍微深一點，方便閱讀但仍半透明 */
 .row:nth-child(2n) {
-  background:rgba(15,23,42,0.25);
+  background:rgba(15,23,42,0.18); /* 偶數行稍微深一點，但也透明 */
 }
+
 
 </style>
 
