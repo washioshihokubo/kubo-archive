@@ -175,23 +175,20 @@
   margin-right: auto;
   line-height: 1.6;
 }   
-/* 更透明、更柔和的時間軸底色 */
+/* 更高透明度的時間軸樣式 */
 .list {
-  border-radius:10px;
-  background:rgba(15,23,42,0.28); /* 更透 */
+  background: rgba(15, 23, 42, 0.25);  /* 由 0.40 → 0.25，更透 */
   backdrop-filter: blur(4px);
-  border:1px solid rgba(255,255,255,0.08);
-  overflow:hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .row {
-  background:rgba(15,23,42,0.10); /* 更淡 */
+  background: rgba(15, 23, 42, 0.08);  /* 由 0.15 → 0.08，更淡 */
 }
 
 .row:nth-child(2n) {
-  background:rgba(15,23,42,0.18); /* 偶數行稍微深一點，但也透明 */
+  background: rgba(15, 23, 42, 0.18);  /* 偶數行稍深但仍很透 */
 }
-
 
 </style>
 
