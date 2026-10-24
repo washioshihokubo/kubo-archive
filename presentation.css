@@ -1,0 +1,83 @@
+/* Photo edition: original uploads are displayed directly, never redrawn. */
+.archive-home{--ink:#302d32;--muted:#726b75;--line:#ded7df;--paper:#f7f5f1}
+.archive-home .topbar{max-width:1200px;padding:25px 38px;border:0;gap:24px}
+.archive-home .brand{font:400 18px Georgia,"Times New Roman",serif;letter-spacing:3.5px}
+.archive-home .brand>span{display:flex;align-items:center;gap:24px}
+.archive-home .brand small{display:block;border-left:1px solid #c8c0cd;padding-left:24px;margin:0;font:10px/1.6 Arial,"Microsoft JhengHei",sans-serif;letter-spacing:1.5px;white-space:nowrap}
+.archive-home .top-right{gap:20px}
+.archive-home .classic-link{background:transparent;border-radius:2px;padding:9px 16px;order:2}
+.archive-home .private{display:none}
+.archive-home .hero{position:relative;isolation:isolate;display:flex;flex-direction:column;align-items:flex-start;gap:0;min-height:484px;padding:48px 58px 30px;overflow:hidden;background:#dae5e9}
+.hero-visual{display:contents}
+.mobile-signature{display:none}
+.hero-portrait{position:absolute;inset:0;z-index:-1;display:block}
+.hero-portrait img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+.hero-intro{width:47%;position:relative}
+.archive-home .hero h1{font-family:"Noto Serif TC","Songti TC","PMingLiU",serif;font-size:48px;font-weight:400;line-height:1.5;letter-spacing:2px;margin:0 0 17px;white-space:nowrap}
+.archive-home .hero h1 span{color:inherit}
+.archive-home .hero-desc{font-family:"Noto Serif TC","Songti TC",serif;font-size:13px;letter-spacing:1.6px;color:#53525a;line-height:1.9;margin:0}
+.hero-signoff{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:3px;margin-top:9px}
+.hero-signature{display:block;width:104px;height:auto;mix-blend-mode:multiply}
+.archive-home .explore{padding:6px 0 8px;min-height:40px;gap:28px;font-size:11px;color:#6d567c}
+.archive-home .stats{margin:0 44px;padding:24px 0;justify-content:center;gap:0;border-top:0}
+.archive-home .stats>div{padding:0 40px;border-right:1px solid var(--line);gap:12px}
+.archive-home .stats>div:last-of-type{border-right:0}
+.archive-home .stats strong{font-size:28px;line-height:1.2}
+.archive-home .stats span{font-size:11px}
+.archive-home .stats p{display:none}
+.archive-home .workspace{display:block;padding:36px 44px 50px}
+.timeline-tools{display:grid;grid-template-columns:minmax(210px,.8fr) minmax(0,2fr);align-items:start;gap:32px}
+.archive-home .section-heading{display:block;margin:0;padding-top:8px}
+.archive-home .section-heading .eyebrow{display:none}
+.archive-home .section-heading h2{font-size:31px;letter-spacing:3px}
+.archive-home .section-heading h2:after{content:"";display:block;width:27px;border-bottom:2px solid #b8a2c7;margin:9px 0 12px}
+.archive-home .small-note{font-size:10px}
+.archive-home .search{background:transparent;border-radius:3px;min-height:44px;padding:8px 13px}
+.archive-home .filter-row{margin-top:10px;gap:12px;grid-template-columns:1.4fr 1.2fr 1fr}
+.archive-home .filter-row label{font-size:10px;letter-spacing:.4px}
+.archive-home .filter-row select{background:transparent;border-radius:3px}
+.archive-home .topic-note{font-size:10px;margin:9px 0 0}
+.archive-home .years{position:static;margin:25px 0 0}
+.archive-home #year-nav{flex-direction:row;gap:7px;overflow-x:auto;scrollbar-width:thin;padding:2px 2px 10px}
+.archive-home .year-button{width:auto;flex-shrink:0;justify-content:center;gap:7px;padding:8px 13px;min-height:42px;border:0;border-radius:22px;font-size:12px}
+.archive-home .year-button small{font-size:8px}
+.archive-home .result-bar{margin:8px 0 4px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.archive-home .year-heading{margin:21px 0 0}
+.archive-home .year-heading h3{font-size:25px}
+.archive-home .entry{grid-template-columns:93px minmax(0,1fr);margin:0;padding:22px 0;border-bottom:1px solid var(--line)}
+.archive-home .entry:before,.archive-home .entry-date:after{display:none}
+.archive-home .entry-date{padding-top:2px;font-size:14px;letter-spacing:.5px}
+.archive-home .entry-date small{margin-top:3px;font-size:10px}
+.archive-home .entry-card{border:0;border-left:1px solid var(--line);border-radius:0;background:transparent;margin:0;padding:0 0 0 26px;transition:none}
+.archive-home .entry-card:hover{transform:none}
+.archive-home .entry-meta{font-size:10px}
+.archive-home .entry-card h4{font-size:20px;line-height:1.7;margin:7px 0 12px}
+.archive-home .topic-tags{margin-bottom:7px}
+.archive-home .topic-tag{background:#eee9f180;border-color:#e4dbe9;border-radius:3px;font-size:10px;min-height:32px;padding:4px 9px}
+.archive-home .topic-tag[aria-pressed=true]{background:#e6ddeb;border-color:#bba5c8}
+.archive-home .entry-links{gap:6px 24px}
+.archive-home .more{margin-top:26px}
+.archive-home .about{padding:38px 44px 40px}
+.site-footer{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:30px;padding:20px 38px 26px}
+.footer-brand{font-family:Georgia,"Times New Roman",serif;font-size:12px;letter-spacing:2.5px;white-space:nowrap}
+.footer-brand i{font-size:10px;letter-spacing:1px}
+.footer-note{display:flex;align-items:center;gap:15px}
+.footer-note img{display:block;width:70px;height:70px;object-fit:contain;flex-shrink:0}
+.footer-note p{margin:0;font:12px/1.8 "Songti TC",serif;letter-spacing:1px}
+.footer-note small{display:block;font:9px/1.8 Arial,sans-serif;letter-spacing:1px;color:var(--muted);margin-top:4px}
+.site-footer>a{display:inline-flex;align-items:center;min-height:44px;white-space:nowrap}
+@media(min-width:1450px){.archive-home .hero{padding-top:48px;padding-bottom:30px}.archive-home .hero h1{font-size:48px}}
+@media(max-width:1050px){.archive-home .topbar{padding:22px 30px}.archive-home .brand>span{display:block}.archive-home .brand small{border:0;padding:0;margin-top:6px;font-size:9px}.archive-home .hero{min-height:450px;padding:42px 38px 24px}.archive-home .hero h1{font-size:40px;letter-spacing:1px}.archive-home .hero-desc{font-size:12px;letter-spacing:.5px}.hero-signature{width:94px}.archive-home .stats>div{padding:0 30px}.site-footer{gap:22px}.footer-brand i{display:none}.footer-note{gap:8px}.footer-note p{font-size:11px}}
+@media(max-width:780px){
+ .archive-home .topbar{padding:18px 23px;gap:12px}.archive-home .brand{font-size:15px;letter-spacing:2.5px}.archive-home .brand small{font-size:8px;letter-spacing:1px}.archive-home .top-right{gap:0}.archive-home .about-link{display:none}.archive-home .classic-link{min-height:42px;font-size:11px!important;padding:8px 10px}
+ .archive-home .hero{display:flex;min-height:0;padding:24px 23px 16px;background:var(--paper);overflow:visible}.hero-intro{width:100%}.archive-home .hero h1{font-size:34px;line-height:1.45;letter-spacing:1px;margin:0 0 12px}.archive-home .hero-desc{font-size:11px;letter-spacing:.7px}
+ .hero-visual{display:block;position:relative;width:100%;margin-top:20px}.hero-portrait{position:static;z-index:auto;width:100%;margin:0}.hero-portrait img{width:100%;height:auto;object-fit:contain}
+ .mobile-signature{display:block;position:absolute;top:12px;right:12px;width:clamp(56px,17vw,70px);height:auto;mix-blend-mode:multiply}
+ .hero-signoff{width:100%;flex-direction:row;align-items:center;justify-content:flex-end;gap:0;margin:8px 0 0;padding:0}.hero-signoff .hero-signature{display:none}.archive-home .explore{font-size:11px;min-height:44px;gap:26px}
+ .archive-home .stats{margin:0 23px;padding:17px 0;justify-content:space-around}.archive-home .stats>div{padding:0 18px;display:flex;flex-direction:column;align-items:center;gap:3px;flex:1}.archive-home .stats strong{font-size:25px}.archive-home .stats span{font-size:9px;white-space:nowrap}
+ .archive-home .workspace{padding:29px 23px 40px}.timeline-tools{display:block}.archive-home .section-heading{padding:0;display:flex;align-items:baseline;justify-content:space-between;margin-bottom:15px}.archive-home .section-heading h2{font-size:27px;letter-spacing:2px}.archive-home .section-heading h2:after{margin:8px 0 0;width:22px}.archive-home .small-note{font-size:8px}
+ .archive-home .search{min-height:46px}.archive-home .search input{font-size:16px}.archive-home .search kbd{display:none}.archive-home .filter-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;margin-top:12px}.archive-home .sort-label{grid-column:1/-1;flex-direction:row;align-items:center;justify-content:end}.archive-home .sort-label select{width:126px;min-height:40px}.archive-home .filter-row select{font-size:11px;min-height:44px}.archive-home .years{margin-top:18px}.archive-home .year-button{font-size:11px;min-height:44px;padding:8px 12px}.archive-home .result-bar{font-size:10px;margin-top:0}
+ .archive-home .entry{grid-template-columns:58px minmax(0,1fr);padding:20px 0}.archive-home .entry-date{font-size:13px;letter-spacing:0}.archive-home .entry-date small{font-size:9px}.archive-home .entry-card{padding:0 0 0 16px}.archive-home .entry-meta{font-size:9px}.archive-home .entry-card h4{font-size:17px;margin:7px 0 10px}.archive-home .topic-tag{min-height:36px;padding:6px 8px}.archive-home .entry-links{gap:4px 18px}.archive-home .entry-links a{min-height:40px}.archive-home .about{padding:30px 23px}
+ .site-footer{grid-template-columns:1fr auto;gap:12px;padding:18px 23px 22px}.footer-note{grid-column:1/-1;grid-row:1;justify-content:center;gap:14px;margin-bottom:3px}.footer-note img{width:70px;height:70px}.footer-note p{font-size:11px}.footer-brand{font-size:10px;letter-spacing:2px}.site-footer>a{font-size:10px}
+}
+@media(max-width:360px){.archive-home .topbar{padding:17px 18px}.archive-home .brand{font-size:13px;letter-spacing:1.8px}.archive-home .hero{padding:22px 20px 14px}.archive-home .hero h1{font-size:30px}.archive-home .hero-desc{font-size:10px;letter-spacing:.1px}.archive-home .workspace{padding:26px 18px 36px}.archive-home .section-heading h2{font-size:25px}.archive-home .entry-card{padding-left:12px}.archive-home .stats>div{padding:0 10px}}
