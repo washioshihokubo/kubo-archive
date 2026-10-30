@@ -4,16 +4,16 @@ window.Archive = (() => {
   const topics = {hometown:'宮城・故鄉',third:'三期生・夥伴',live:'音樂・演唱會',acting:'舞台・演技',fashion:'雜誌・模特',books:'書籍・寫真',broadcast:'廣播・節目',baseball:'棒球・運動',milestone:'生日・畢業・紀念',everyday:'日常・心情'};
   const escape = value => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const normalize = value => String(value).normalize('NFKC').toLocaleLowerCase().replace(/\s+/g,' ').trim();
-  const defaults = () => ({year:'all',q:'',source:'all',topic:'all',sort:'desc'});
+  const defaults = () => ({year:'all',q:'',source:'all',topic:'all',sort:'desc',mode:'all',category:'all',status:'all'});
   function readState(data, search=location.search, hash=location.hash) {
     const p = new URLSearchParams(search), state = defaults();
     const year = p.get('year') || (/^#year-(\d{4})$/.exec(hash)||[])[1];
-    if (year && data.some(x=>x.date.startsWith(year))) state.year=year;
+    if (year && (/^(201[6-9]|202[0-9])$/.test(year) || data.some(x=>x.date.startsWith(year)))) state.year=year;
     if (labels[p.get('source')]) state.source=p.get('source');
     if (topics[p.get('topic')]) state.topic=p.get('topic');
     const oldTypes={'部落格・隨筆':'everyday','時尚・雜誌':'fashion','舞台・演出':'acting','音樂・現場':'live','節點・紀念':'milestone'};
     if (!p.has('topic') && oldTypes[p.get('type')]) state.topic=oldTypes[p.get('type')];
-    state.q=p.get('q')||'';state.sort=p.get('sort')==='asc'?'asc':'desc';return state;
+    state.mode=['all','text','acting'].includes(p.get('mode'))?p.get('mode'):'all';state.category=p.get('category')||'all';state.status=['completed','ongoing','upcoming','unknown'].includes(p.get('status'))?p.get('status'):'all';state.q=p.get('q')||'';state.sort=p.get('sort')==='asc'?'asc':'desc';return state;
   }
   function params(state) {const p=new URLSearchParams();for(const [k,v] of Object.entries(state))if(v&&v!=='all'&&!(k==='sort'&&v==='desc'))p.set(k,v);return p;}
   function rows(data,state) {
