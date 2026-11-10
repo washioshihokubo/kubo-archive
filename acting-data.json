@@ -757,7 +757,7 @@
     "roleDescription": "長野家的女兒。與母親桂子、父親正史和哥哥翔一的家族關係，是她所參與的送別故事的重要背景。",
     "image": "acting-images/work-26.jpg",
     "status": "completed",
-    "verifiedAt": "2026-10-30",
+    "verifiedAt": "2026-11-10",
     "sourceLabel": "作品官方資料",
     "imageType": "宣傳圖",
     "sortDate": "2026-02-06",
@@ -773,11 +773,24 @@
       {
         "label": "乃木坂46官方新聞公告",
         "url": "https://www.nogizaka46.com/s/n46/news/detail/101393"
+      },
+      {
+        "label": "報知新聞社：第51回報知映画賞新人賞候選名單",
+        "url": "https://prtimes.jp/main/html/rd/p/000001049.000071317.html"
       }
     ],
     "imageSource": "https://hodonaku-movie.toho.co.jp/images/og3b.png",
     "imageCredit": "圖片出處：作品官方網站／官方公告；權利歸各作品權利人所有。",
-    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。"
+    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。",
+    "awards": [
+      {
+        "award": "第51回報知映画賞",
+        "category": "新人賞",
+        "status": "ノミネート（提名）",
+        "announcedAt": "2026-11-10",
+        "source": "https://prtimes.jp/main/html/rd/p/000001049.000071317.html"
+      }
+    ]
   },
   {
     "id": 27,
