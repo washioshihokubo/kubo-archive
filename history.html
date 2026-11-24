@@ -74,9 +74,21 @@
 .video-links { display:flex; flex-wrap:wrap; gap:.45rem; margin-top:.55rem; }
 .card .video-links a { display:inline-flex; gap:.45em; align-items:center; min-height:44px; padding:0 .7rem; border:1px solid currentColor; border-radius:.55rem; font-size:.875rem; line-height:1.35; text-decoration:none; }
 .card .video-links a:hover, .card .video-links a:focus-visible { text-decoration:underline; }
-</style></head><body id="top"><header><a href="./">SHIORI KUBO · 時光手帖</a><a href="./#timeline">← 返回文字與演員年表</a></header><main><p class="eyebrow">THE DAYS WE SHARED · 2016—2026</p><h1>她走過的時光</h1><p class="intro">從三期生結成的那一天開始，沿著一條時間線，重訪久保史緒里的舞台、演出和每個值得記住的時刻。</p><div class="history-toolbar"><form class="history-search" role="search" onsubmit="return false"><label>搜尋年表<input id="history-query" type="search" placeholder="輸入活動、節目或日期" autocomplete="off"></label><label>紀錄類型<select id="history-category"><option value="">全部類型</option></select></label></form><nav class="years" aria-label="年份導覽" id="years"></nav></div><p class="search-count" id="history-count" role="status" aria-live="polite"></p><div class="year-browser">
+.event[id], .history-toolbar { scroll-margin-top: 5rem; }
+.card .video-links a { color:#365665; background:#eef6f9; border-color:#adc8d4; max-width:100%; box-sizing:border-box; overflow-wrap:anywhere; }
+.video-links a span { color:#a52b3d; flex:none; }
+@media (max-width:640px) {
+  .year-dock { gap:.25rem; flex-wrap:wrap; }
+  .year-dock button, .year-dock select { padding-inline:.55rem; }
+  .year-dock label { gap:.25rem; }
+  .video-links { display:grid; }
+  .card .video-links a { width:100%; }
+  .year-dock #mobile-videos[aria-pressed=true] { background:#deedf4; border-color:#759cab; }
+}
+</style></head><body id="top"><header><a href="./">SHIORI KUBO · 時光手帖</a><a href="./#timeline">← 返回文字與演員年表</a></header><main><p class="eyebrow">THE DAYS WE SHARED · 2016—2026</p><h1>她走過的時光</h1><p class="intro">從三期生結成的那一天開始，沿著一條時間線，重訪久保史緒里的舞台、演出和每個值得記住的時刻。</p><div class="history-toolbar"><form class="history-search" role="search" onsubmit="return false"><label>搜尋年表<input id="history-query" type="search" placeholder="輸入活動、節目或日期" autocomplete="off"></label><label>紀錄類型<select id="history-category"><option value="">全部類型</option><option value="__videos__">有官方 YouTube 影片</option></select></label></form><nav class="years" aria-label="年份導覽" id="years"></nav></div><p class="search-count" id="history-count" role="status" aria-live="polite"></p><div class="year-browser">
   <nav class="year-dock" aria-label="手機年份導覽">
     <label>目前年份 <select id="mobile-year"></select></label>
+    <button id="mobile-videos" type="button" aria-pressed="false">有影片</button>
     <button id="mobile-important" type="button" aria-pressed="false">重要時刻</button>
   </nav>
   <div class="timeline" id="timeline"></div>
@@ -249,6 +261,7 @@ records.push(["2025","2025.04.24","「野球少女鷲尾＠comic 鷲尾さんは
 records.push(["2025","2025.11.25","「野球少女鷲尾＠comic 鷲尾さんは楽天的でいたい」第3巻発売（番組企画から生まれた漫画）","書籍"]);
 records.sort((a,b)=>a[1].localeCompare(b[1]));
 const issueDisplayTitles = {
+ "2025.11.25|久保史緒里 ソロ曲「夢の匂い」配信・Music Video公開": "久保史緒里 卒業ソロ曲「夢の匂い」公式 MV 公開",
  "2025.01.25|久保史緒里の青春文化祭 横浜アリーナ":"乃木坂46のオールナイトニッポン presents 久保史緒里の青春文化祭 in 横浜アリーナ",
  "2025.11.26|40thシングル「ビリヤニ」発売（最後の参加シングル）":"40thシングル「ビリヤニ」発売（最後の参加シングル／TYPE-Dにソロ曲「夢の匂い」とドキュメンタリー収録）",
  "2022.03.23|29thシングル「Actually...」発売":"29thシングル「Actually...」発売（久保史緒里センター「価値あるもの」収録）",
@@ -509,6 +522,7 @@ datedSources['2026.11.10|第51回報知映画賞 新人賞ノミネート（映�
 datedSources['2026.11.11|wacci「御節介」「天邪鬼」MV連続公開・久保史緒里出演発表']='https://wacci.jp/20261111-1/';
 datedSources['2026.11.13|wacci「御節介」「天邪鬼」MV 2作品連続プレミア公開（久保史緒里出演・21:00 JST予定）']='https://wacci.jp/20261111-1/';
 const importantMoments=new Set([
+ "2025.11.25|久保史緒里 ソロ曲「夢の匂い」配信・Music Video公開",
  '2016.09.04|3期生結成',
  '2016.12.10|3期生お見立て会',
  '2017.02.02–02.12|3人のプリンシパル（三役制霸・第二幕出演11場）',
@@ -565,34 +579,311 @@ function jumpToYear(year) {
   document.getElementById('y' + year)?.scrollIntoView({ block: 'start' });
   queueYearSync();
 }
+const mobileVideos = document.querySelector('#mobile-videos');
 function toggleImportant() {
   category.value = category.value === '__important__' ? '' : '__important__';
   render();
 }
 mobileYear.addEventListener('change', () => jumpToYear(mobileYear.value));
-mobileImportant.addEventListener('click', () => {
+function toggleMobileFilter(value) {
   const year = mobileYear.value;
-  toggleImportant();
+  category.value = category.value === value ? '' : value;
+  render();
   if (yearHeadings.length) {
     const next = yearHeadings.find(h => h.id.slice(1) >= year) || yearHeadings[yearHeadings.length - 1];
     jumpToYear(next.id.slice(1));
   }
-});
+}
+mobileImportant.addEventListener('click', () => toggleMobileFilter('__important__'));
+mobileVideos.addEventListener('click', () => toggleMobileFilter('__videos__'));
 window.addEventListener('scroll', queueYearSync, { passive: true });
 window.addEventListener('resize', queueYearSync);
-const wacciVideos = [["《御節介》官方 MV","ELHQhlQy6z0"],["《天邪鬼》官方 MV","sjj3aOXLmFg"]];
 const officialVideos = {
-  "2017.03.15|「三番目の風」MV公開": { id: "mv-sanbanme", links: [["官方 MV（短版）","YGlmGcGT56o"]] },
-  "2022.11.11|映画「左様なら今晩は」公開（愛助役）": { id: "trailer-sayokon", links: [["官方預告（60 秒）","F4AaeI6gCHU"]] },
-  "2026.11.11|wacci「御節介」「天邪鬼」MV連続公開・久保史緒里出演発表": { id: "wacci-announcement", links: wacciVideos },
-  "2026.11.13|wacci「御節介」「天邪鬼」MV 2作品連続プレミア公開（久保史緒里出演・21:00 JST予定）": { id: "mv-wacci", links: wacciVideos }
+  "2017.02.21|5th YEAR BIRTHDAY LIVE DAY2": {"links": [["五週年演唱會特典預告", "xrUyFajnnhg"]]},
+  "2017.02.22|5th YEAR BIRTHDAY LIVE DAY3": {"links": [["五週年演唱會特典預告", "xrUyFajnnhg"]]},
+  "2017.03.15|「三番目の風」MV公開": {"links": [["〈三番目の風〉MV（短版）", "YGlmGcGT56o"]], "id": "mv-sanbanme"},
+  "2017.03.22|17thシングル「インフルエンサー」発売（Type-Dに3期生曲「三番目の風」収録）": {"links": [["〈三番目の風〉MV（短版）", "YGlmGcGT56o"]]},
+  "2017.04.08|UTB+「三番目の風」MV密着レポート": {"links": [["〈三番目の風〉MV（短版）", "YGlmGcGT56o"]]},
+  "2017.08.01|「未来の答え」MV公開": {"links": [["〈未来の答え〉MV（短版）", "_iXcG20p-b4"]]},
+  "2017.08.01|乃木坂46 久保史緒里の宮城・仙台 旅しおり ダイジェスト版": {"links": [["旅しおり・官方影片", "mmMlh1rGdS0"]]},
+  "2017.08.08|乃木坂46 久保史緒里の宮城・仙台 旅しおり 8月仙台城篇": {"links": [["旅しおり・官方影片", "95ST8kRlJ-0"]]},
+  "2017.08.09|18thシングル「逃げ水」発売（Type-Dに3期生曲「未来の答え」収録）": {"links": [["〈未来の答え〉MV（短版）", "_iXcG20p-b4"]]},
+  "2017.09.01|Seventeen／宮城・仙台 旅しおり 9月松島篇": {"links": [["旅しおり・官方影片", "2KxJURXWLGc"]]},
+  "2017.10.02|宮城・仙台 旅しおり 10月仙台市内篇": {"links": [["旅しおり・官方影片", "gpW4Gp5RKY0"]]},
+  "2017.10.05|「僕の衝動」MV公開": {"links": [["〈僕の衝動〉MV（短版）", "7i0U9WdlHbA"]]},
+  "2017.10.11|19thシングル「いつかできるから今日できる」発売（Type-Dに3期生曲「僕の衝動」収録）": {"links": [["〈僕の衝動〉MV（短版）", "7i0U9WdlHbA"]]},
+  "2017.10.22|MUSIC ON! TV「のびのび乃木坂 3期生!!」": {"links": [["三期生特集・節目預告", "7CF9Yl4Ol0c"]]},
+  "2017.11.01|Seventeen／「乃木坂46 久保史緒里の宮城・仙台 旅しおり」11月仙台駅・仙台空港篇": {"links": [["旅しおり・官方影片", "Oa5Pk8zY1Rc"]]},
+  "2017.11.07–11.08|真夏の全国ツアー2017 FINAL!＠東京ドーム": {"links": [["東京巨蛋公演特典預告", "1i9rlN1MSY0"]]},
+  "2017.12.01|Seventeen／「乃木坂46 久保史緒里の宮城・仙台 旅しおり」12月大河原町篇": {"links": [["旅しおり・官方影片", "Hl4HHYilCy0"]]},
+  "2017.12.16|宮城・仙台 旅しおり 番外篇・仙台市内／TVCM 大河原町・仙台城・松島篇": {"links": [["旅しおり・官方影片", "w78TKvOjHt0"]]},
+  "2018.03.14|坂道AKB「国境のない時代」収録 AKB48 51stシングル「ジャーバージャ」発売": {"links": [["〈国境のない時代〉MV（短版）", "ujUiNzmn3K4"]]},
+  "2018.04.06|「シンクロニシティ」Music Video 公開": {"links": [["〈シンクロニシティ〉MV", "f0wbnQw89J0"]]},
+  "2018.04.13|「トキトキメキメキ」MV公開": {"links": [["〈トキトキメキメキ〉MV（短版）", "m-DngT-YioA"]]},
+  "2018.04.25|20thシングル「シンクロニシティ」発売（久保史緒里 表題曲初選抜）": {"links": [["〈シンクロニシティ〉MV", "f0wbnQw89J0"]]},
+  "2018.07.10|宮城・仙台 旅しおり 2018 ダイジェスト": {"links": [["旅しおり・官方影片", "nTrVnfEPsCQ"]]},
+  "2018.07.17|宮城・仙台 旅しおり 一目千本桜篇": {"links": [["旅しおり・官方影片", "LC1xp2hsvPg"]]},
+  "2018.07.31|宮城・仙台 旅しおり 楽天イーグルス篇": {"links": [["旅しおり・官方影片", "aXRCQnuTtU0"]]},
+  "2018.08.07|宮城・仙台 旅しおり 楽天イーグルス チアスクール特別篇": {"links": [["旅しおり・官方影片", "4MCgFkQVL7c"]]},
+  "2018.08.14|宮城・仙台 旅しおり 蔵王篇": {"links": [["旅しおり・官方影片", "HvuGiDaEtn4"]]},
+  "2018.11.16–11.25|舞台「ザンビ」（全公演期間；TEAM BLUE・鳴沢摩耶役）": {"links": [["舞台卡司發表", "gdgeHnKkpYk"]]},
+  "2018.11.27|乃木坂46 久保史緒里の宮城・仙台 旅しおり 仙台「大崎八幡宮」篇": {"links": [["旅しおり・官方影片", "DmNVo89hJ38"]]},
+  "2018.12.06|乃木坂46 久保史緒里の宮城・仙台 旅しおり 松島「瑞巌寺」篇": {"links": [["旅しおり・官方影片", "Y-zV-Cj1Ask"]]},
+  "2018.12.14|宮城・仙台 旅しおり 仙台「瑞鳳殿」伊達武将隊特別篇": {"links": [["旅しおり・官方影片", "cUJOA-jEcCE"]]},
+  "2018.12.25|宮城・仙台 旅しおり 松島「おくのほそ道」特別篇（依官方公告更正日期）": {"links": [["旅しおり・官方影片", "t8pDkqYLT1w"]]},
+  "2019.01.24–03.28|ドラマ「ザンビ」（花村穂花役；首播1月23日深夜）": {"links": [["官方卡司發表", "3gvTYO4zeAg"]]},
+  "2019.02.21–02.24|7th YEAR BIRTHDAY LIVE（日期依官方公告更正）": {"links": [["七週年演唱會特典預告", "rdihC8aIlrM"]]},
+  "2019.02.24|7th YEAR BIRTHDAY LIVE DAY4～西野七瀬卒業コンサート～": {"links": [["七週年演唱會特典預告", "rdihC8aIlrM"]]},
+  "2019.03.13|坂道AKB「初恋ドア」収録 AKB48 55thシングル「ジワるDAYS」発売": {"links": [["〈初恋ドア〉MV（短版）", "Tc_NnIsTKm0"]]},
+  "2019.05.17|「平行線」MV公開": {"links": [["〈平行線〉MV（短版）", "SIA4taG7pBQ"]]},
+  "2019.05.28|第5弾発表＆舞台「ザンビ」Blu-ray＆DVD発売直前スペシャル SHOWROOM": {"links": [["舞台卡司發表", "gdgeHnKkpYk"]]},
+  "2019.05.29|23rdシングル「Sing Out!」発売": {"links": [["〈Sing Out!〉MV", "XiYjkSPsQWI"]]},
+  "2019.05.31|舞台「ザンビ」Blu-ray＆DVD-BOX発売／Mステ「Sing Out!」": {"links": [["舞台卡司發表", "gdgeHnKkpYk"]]},
+  "2019.07.05|「いつのまにか、ここにいる Documentary of 乃木坂46」公開": {"links": [["紀錄片預告", "oOpY53cfRuQ"]]},
+  "2019.07.07|乃木坂46版ミュージカル「美少女戦士セーラームーン」2019 発表": {"links": [["2019 上海公演宣傳片", "fMkknkPhQyc"]]},
+  "2019.07.23|久保史緒里の宮城・仙台 旅しおり 2019 ダイジェスト": {"links": [["旅しおり・官方影片", "mChbw_kHB34"]]},
+  "2019.08.01|Seventeen／宮城・仙台 旅しおり 仙台レジャー篇": {"links": [["旅しおり・官方影片", "peGIUmCl7dU"]]},
+  "2019.08.02|ドラマ「ザンビ」Blu-ray＆DVD-BOX発売": {"links": [["官方卡司發表", "3gvTYO4zeAg"], ["影碟發售預告", "tRYbmSZUSdI"]]},
+  "2019.08.16|EX大衆 ソロ表紙／宮城・仙台 旅しおり 石巻篇": {"links": [["旅しおり・官方影片", "qv3o166IS4g"]]},
+  "2019.08.22|B.L.T. SUMMER CANDY 2019 ソロ表紙": {"links": [["封面拍攝花絮", "SRW1qPnuRmA"]]},
+  "2019.08.24|舞台「ザンビ」TEAM BLUE 日テレプラス初放送（8月23日深夜）": {"links": [["舞台卡司發表", "gdgeHnKkpYk"]]},
+  "2019.08.29|宮城・仙台 旅しおり 石巻特別篇": {"links": [["旅しおり・官方影片", "QcLIIKeqIqM"]]},
+  "2019.09.12|宮城・仙台 旅しおり 多賀城篇": {"links": [["旅しおり・官方影片", "SB7BWOBYIY0"]]},
+  "2019.10.10–10.14|乃木坂46版 ミュージカル「美少女戦士セーラームーン」2019 東京公演（月野うさぎ／セーラームーン役；10月12日全場及13日午場因颱風取消）": {"links": [["2019 上海公演宣傳片", "fMkknkPhQyc"]]},
+  "2019.10.14|ミュージカル「美少女戦士セーラームーン」2019 東京千秋楽 テレビ生中継": {"links": [["2019 上海公演宣傳片", "fMkknkPhQyc"]]},
+  "2019.11.22–11.24|乃木坂46版 ミュージカル「美少女戦士セーラームーン」2019 上海公演（月野うさぎ／セーラームーン役）": {"links": [["2019 上海公演宣傳片", "fMkknkPhQyc"]]},
+  "2019.12.04|2019 FNS歌謡祭": {"links": [["2019 FNS 歌謠祭預告", "1oqb5GDPlus"]]},
+  "2019.12.12|宮城・仙台 旅しおり 鳴子紅葉篇": {"links": [["旅しおり・官方影片", "UXmxx23AJTM"]]},
+  "2019.12.25|映画「いつのまにか、ここにいる Documentary of 乃木坂46」Blu-ray＆DVD発売": {"links": [["紀錄片預告", "oOpY53cfRuQ"]]},
+  "2019.12.26|宮城・仙台 旅しおり 岩出山有備館篇": {"links": [["旅しおり・官方影片", "Of8eBVnLzeI"]]},
+  "2020.01.09|宮城・仙台 旅しおり 仙台広瀬川篇": {"links": [["旅しおり・官方影片", "bkcudqfk3rI"]]},
+  "2020.01.23|宮城・仙台 旅しおり 仙台うみの杜篇": {"links": [["旅しおり・官方影片", "78g4JU4fiXo"]]},
+  "2020.02.05|「7th YEAR BIRTHDAY LIVE」Blu-ray＆DVD発売": {"links": [["七週年演唱會特典預告", "rdihC8aIlrM"]]},
+  "2020.02.06|宮城・仙台 旅しおり 未公開篇 vol.1": {"links": [["旅しおり・官方影片", "0W_u_RjrypA"]]},
+  "2020.02.19|乃木坂シネマズ～STORY of 46～「脆弱性」（FOD配信；メシア役）": {"links": [["單集預告（30 秒）", "d09G6oAVnsA"]]},
+  "2020.02.20|宮城・仙台 旅しおり 未公開篇 vol.2": {"links": [["旅しおり・官方影片", "EWwD1fxTPzo"]]},
+  "2020.02.21–02.24|乃木坂46 8th YEAR BIRTHDAY LIVE": {"links": [["八週年演唱會特典預告", "peWya9bxVXc"]]},
+  "2020.03.14|「毎日がBrand new day」センター発表（原稿所載，發表日期待確認）": {"links": [["〈毎日がBrand new day〉MV", "V9D5rbLyIsM"]]},
+  "2020.03.18|乃木坂シネマズ～STORY of 46～「脆弱性」地上波（3月17日深夜；メシア役）": {"links": [["單集預告（30 秒）", "d09G6oAVnsA"]]},
+  "2020.03.19|「毎日がBrand new day」MV公開": {"links": [["〈毎日がBrand new day〉MV", "V9D5rbLyIsM"]]},
+  "2020.03.25|25thシングル「しあわせの保護色」発売": {"links": [["〈毎日がBrand new day〉MV", "V9D5rbLyIsM"], ["〈しあわせの保護色〉MV", "aXrU5zpy9Pc"]]},
+  "2020.04.11|乃木坂46版ミュージカル「美少女戦士セーラームーン」Blu-ray＆DVD発売": {"links": [["2019 上海公演宣傳片", "fMkknkPhQyc"]]},
+  "2020.05.05–05.07|「真夏の全国ツアー2017 FINAL! IN TOKYO DOME」YouTube配信": {"links": [["東京巨蛋公演特典預告", "1i9rlN1MSY0"]]},
+  "2020.05.25|「世界中の隣人よ」Music Video 公開": {"links": [["〈世界中の隣人よ〉MV", "1gD76kKWKsE"]]},
+  "2020.06.17|配信限定シングル「世界中の隣人よ」リリース": {"links": [["〈世界中の隣人よ〉MV", "1gD76kKWKsE"]]},
+  "2020.08.29|楽天カード presents イーグルスガールデー 始球式・オンライン応援イベント／池上彰のニュースそうだったのか!!（首相辭任報導致節目內容變動；本人畫面待確認）": {"links": [["太平洋聯盟官方開球影片", "FVy-Kjw6Dq0"]]},
+  "2020.09.09|「ALL MV COLLECTION2 ～あの時の彼女たち～」発売／週刊少年マガジン ソロ表紙": {"links": [["收錄 MV〈毎日がBrand new day〉", "V9D5rbLyIsM"]]},
+  "2020.10.28|NOGIZAKA46 Mai Shiraishi Graduation Concert ～Always beside you～": {"links": [["白石麻衣畢業演唱會片段", "rFGGy3cHkB0"]]},
+  "2020.11.04|「ALL MV COLLECTION2 ～あの時の彼女たち～」オンラインスペシャルトークショー": {"links": [["收錄 MV〈毎日がBrand new day〉", "V9D5rbLyIsM"]]},
+  "2020.11.16|26thシングル「僕は僕を好きになる」選抜発表（表題曲初フロント；11月15日深夜）": {"links": [["〈僕は僕を好きになる〉MV", "F_WgREJgJhw"]]},
+  "2020.12.05|高校生クイズ「明日がある理由」": {"links": [["高校生クイズ 2020 節目介紹", "v7m6FCZJNOw"]]},
+  "2020.12.11|ZIP!／スッキリ／ヒルナンデス／高校生クイズ2020": {"links": [["高校生クイズ 2020 節目介紹", "v7m6FCZJNOw"]]},
+  "2020.12.23|8th YEAR BIRTHDAY LIVE Blu-ray＆DVD発売": {"links": [["八週年演唱會特典預告", "peWya9bxVXc"]]},
+  "2020.12.23|BRODY 3期生全員表紙／TV station／宮城・仙台 旅しおり スタジオ篇 vol.1": {"links": [["旅しおり・官方影片", "MysCB3WxFIA"]]},
+  "2020.12.31|バナナマンのせっかくグルメ!!": {"links": [["當集節目預告", "ghaaE1VQCAU"]]},
+  "2021.01.28|乃木坂46 久保史緒里の宮城・仙台 旅しおり スタジオ篇 vol.2": {"links": [["旅しおり・官方影片", "6qBK8s64QjA"]]},
+  "2021.01.30|「僕は僕を好きになる」発売記念 SNS横断フェス with 梅澤美波・山下美月（SHOWROOM・TikTok・Weibo・bilibili・YouTube・Instagram・LINE LIVE）": {"links": [["〈僕は僕を好きになる〉MV", "F_WgREJgJhw"]]},
+  "2021.02.01|Seventeen 初表紙": {"links": [["封面拍攝花絮", "y30zqq8bSEo"]]},
+  "2021.02.22|9th YEAR BIRTHDAY LIVE 前夜祭": {"links": [["九週年前夜祭片段", "u25yBFm3wB0"]]},
+  "2021.02.23|9th YEAR BIRTHDAY LIVE": {"links": [["九週年演唱會特典預告", "pqTNvDlHuPM"], ["九週年演唱會片段", "EjsXi6gDEKc"]]},
+  "2021.04.09|舞台「夜は短し歩けよ乙女」W主演発表（中村壱太郎・久保史緒里）": {"links": [["舞台精華・春夏篇", "hFYLVL1PT1k"], ["舞台精華・秋冬篇", "NnwgEwhRd4I"]]},
+  "2021.04.18|ノギザカスキッツLIVE／スポーツ漫画みてぇな話": {"links": [["節目幕後特輯", "D0Yu2zxnhLM"]]},
+  "2021.05.09|9th YEAR BIRTHDAY LIVE ～3期生ライブ～": {"links": [["三期生演唱會精華", "wYN00z1OJc0"], ["九週年演唱會特典預告", "pqTNvDlHuPM"]]},
+  "2021.05.17|ヨーロッパ企画のYou宇宙be 特別編 舞台「夜は短し歩けよ乙女」みどころ春夏秋冬SP（5月16日深夜）": {"links": [["舞台精華・春夏篇", "hFYLVL1PT1k"], ["舞台精華・秋冬篇", "NnwgEwhRd4I"]]},
+  "2021.05.30|楽天カード presents イーグルスガールデー（始球式・スタジアムDJ・ラジオ出演）": {"links": [["開球幕後・のぎマネ日記", "8x0KSOpMTKw"], ["樂天官方開球影片", "VE0NPojaQO8"]]},
+  "2021.06.06|舞台「夜は短し歩けよ乙女」東京初日": {"links": [["舞台精華・春夏篇", "hFYLVL1PT1k"], ["舞台精華・秋冬篇", "NnwgEwhRd4I"]]},
+  "2021.06.06–06.22|舞台「夜は短し歩けよ乙女」東京公演（黒髪の乙女役）": {"links": [["舞台精華・春夏篇", "hFYLVL1PT1k"], ["舞台精華・秋冬篇", "NnwgEwhRd4I"]]},
+  "2021.06.09|27thシングル「ごめんねFingers crossed」発売": {"links": [["〈ごめんねFingers crossed〉MV", "jddS5q0RFpY"]]},
+  "2021.06.13|乃木坂配信中「のぎマネ日記」久保史緒里の楽天始球式編 公開": {"links": [["開球幕後・のぎマネ日記", "8x0KSOpMTKw"]]},
+  "2021.06.19|舞台「夜は短し歩けよ乙女」": {"links": [["舞台精華・春夏篇", "hFYLVL1PT1k"], ["舞台精華・秋冬篇", "NnwgEwhRd4I"]]},
+  "2021.06.23|さ～ゆ～Ready？～さゆりんご軍団ライブ・松村沙友理卒業コンサート～": {"links": [["畢業演唱會影碟預告", "bG9Ib9Sxa-s"]]},
+  "2021.06.26|舞台「夜は短し歩けよ乙女」大阪初日": {"links": [["舞台精華・春夏篇", "hFYLVL1PT1k"], ["舞台精華・秋冬篇", "NnwgEwhRd4I"]]},
+  "2021.06.27|舞台「夜は短し歩けよ乙女」大千穐楽": {"links": [["舞台精華・春夏篇", "hFYLVL1PT1k"], ["舞台精華・秋冬篇", "NnwgEwhRd4I"]]},
+  "2021.07.14–07.15|真夏の全国ツアー2021 大阪城ホール": {"links": [["2021 巡演精華", "41Z_MbjUww4"]]},
+  "2021.07.17–07.18|真夏の全国ツアー2021 セキスイハイムスーパーアリーナ": {"links": [["2021 巡演精華", "41Z_MbjUww4"]]},
+  "2021.08.13|宮城・仙台 旅しおり 2021 ダイジェスト 夏 官方公告公開": {"links": [["旅しおり・官方影片", "jxjPjaYZH_k"]]},
+  "2021.08.14–08.15|真夏の全国ツアー2021 日本ガイシホール": {"links": [["2021 巡演精華", "41Z_MbjUww4"]]},
+  "2021.08.18|Seventeen 夏の学園祭2021": {"links": [["夏の学園祭 2021 官方存檔", "q7u4LTMkX6k"]]},
+  "2021.08.21|真夏の全国ツアー2021 マリンメッセ福岡": {"links": [["2021 巡演精華", "41Z_MbjUww4"]]},
+  "2021.08.22|真夏の全国ツアー2021 福岡公演 Day2・大園桃子卒業セレモニー": {"links": [["2021 巡演精華", "41Z_MbjUww4"]]},
+  "2021.08.27|宮城・仙台 旅しおり 仙台城ふたたび篇 官方公告公開": {"links": [["旅しおり・官方影片", "RiyIkqmJ3uQ"]]},
+  "2021.09.04|3期生 5周年／「思い出ファースト」MV公開": {"links": [["〈思い出ファースト〉MV", "MXSGj8O1QwQ"]]},
+  "2021.09.07|「泥だらけ」Music Video 公開（6人編成）": {"links": [["〈泥だらけ〉MV", "Igeh5jeNEEQ"]]},
+  "2021.09.17|宮城・仙台 旅しおり ブルーインパルス篇 官方公告公開": {"links": [["旅しおり・官方影片", "LWc8_A8dMt4"]]},
+  "2021.09.22|28thシングル「君に叱られた」発売": {"links": [["〈君に叱られた〉MV", "1_oWkusqP4Q"]]},
+  "2021.09.22|THE FIRST TAKE「やさしいだけなら」（生田絵梨花・久保史緒里・賀喜遥香）": {"links": [["THE FIRST TAKE 現場演唱", "1vp2ZUgjwBA"]]},
+  "2021.10.15|宮城・仙台 旅しおり 東松島 野蒜篇 官方公告公開": {"links": [["旅しおり・官方影片", "bWMFeAlcYh4"]]},
+  "2021.11.18|宮城・仙台 旅しおり 2021 ダイジェスト 秋 官方公告公開": {"links": [["旅しおり・官方影片", "CGtizRo2CHA"]]},
+  "2021.11.20–11.21|真夏の全国ツアー2021 FINAL! 東京ドーム": {"links": [["東京巨蛋公演特典預告", "Ji7pSLh_N3M"], ["2021 巡演精華", "41Z_MbjUww4"]]},
+  "2021.12.03|宮城・仙台 旅しおり 奥松島篇 官方公告公開": {"links": [["旅しおり・官方影片", "3IpP0Z5KISE"]]},
+  "2021.12.14–12.15|生田絵梨花卒業コンサート 横浜アリーナ": {"links": [["畢業演唱會影碟預告", "bG9Ib9Sxa-s"]]},
+  "2021.12.23|宮城・仙台 旅しおり 利府篇 官方公告公開": {"links": [["旅しおり・官方影片", "CnFPqu_lwZQ"]]},
+  "2022.01.07|宮城・仙台 旅しおり 秋保篇 官方公告公開": {"links": [["旅しおり・官方影片", "jjlb3JOPSaY"]]},
+  "2022.03.11|「価値あるもの」Music Video公開（久保史緒里センター）": {"links": [["〈価値あるもの〉MV", "ReHRAtj7UmY"]]},
+  "2022.03.23|29thシングル「Actually...」発売": {"links": [["〈価値あるもの〉MV", "ReHRAtj7UmY"], ["〈Actually...〉MV", "dPoPxRSifwc"]]},
+  "2022.04.24|バナナマンのせっかくグルメ!!": {"links": [["當集節目預告", "O0VmaMpyJs0"]]},
+  "2022.05.14–05.15|10th YEAR BIRTHDAY LIVE 日産スタジアム": {"links": [["十週年演唱會發售預告", "OR7pI-KEld4"]]},
+  "2022.07.08|串流劇「塩介と甘実」原定首播延期（本篇《石子と羽男》因緊急新聞報導停播；7月15日開始配信）": {"links": [["劇組幕後花絮", "IXv7XHkDi-k"]]},
+  "2022.07.14|映画「左様なら今晩は」出演発表（映画初出演・初主演）": {"links": [["電影預告（60 秒）", "F4AaeI6gCHU"]]},
+  "2022.07.15|串流劇「塩介と甘実―蕎麦ができるまで探偵―」配信開始（甘露果也実役）": {"links": [["劇組幕後花絮", "IXv7XHkDi-k"]]},
+  "2022.07.19–07.20|真夏の全国ツアー2022 大阪城ホール": {"links": [["2022 巡演精華", "X20anTN4uuU"]]},
+  "2022.08.03|宮城・仙台 旅しおり 2022 ダイジェスト 夏 官方公告公開": {"links": [["旅しおり・官方影片", "ZMEjkqMtQTg"]]},
+  "2022.08.05|映画「探偵マリコの生涯で一番悲惨な日」出演発表": {"links": [["電影預告", "cWEBLK6bRuM"]]},
+  "2022.08.11–08.12|真夏の全国ツアー2022 真駒内セキスイハイムアイスアリーナ": {"links": [["2022 巡演精華", "X20anTN4uuU"]]},
+  "2022.08.17|宮城・仙台 旅しおり SUGO〈菅生〉篇 官方公告公開": {"links": [["旅しおり・官方影片", "pkGhuz-I0RI"]]},
+  "2022.08.19|3期生楽曲「僕が手を叩く方へ」Music Video 公開（久保史緒里センター）": {"links": [["〈僕が手を叩く方へ〉MV", "6u2IcdAE2ms"]]},
+  "2022.08.20–08.21|真夏の全国ツアー2022 セキスイハイムスーパーアリーナ": {"links": [["2022 巡演精華", "X20anTN4uuU"]]},
+  "2022.08.24–08.25|真夏の全国ツアー2022 日本ガイシホール": {"links": [["2022 巡演精華", "X20anTN4uuU"]]},
+  "2022.08.29–08.31|真夏の全国ツアー2022 明治神宮野球場": {"links": [["2022 巡演精華", "X20anTN4uuU"]]},
+  "2022.08.31|30thシングル「好きというのはロックだぜ！」発売": {"links": [["〈僕が手を叩く方へ〉MV", "6u2IcdAE2ms"], ["〈好きというのはロックだぜ！〉MV", "CSLYbwe9JEo"]]},
+  "2022.09.01|宮城・仙台 旅しおり 丸森・阿武隈篇 官方公告公開": {"links": [["旅しおり・官方影片", "geeirVEOKCY"]]},
+  "2022.09.05–09.25|舞台「桜文」東京公演（桜雅／雅沙子役）": {"links": [["舞台 Blu-ray 宣傳片", "mKb7LQTzT_U"]]},
+  "2022.09.14|宮城・仙台 旅しおり 角田・JAXA篇 官方公告公開": {"links": [["旅しおり・官方影片", "dVzJyswe2F4"]]},
+  "2022.09.19|舞台「桜文」東京公演 ライブ配信": {"links": [["舞台 Blu-ray 宣傳片", "mKb7LQTzT_U"]]},
+  "2022.10.01–10.02|舞台「桜文」大阪公演（原資料年份誤植，依官方公告更正）": {"links": [["舞台 Blu-ray 宣傳片", "mKb7LQTzT_U"]]},
+  "2022.10.05|舞台「桜文」愛知公演（原資料年份誤植，已依官方公告更正）": {"links": [["舞台 Blu-ray 宣傳片", "mKb7LQTzT_U"]]},
+  "2022.10.08|舞台「桜文」大千穐楽 上田市交流文化芸術センター": {"links": [["舞台 Blu-ray 宣傳片", "mKb7LQTzT_U"]]},
+  "2022.10.21–10.26|舞台「桜文」東京公演 アーカイブ配信（9月19日收錄）": {"links": [["舞台 Blu-ray 宣傳片", "mKb7LQTzT_U"]]},
+  "2022.11.01|映画「左様なら今晩は」完成披露舞台挨拶": {"links": [["電影預告（60 秒）", "F4AaeI6gCHU"]]},
+  "2022.11.11|映画「左様なら今晩は」公開（愛助役）": {"links": [["電影預告（60 秒）", "F4AaeI6gCHU"]], "id": "trailer-sayokon"},
+  "2022.12.01|Seventeen 2022冬号発売（表紙）": {"links": [["封面拍攝花絮", "nJycQlsN6Vo"]]},
+  "2022.12.07|31stシングル「ここにはないもの」発売": {"links": [["〈ここにはないもの〉MV", "3LNH6NT0T7E"]]},
+  "2022.12.19|CDTVライブ！ライブ！クリスマスSP": {"links": [["當集節目預告", "Y8wF0Wok6Qk"]]},
+  "2022.12.21|宮城・仙台 旅しおり 2022 ダイジェスト 秋 官方公告公開": {"links": [["旅しおり・官方影片", "PhkksjoK7fo"]]},
+  "2022.12.31|CDTVライブ！ライブ！年越しSP「ごめんねFingers crossed」（2022→2023年跨年節目）": {"links": [["跨年節目預告", "M-PyUT4fQnE"]]},
+  "2023.01.01|CDTVライブ！ライブ！年越しSP「好きというのはロックだぜ！」": {"links": [["跨年節目預告", "M-PyUT4fQnE"]]},
+  "2023.01.08–12.17|大河ドラマ「どうする家康」作品放送期間（久保史緒里：五徳役）": {"links": [["劇集宣傳片・第壹集", "CtNtY0WcWNM"]]},
+  "2023.01.11|宮城・仙台 旅しおり 晒よし飴 特別篇 官方公告公開": {"links": [["旅しおり・官方影片", "GnOZFRgc5jY"]]},
+  "2023.01.25|宮城・仙台 旅しおり 亘理町篇 官方公告公開": {"links": [["旅しおり・官方影片", "lnrbIPcvXsM"]]},
+  "2023.02.05|舞台「桜文」衛星劇場放送（2022年9月東京公演の収録映像）": {"links": [["舞台 Blu-ray 宣傳片", "mKb7LQTzT_U"]]},
+  "2023.02.15|宮城・仙台 旅しおり 白石和紙篇 官方公告公開": {"links": [["旅しおり・官方影片", "CCualouwAC8"]]},
+  "2023.02.25|11th YEAR BIRTHDAY LIVE ～3期生ライブ～": {"links": [["十一週年演唱會特典預告", "yqsSD4FT-co"]]},
+  "2023.02.26|11th YEAR BIRTHDAY LIVE ～秋元真夏卒業コンサート～": {"links": [["十一週年演唱會特典預告", "yqsSD4FT-co"]]},
+  "2023.03.01|宮城・仙台 旅しおり 白石城ふたたび篇 官方公告公開": {"links": [["旅しおり・官方影片", "Lenz6u7w8Ig"]]},
+  "2023.03.04|カーネクスト侍ジャパンシリーズ2023 名古屋 始球式": {"links": [["侍 Japan 開球幕後", "8-aCQIvX6FM"]]},
+  "2023.03.22|「人は夢を二度見る」Music Video 公開（久保史緒里・山下美月 Wセンター）": {"links": [["〈人は夢を二度見る〉MV", "DHea-Qcy9g0"]]},
+  "2023.03.22|32ndシングル「人は夢を二度見る (Special Edition)」先行配信": {"links": [["〈人は夢を二度見る〉MV", "DHea-Qcy9g0"]]},
+  "2023.03.29|32ndシングル「人は夢を二度見る」発売（初の表題曲センター・山下美月とWセンター）": {"links": [["〈人は夢を二度見る〉MV", "DHea-Qcy9g0"]]},
+  "2023.04.09|どうする家康PR 乱世を生きる女たち（原稿日期經核對更正）": {"links": [["劇集宣傳片・第壹集", "CtNtY0WcWNM"]]},
+  "2023.04.23|東北楽天ゴールデンイーグルス FAN’S MATCH セレモニアルピッチ": {"links": [["樂天官方開球幕後", "TB37fv7R5EU"]]},
+  "2023.05.07|大河ドラマ「どうする家康」（五徳役・初登場）": {"links": [["劇集宣傳片・第壹集", "CtNtY0WcWNM"]]},
+  "2023.05.17–05.18|齋藤飛鳥 卒業コンサート＠東京ドーム": {"links": [["畢業演唱會宣傳片", "k3H-59laSVM"]]},
+  "2023.06.23|映画「リバー、流れないでよ」公開（ヒサメ役）": {"links": [["電影預告", "Y5G8fqvrnXE"]]},
+  "2023.06.24|土スタ どうする家康特集": {"links": [["劇集宣傳片・第壹集", "CtNtY0WcWNM"]]},
+  "2023.06.30|映画「探偵マリコの生涯で一番悲惨な日」公開（絢香役）": {"links": [["電影預告", "cWEBLK6bRuM"]]},
+  "2023.06.30|Seventeen 2023夏号発売（ソロ表紙）": {"links": [["夏號封面直播", "8-2zGdaRnzM"]]},
+  "2023.07.19|宮城・仙台 旅しおり 2023 ダイジェスト 官方公告公開": {"links": [["旅しおり・官方影片", "s4c1A4Btyl4"]]},
+  "2023.07.26|宮城・仙台 旅しおり 伊達政宗公騎馬像 復活篇 官方公告公開": {"links": [["旅しおり・官方影片", "_z2Itqi--88"]]},
+  "2023.08.02|宮城・仙台 旅しおり 船岡城址篇 官方公告公開": {"links": [["旅しおり・官方影片", "JBzVLY1LLSo"]]},
+  "2023.08.09|宮城・仙台 旅しおり 楽天イーグルス2023篇 官方公告公開": {"links": [["旅しおり・官方影片", "yLm7szw1LO4"]]},
+  "2023.08.14|CDTVライブ！ライブ！「裸足でSummer」「おひとりさま天国」": {"links": [["當集節目預告", "KYNCWO0afd8"]]},
+  "2023.08.16|宮城・仙台 旅しおり 楽天イーグルスベースボールスクール 特別篇 官方公告公開": {"links": [["旅しおり・官方影片", "3C5wgQZ3eJs"]]},
+  "2023.08.23|33rdシングル「おひとりさま天国」発売": {"links": [["〈おひとりさま天国〉MV", "Etq_BEjQE10"]]},
+  "2023.09.10–10.01|WOWOW連続ドラマW「落日」（立石沙良役）": {"links": [["久保史緒里演出片段", "nKeVsfoaELI"]]},
+  "2023.09.14–10.21|いのうえ歌舞伎「天號星」東京公演（神降ろしのみさき役；公演相關人員身體不適，10月4日〜9日共7場中止）": {"links": [["劇場版預告", "H0pGL816r_A"]]},
+  "2023.10.05|どうする家康 大河たび": {"links": [["劇集宣傳片・第壹集", "CtNtY0WcWNM"]]},
+  "2023.11.01–11.20|いのうえ歌舞伎「天號星」大阪公演（神降ろしのみさき役）": {"links": [["劇場版預告", "H0pGL816r_A"]]},
+  "2023.11.09|どうする家康 大河たび": {"links": [["劇集宣傳片・第壹集", "CtNtY0WcWNM"]]},
+  "2023.12.06|34thシングル「Monopoly」発売": {"links": [["〈Monopoly〉MV", "qK9k2J-ZkGU"]]},
+  "2023.12.18|CDTVライブ！ライブ！「おひとりさま天国」": {"links": [["當集節目預告", "jTs1b4Ev50w"]]},
+  "2023.12.31|CDTVライブ！ライブ！年越しSP「おひとりさま天国」（12月31日放送）": {"links": [["跨年節目預告", "RBNON4dZ4OU"]]},
+  "2024.01.01|CDTVライブ！ライブ！年越しSP「Monopoly」": {"links": [["跨年節目預告", "RBNON4dZ4OU"]]},
+  "2024.01.24|宮城・仙台 旅しおり 2023 ダイジェスト 秋 官方公告公開": {"links": [["旅しおり・官方影片", "8i-ZoqhovfI"]]},
+  "2024.01.31|宮城・仙台 旅しおり みやぎの明治村 登米 前篇 官方公告公開": {"links": [["旅しおり・官方影片", "fnqkeauHrZQ"]]},
+  "2024.02.14|宮城・仙台 旅しおり みやぎの明治村 登米 後篇 官方公告公開": {"links": [["旅しおり・官方影片", "5HtKN9oVQIU"]]},
+  "2024.02.21|仙建工業CM出演": {"links": [["仙建工業廣告・地域思い篇", "i0BLQH4aQ1I"]]},
+  "2024.02.28|宮城・仙台 旅しおり 涌谷篇 官方公告公開": {"links": [["旅しおり・官方影片", "mwSwR1BGMiE"]]},
+  "2024.03.01|Seventeen 2024春号発売・Seventeenモデル卒業": {"links": [["Seventeen 畢業拍攝花絮", "Ad2s96B9Cew"], ["春號封面影片", "wu7nKuIZFoM"]]},
+  "2024.03.07–03.10|乃木坂46 12th YEAR BIRTHDAY LIVE": {"links": [["演唱會精華", "ZIWsi2lmkpQ"]]},
+  "2024.03.13|宮城・仙台 旅しおり 伊豆沼・内沼篇 官方公告公開": {"links": [["旅しおり・官方影片", "ZwwNdWt5xns"]]},
+  "2024.03.18|CDTVライブ！ライブ！「チャンスは平等」": {"links": [["當集節目預告", "rD4HN53WWU4"]]},
+  "2024.04.05|ゲキ×シネ「天號星」劇場公開（2023年舞台の収録映像）": {"links": [["劇場版預告", "H0pGL816r_A"]]},
+  "2024.04.10|35thシングル「チャンスは平等」発売": {"links": [["〈チャンスは平等〉MV", "iH8wsNO29L0"]]},
+  "2024.05.11–05.12|山下美月卒業コンサート": {"links": [["畢業演唱會精華", "G8Jt25c-Z48"]]},
+  "2024.06.15|東北楽天ゴールデンイーグルス myfavE DAY スペシャルゲスト": {"links": [["樂天官方開球幕後", "Qvi8cTettJk"]]},
+  "2024.06.28|乃木坂46 単独香港ライブ": {"links": [["香港演唱會精華", "KKvJWyHqiBA"]]},
+  "2024.07.03|NHK夜ドラ「未来の私にブッかまされる!?」出演発表（筒井凜役）": {"links": [["劇集宣傳片", "3_6m1z_juPI"]]},
+  "2024.07.20–07.21|真夏の全国ツアー2024 大阪公演": {"links": [["2024 巡演公告", "0ll9f4zLdw0"]]},
+  "2024.08.05|映画「誰よりもつよく抱きしめて」W主演発表（三山凌輝・久保史緒里）": {"links": [["電影預告", "EMLAk9rq7Oc"]]},
+  "2024.08.07|宮城・仙台 旅しおり 2024 ダイジェスト 夏 官方公告公開": {"links": [["旅しおり・官方影片", "8cKRzutC3DI"]]},
+  "2024.08.14|宮城・仙台 旅しおり 作並温泉篇 官方公告公開": {"links": [["旅しおり・官方影片", "VV5KIyf_Wx8"]]},
+  "2024.08.21|36thシングル「チートデイ」発売": {"links": [["〈チートデイ〉MV", "JhEEV5MvwCA"]]},
+  "2024.08.24–08.25|真夏の全国ツアー2024 愛知公演": {"links": [["2024 巡演公告", "0ll9f4zLdw0"]]},
+  "2024.09.02–09.04|真夏の全国ツアー2024 東京公演": {"links": [["2024 巡演公告", "0ll9f4zLdw0"]]},
+  "2024.09.11|宮城・仙台 旅しおり 定義篇 官方公告公開": {"links": [["旅しおり・官方影片", "EihQ_hNT_FQ"]]},
+  "2024.09.17|映画「ネムルバカ」W主演発表（久保史緒里・平祐奈）": {"links": [["電影預告", "GVLeoLx6lzY"]]},
+  "2024.09.25|宮城・仙台 旅しおり 宮城蔵王 前篇 官方公告公開": {"links": [["旅しおり・官方影片", "gZGcReBYo9g"]]},
+  "2024.09.26|「久保史緒里の青春文化祭」開催決定を発表（9月25日深夜）": {"links": [["青春文化祭幕後", "S_fEC-Fi-Cg"]]},
+  "2024.10.07–11.28|「未来の私にブッかまされる!?」（筒井凜役）": {"links": [["劇集宣傳片", "3_6m1z_juPI"]]},
+  "2024.10.09|宮城・仙台 旅しおり 宮城蔵王 後篇 官方公告公開": {"links": [["旅しおり・官方影片", "wiaFonLzVsg"]]},
+  "2024.12.09|CDTVライブ！ライブ！「歩道橋」": {"links": [["當集節目預告", "2dQCWhVKw0A"]]},
+  "2024.12.11|37thシングル「歩道橋」発売": {"links": [["〈歩道橋〉MV", "nRPmGxSqYpw"]]},
+  "2025.01.01|CDTVライブ！ライブ！年越しSP「歩道橋」": {"links": [["跨年節目預告", "1n7M3UANZeE"]]},
+  "2025.01.25|久保史緒里の青春文化祭 横浜アリーナ": {"links": [["青春文化祭幕後", "S_fEC-Fi-Cg"]]},
+  "2025.01.26|映画「誰よりもつよく抱きしめて」完成披露試写会＆PREMIUM EVENT": {"links": [["電影預告", "EMLAk9rq7Oc"]]},
+  "2025.01.29|宮城・仙台 旅しおり 2024 ダイジェスト 秋冬 公開": {"links": [["旅しおり・官方影片", "DJ2zYyHFlbQ"]]},
+  "2025.02.05|宮城・仙台 旅しおり 気仙沼 前篇 公開": {"links": [["旅しおり・官方影片", "6BG4-zvSp8U"]]},
+  "2025.02.07|映画「誰よりもつよく抱きしめて」公開（桐本月菜役）": {"links": [["電影預告", "EMLAk9rq7Oc"]]},
+  "2025.02.08|映画「誰よりもつよく抱きしめて」公開記念舞台挨拶＠TOHOシネマズ日比谷": {"links": [["電影預告", "EMLAk9rq7Oc"]]},
+  "2025.02.19|宮城・仙台 旅しおり 気仙沼 後篇 官方公告影片公開": {"links": [["旅しおり・官方影片", "uxfc7r3YLik"]]},
+  "2025.02.22–02.23|与田祐希卒業コンサート": {"links": [["畢業演唱會精華", "E1yfcZDa6H4"]]},
+  "2025.03.04|「ネムルバカ」完成披露上映会": {"links": [["電影預告", "GVLeoLx6lzY"]]},
+  "2025.03.05|乃木坂46 久保史緒里の宮城・仙台 旅しおり 女川篇 公開": {"links": [["旅しおり・官方影片", "e2TuYN2-ouo"]]},
+  "2025.03.20|映画「ネムルバカ」公開（入巣柚実役）": {"links": [["電影預告", "GVLeoLx6lzY"], ["演員與導演座談", "RXQHuIHIStU"]]},
+  "2025.03.22–03.23|映画「ネムルバカ」公開記念舞台挨拶": {"links": [["電影預告", "GVLeoLx6lzY"]]},
+  "2025.03.24|仙建工業 CM「JOIN！」篇 公開": {"links": [["仙建工業廣告・JOIN! A 篇", "HLW0uCwrzLE"]]},
+  "2025.03.26|38thシングル「ネーブルオレンジ」発売": {"links": [["〈ネーブルオレンジ〉MV", "06E14_7t710"]]},
+  "2025.04.06|映画「ネムルバカ」公開記念舞台挨拶": {"links": [["電影預告", "GVLeoLx6lzY"]]},
+  "2025.04.20|セレモニアルピッチ": {"links": [["樂天官方開球幕後", "VdYABWvHaaA"]]},
+  "2025.05.17–05.18|乃木坂46 13th YEAR BIRTHDAY LIVE": {"links": [["演唱會精華", "6ezcSLn6Mvg"]]},
+  "2025.05.20|WOWOW連続ドラマW「怪物」出演発表（柳美緒役）": {"links": [["劇集預告（30 秒）", "hQJTz2aCI50"]]},
+  "2025.06.14|上海・日本映画週間「ネムルバカ」上映後舞台挨拶": {"links": [["電影預告", "GVLeoLx6lzY"]]},
+  "2025.07.06|連続ドラマW「怪物」放送開始（柳美緒役）": {"links": [["劇集預告（30 秒）", "hQJTz2aCI50"]]},
+  "2025.07.30|39thシングル「Same numbers」発売": {"links": [["〈Same numbers〉MV", "g70yImobLm4"]]},
+  "2025.08.04|CDTVライブ！ライブ！「Same numbers」": {"links": [["當集節目預告", "PwOufgS3W_E"]]},
+  "2025.09.24|映画「ネムルバカ」Blu-ray＆DVD発売": {"links": [["電影預告", "GVLeoLx6lzY"], ["Blu-ray 發售留言與預告", "HGK7XSTwLhc"]]},
+  "2025.09.26|「ネムルバカ」復活上映舞台挨拶": {"links": [["電影預告", "GVLeoLx6lzY"]]},
+  "2025.09.30|映画「ほどなく、お別れです」出演発表": {"links": [["電影預告", "6NryebqEnOU"]]},
+  "2025.10.10|映画「恒星の向こう側」出演発表・東京国際映画祭出品発表": {"links": [["東京國際電影節官方預告", "ma2bcsocEhk"]]},
+  "2025.11.02|第38回東京国際映画祭「恒星の向こう側」舞台挨拶": {"links": [["東京國際電影節官方預告", "ma2bcsocEhk"]]},
+  "2025.11.14|久保史緒里ドキュメンタリー「Letters 綴り、紡ぐ、卒業」予告編公開": {"links": [["畢業紀錄片預告", "Q6npO-WMAbI"]]},
+  "2025.11.24|乃木坂工事中「久保は久保を好きになる」（11月23日深夜・卒業企画）": {"links": [["乃木坂工事中・第 541 集", "VJX5QM3K1V0"]]},
+  "2025.11.25|blt graph. vol.113（表紙・巻頭）": {"links": [["封面拍攝花絮", "ahlIK_42gs8"]]},
+  "2025.11.25|久保史緒里 ソロ曲「夢の匂い」配信・Music Video公開": {"links": [["〈夢の匂い〉MV", "7bqePXphj2g"]], "id": "mv-yume-no-nioi"},
+  "2025.11.26|40thシングル「ビリヤニ」発売（最後の参加シングル）": {"links": [["〈夢の匂い〉MV", "7bqePXphj2g"], ["〈ビリヤニ〉MV", "NReeTQ3YTAU"]]},
+  "2025.11.26–11.27|久保史緒里 卒業コンサート": {"links": [["畢業演唱會精華", "yoDB5rRvMx8"]]},
+  "2026.11.10|第51回報知映画賞 新人賞ノミネート（映画「ほどなく、お別れです」）": {"links": [["電影預告", "6NryebqEnOU"]]},
+  "2026.11.11|wacci「御節介」「天邪鬼」MV連続公開・久保史緒里出演発表": {"links": [["〈御節介〉MV", "ELHQhlQy6z0"], ["〈天邪鬼〉MV", "sjj3aOXLmFg"]], "id": "wacci-announcement"},
+  "2026.11.13|wacci「御節介」「天邪鬼」MV 2作品連続プレミア公開（久保史緒里出演・21:00 JST予定）": {"links": [["〈御節介〉MV", "ELHQhlQy6z0"], ["〈天邪鬼〉MV", "sjj3aOXLmFg"]], "id": "mv-wacci"}
 };
+const graduationSoloKey = "2025.11.25|久保史緒里 ソロ曲「夢の匂い」配信・Music Video公開";
 function render(){
  const q=query.value.trim().toLocaleLowerCase(),kind=category.value;
- const filtered=records.filter(r=>(!q||[r[0],r[1],displayTitle(r[2],r[1]),r[3]].join(' ').toLocaleLowerCase().includes(q))&&(!kind||(kind==='__important__'?importantMoments.has(`${r[1]}|${r[2]}`):r[3].split('／').includes(kind))));
+ const filtered = records.filter(([year, date, title, type]) => {
+   const key = date + '|' + title;
+   const videos = officialVideos[key]?.links || [];
+   const aliases = key === graduationSoloKey ? '畢業 solo 畢業SOLO曲 畢業曲 畢業獨唱 卒業ソロ' : '';
+   const searchable = [year, date, displayTitle(title, date), title, type, aliases, ...videos.map(([label]) => label)].join(' ').toLocaleLowerCase();
+   if (q && !searchable.includes(q)) return false;
+   if (kind === '__videos__') return videos.length > 0;
+   if (kind === '__important__') return importantMoments.has(key);
+   if (kind === 'MV' && videos.some(([label]) => label.includes('MV'))) return true;
+   return !kind || type.split('／').includes(kind);
+ });
  count.textContent=`顯示 ${filtered.length} 筆紀錄`;
  nav.replaceChildren();root.replaceChildren();let seen=new Set();
- const importantButton=document.createElement('button');importantButton.type='button';importantButton.textContent='重要時刻';importantButton.setAttribute('aria-pressed',String(kind==='__important__'));importantButton.addEventListener('click',()=>{toggleImportant();nav.querySelector('button').focus()});nav.append(importantButton);
+ const videoButton = document.createElement('button');
+ videoButton.type = 'button';
+ videoButton.textContent = '有影片';
+ videoButton.setAttribute('aria-pressed', String(kind === '__videos__'));
+ videoButton.addEventListener('click', () => {
+   category.value = kind === '__videos__' ? '' : '__videos__';
+   render();
+   nav.querySelector('.video-filter').focus();
+ });
+ videoButton.className = 'video-filter';
+ nav.append(videoButton);
+ const importantButton=document.createElement('button');importantButton.type='button';importantButton.textContent='重要時刻';importantButton.setAttribute('aria-pressed',String(kind==='__important__'));importantButton.addEventListener('click',()=>{toggleImportant();nav.querySelector('button:not(.video-filter)').focus()});nav.append(importantButton);
  for(const [i,[y,d,t,c]] of filtered.entries()){
   if(!seen.has(y)){seen.add(y);const link=document.createElement('a');link.href=`#y${y}`;link.textContent=y;nav.append(link);const heading=document.createElement('h2');heading.className='year';heading.id=`y${y}`;const label=document.createElement('span');label.textContent=y;heading.append(label);root.append(heading)}
   const event=document.createElement('article');event.className=`event ${i%2?'right':''}`;
@@ -610,7 +901,7 @@ function render(){
   if(source){const a=document.createElement('a');a.href=source;a.target='_blank';a.rel='noopener noreferrer';a.textContent='官方資料 ↗';card.append(' · ',a)}
   const videoEntry = officialVideos[d + '|' + t];
   if (videoEntry) {
-    event.id = videoEntry.id;
+    if (videoEntry.id) event.id = videoEntry.id;
     const links = document.createElement('div');
     links.className = 'video-links';
     for (const [label, videoId] of videoEntry.links) {
@@ -621,8 +912,8 @@ function render(){
       const play = document.createElement('span');
       play.setAttribute('aria-hidden', 'true');
       play.textContent = '▶';
-      link.append(play, label);
-      link.setAttribute('aria-label', label + '（在 YouTube 開啟新分頁）');
+      link.append(play, 'YouTube · ' + label);
+      link.setAttribute('aria-label', 'YouTube · ' + label + '（開啟新分頁）');
       links.append(link);
     }
     card.append(links);
@@ -633,9 +924,17 @@ function render(){
  mobileYear.replaceChildren(...Array.from(seen, y => new Option(y, y)));
  mobileYear.disabled = !seen.size;
  if (!seen.size) mobileYear.add(new Option('無結果', ''));
+ mobileVideos.setAttribute('aria-pressed', String(kind === '__videos__'));
  mobileImportant.setAttribute('aria-pressed', String(kind === '__important__'));
  queueYearSync();
  if(!filtered.length){const empty=document.createElement('p');empty.className='notice';empty.textContent='找不到符合條件的紀錄，請試試其他關鍵字或類型。';root.append(empty)}
 }
-query.addEventListener('input',render);category.addEventListener('change',render);render();
+query.addEventListener('input',render);category.addEventListener('change',render);
+if (location.hash === '#videos') category.value = '__videos__';
+render();
+if (location.hash === '#videos') {
+  document.querySelector('.history-toolbar').scrollIntoView();
+} else if (location.hash.startsWith('#')) {
+  document.getElementById(location.hash.slice(1))?.scrollIntoView();
+}
 </script></body></html>
