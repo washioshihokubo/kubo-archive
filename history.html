@@ -18,7 +18,65 @@
 @media(max-width:640px){.history-footer-feature{flex-wrap:wrap;gap:.75rem}.history-footer-feature img{width:72px;height:72px}.history-footer-copy{flex:1 1 calc(100% - 84px)}.history-footer-nav{padding-left:calc(72px + .75rem);gap:1.25rem}.history-footer-copy h2{font-size:1rem}.history-footer-copy p{font-size:.82rem}}
 @media(max-width:640px){.history-toolbar{overflow-x:auto;align-items:end;padding-bottom:.35rem;scrollbar-width:thin}.history-toolbar .history-search input{width:9rem}.history-toolbar .years{flex:0 0 auto;overflow:visible}.history-search select{max-width:7rem}}
 .official-links { --line: #ded7db; --muted: #726b75; padding-inline: 0; }
-</style></head><body id="top"><header><a href="./">SHIORI KUBO · 時光手帖</a><a href="./#timeline">← 返回文字與演員年表</a></header><main><p class="eyebrow">THE DAYS WE SHARED · 2016—2026</p><h1>她走過的時光</h1><p class="intro">從三期生結成的那一天開始，沿著一條時間線，重訪久保史緒里的舞台、演出和每個值得記住的時刻。</p><div class="history-toolbar"><form class="history-search" role="search" onsubmit="return false"><label>搜尋年表<input id="history-query" type="search" placeholder="輸入活動、節目或日期" autocomplete="off"></label><label>紀錄類型<select id="history-category"><option value="">全部類型</option></select></label></form><nav class="years" aria-label="年份導覽" id="years"></nav></div><p class="search-count" id="history-count" role="status" aria-live="polite"></p><div class="timeline" id="timeline"></div><nav class="official-links" id="links" aria-labelledby="official-links-title">
+
+.year-dock { display: none; }
+.event.important::after {
+  width: 13px;
+  height: 13px;
+  right: -7px;
+  top: 22px;
+  background: #f4df90;
+  border: 1px solid #9a783c;
+  box-shadow: 0 0 0 2px #f7f5f1;
+}
+.event.important.right::after { right: auto; left: -6px; }
+.moment-label {
+  display: inline-block;
+  margin-inline-start: .6rem;
+  padding: .12rem .5rem;
+  border-radius: 1rem;
+  background: #fbefc4;
+  color: #65501e;
+  font-size: .75rem;
+}
+@media (max-width: 640px) {
+  .history-toolbar .years { display: none; }
+  .history-toolbar .history-search { width: 100%; flex-wrap: wrap; }
+  .year-dock {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+    padding: .35rem 0;
+    background: #f7f5f1;
+    border-bottom: 1px solid #ded7db;
+  }
+  .year-dock label { display: flex; align-items: center; gap: .4rem; font-size: .85rem; }
+  .year-dock select, .year-dock button {
+    min-height: 44px;
+    padding: .4rem .8rem;
+    font: inherit;
+    border: 1px solid #d5cdd2;
+    border-radius: 1.5rem;
+    color: #443c45;
+    background: #fff;
+  }
+  .year-dock select { background: #dfedf4; color: #294c60; border-color: #abc8d7; }
+  .year-dock button[aria-pressed="true"] { background: #fbefc4; border-color: #a68a46; }
+  .timeline { margin-top: 1.5rem; }
+  .year { scroll-margin-top: 4rem; }
+  .event.important::after, .event.important.right::after { right: auto; left: 2px; }
+}
+</style></head><body id="top"><header><a href="./">SHIORI KUBO · 時光手帖</a><a href="./#timeline">← 返回文字與演員年表</a></header><main><p class="eyebrow">THE DAYS WE SHARED · 2016—2026</p><h1>她走過的時光</h1><p class="intro">從三期生結成的那一天開始，沿著一條時間線，重訪久保史緒里的舞台、演出和每個值得記住的時刻。</p><div class="history-toolbar"><form class="history-search" role="search" onsubmit="return false"><label>搜尋年表<input id="history-query" type="search" placeholder="輸入活動、節目或日期" autocomplete="off"></label><label>紀錄類型<select id="history-category"><option value="">全部類型</option></select></label></form><nav class="years" aria-label="年份導覽" id="years"></nav></div><p class="search-count" id="history-count" role="status" aria-live="polite"></p><div class="year-browser">
+  <nav class="year-dock" aria-label="手機年份導覽">
+    <label>目前年份 <select id="mobile-year"></select></label>
+    <button id="mobile-important" type="button" aria-pressed="false">重要時刻</button>
+  </nav>
+  <div class="timeline" id="timeline"></div>
+</div><nav class="official-links" id="links" aria-labelledby="official-links-title">
   <h2 id="official-links-title" lang="en">OFFICIAL LINKS</h2>
   <div class="official-links-list">
     <a href="https://shiorikubo.com/"><strong lang="ja">久保史緒里 オフィシャルウェブサイト</strong><span>最新消息與出演行程</span></a>
@@ -449,6 +507,7 @@ datedSources['2026.11.13|wacci「御節介」「天邪鬼」MV 2作品連続プ�
 const importantMoments=new Set([
  '2016.09.04|3期生結成',
  '2016.12.10|3期生お見立て会',
+ '2017.02.02–02.12|3人のプリンシパル（三役制霸・第二幕出演11場）',
  '2017.05.09–05.14|3期生単独ライブ',
  '2017.07.30|Seventeen 専属モデル発表',
  '2018.03.12|「シンクロニシティ」選抜発表 OA（表題曲初選抜）',
@@ -475,21 +534,77 @@ const importantMoments=new Set([
 const types=[...new Set(records.flatMap(r=>r[3].split('／')))].sort((a,b)=>a.localeCompare(b,'zh-Hant'));
 const importantOption=document.createElement('option');importantOption.value='__important__';importantOption.textContent='重要時刻';category.append(importantOption);
 for(const name of types){const option=document.createElement('option');option.value=name;option.textContent=name;category.append(option)}
+const mobileYear = document.querySelector('#mobile-year');
+const mobileImportant = document.querySelector('#mobile-important');
+const yearDock = mobileYear.closest('nav');
+const smallScreen = window.matchMedia('(max-width: 640px)');
+let yearHeadings = [];
+let scrollFrame = 0;
+
+function syncYear() {
+  scrollFrame = 0;
+  if (!smallScreen.matches || !yearHeadings.length) return;
+  const threshold = Math.max(64, yearDock.getBoundingClientRect().height) + 2;
+  let current = yearHeadings[0];
+  for (const heading of yearHeadings) {
+    if (heading.getBoundingClientRect().top > threshold) break;
+    current = heading;
+  }
+  mobileYear.value = current.id.slice(1);
+}
+
+function queueYearSync() {
+  if (smallScreen.matches && !scrollFrame) scrollFrame = requestAnimationFrame(syncYear);
+}
+
+function jumpToYear(year) {
+  document.getElementById('y' + year)?.scrollIntoView({ block: 'start' });
+  queueYearSync();
+}
+function toggleImportant() {
+  category.value = category.value === '__important__' ? '' : '__important__';
+  render();
+}
+mobileYear.addEventListener('change', () => jumpToYear(mobileYear.value));
+mobileImportant.addEventListener('click', () => {
+  const year = mobileYear.value;
+  toggleImportant();
+  if (yearHeadings.length) {
+    const next = yearHeadings.find(h => h.id.slice(1) >= year) || yearHeadings[yearHeadings.length - 1];
+    jumpToYear(next.id.slice(1));
+  }
+});
+window.addEventListener('scroll', queueYearSync, { passive: true });
+window.addEventListener('resize', queueYearSync);
 function render(){
  const q=query.value.trim().toLocaleLowerCase(),kind=category.value;
  const filtered=records.filter(r=>(!q||[r[0],r[1],displayTitle(r[2],r[1]),r[3]].join(' ').toLocaleLowerCase().includes(q))&&(!kind||(kind==='__important__'?importantMoments.has(`${r[1]}|${r[2]}`):r[3].split('／').includes(kind))));
  count.textContent=`顯示 ${filtered.length} 筆紀錄`;
  nav.replaceChildren();root.replaceChildren();let seen=new Set();
- const importantButton=document.createElement('button');importantButton.type='button';importantButton.textContent='重要時刻';importantButton.setAttribute('aria-pressed',String(kind==='__important__'));importantButton.addEventListener('click',()=>{category.value=category.value==='__important__'?'':'__important__';render();nav.querySelector('button').focus()});nav.append(importantButton);
+ const importantButton=document.createElement('button');importantButton.type='button';importantButton.textContent='重要時刻';importantButton.setAttribute('aria-pressed',String(kind==='__important__'));importantButton.addEventListener('click',()=>{toggleImportant();nav.querySelector('button').focus()});nav.append(importantButton);
  for(const [i,[y,d,t,c]] of filtered.entries()){
   if(!seen.has(y)){seen.add(y);const link=document.createElement('a');link.href=`#y${y}`;link.textContent=y;nav.append(link);const heading=document.createElement('h2');heading.className='year';heading.id=`y${y}`;const label=document.createElement('span');label.textContent=y;heading.append(label);root.append(heading)}
   const event=document.createElement('article');event.className=`event ${i%2?'right':''}`;
   const card=document.createElement('div');card.className='card';const time=document.createElement('time');time.className='date';time.textContent=d;
   const source=sources[t]||datedSources[`${d}|${t}`];const title=document.createElement('h3');title.lang='ja';title.textContent=displayTitle(t,d);const tag=document.createElement('span');tag.className='tag';tag.textContent=c;
-  card.append(time,title,tag);
+  card.append(time);
+  if (importantMoments.has(`${d}|${t}`)) {
+    event.classList.add('important');
+    const badge = document.createElement('span');
+    badge.className = 'moment-label';
+    badge.textContent = '重要時刻';
+    card.append(badge);
+  }
+  card.append(title,tag);
   if(source){const a=document.createElement('a');a.href=source;a.target='_blank';a.rel='noopener noreferrer';a.textContent='官方資料 ↗';card.append(' · ',a)}
   event.append(card);root.append(event)
  }
+ yearHeadings = Array.from(root.querySelectorAll('.year'));
+ mobileYear.replaceChildren(...Array.from(seen, y => new Option(y, y)));
+ mobileYear.disabled = !seen.size;
+ if (!seen.size) mobileYear.add(new Option('無結果', ''));
+ mobileImportant.setAttribute('aria-pressed', String(kind === '__important__'));
+ queueYearSync();
  if(!filtered.length){const empty=document.createElement('p');empty.className='notice';empty.textContent='找不到符合條件的紀錄，請試試其他關鍵字或類型。';root.append(empty)}
 }
 query.addEventListener('input',render);category.addEventListener('change',render);render();
