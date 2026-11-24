@@ -830,7 +830,7 @@ function render(){
    const searchable = [year, date, displayTitle(title, date), title, type, aliases, ...videos.map(([label]) => label)].join(' ').toLocaleLowerCase();
    if (q && !searchable.includes(q)) return false;
    if (kind === '__videos__') return videos.length > 0;
-   if (kind === '__tabishiori__') return type === '影片' && title.includes('旅しおり');
+   if (kind === '__tabishiori__') return title.includes('旅しおり');
    if (kind === '__important__') return importantMoments.has(key);
    if (kind === 'MV' && videos.some(([label]) => label.includes('MV'))) return true;
    return !kind || type.split('／').includes(kind);
@@ -895,9 +895,10 @@ function render(){
  if(!filtered.length){const empty=document.createElement('p');empty.className='notice';empty.textContent='找不到符合條件的紀錄，請試試其他關鍵字或類型。';root.append(empty)}
 }
 query.addEventListener('input',render);category.addEventListener('change',render);
-if (location.hash === '#videos') category.value = '__videos__';
+const linkedCategory = { '#videos': '__videos__', '#tabishiori': '__tabishiori__' }[location.hash];
+if (linkedCategory) category.value = linkedCategory;
 render();
-if (location.hash === '#videos') {
+if (linkedCategory) {
   document.querySelector('.history-toolbar').scrollIntoView();
 } else if (location.hash.startsWith('#')) {
   document.getElementById(location.hash.slice(1))?.scrollIntoView();
