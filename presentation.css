@@ -84,3 +84,41 @@
 
 @media(max-width:780px){.archive-home .top-right{gap:8px}.archive-home .top-right .history-link{display:inline-flex;align-items:center;justify-content:center;min-height:42px;white-space:nowrap;font-size:11px;padding:8px 4px}}
 .view-modes .history-button{display:inline-flex;align-items:center;border:1px solid #dfd3c7;background:#fff;border-radius:30px;padding:9px 18px;color:#665951;font:inherit;text-decoration:none}.view-modes .history-button:focus-visible{outline:3px solid #78628e;outline-offset:3px}@media(max-width:780px){.view-modes .history-button{padding:8px 13px}}
+
+.official-links {
+  padding: 30px clamp(23px, 4vw, 44px) 40px;
+  border-top: 1px solid var(--line);
+}
+.official-links h2 {
+  margin: 0 0 16px;
+  font: 500 16px Georgia, serif;
+  letter-spacing: .12em;
+}
+.official-links-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+  gap: 12px;
+}
+.official-links-list a {
+  display: grid;
+  gap: 4px;
+  padding: 14px 18px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--ink);
+  text-decoration: none;
+}
+.official-links-list span { color: var(--muted); font-size: 13px; }
+.official-links-list a:is(:hover, :focus-visible) { border-color: currentColor; }
+
+.official-links-list strong {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.official-brand-icon {
+  flex: 0 0 1.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.instagram-icon { color: #b22c68; }
