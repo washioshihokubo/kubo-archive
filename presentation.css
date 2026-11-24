@@ -110,3 +110,15 @@
 }
 .official-links-list span { color: var(--muted); font-size: 13px; }
 .official-links-list a:is(:hover, :focus-visible) { border-color: currentColor; }
+
+.official-links-list strong {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.official-brand-icon {
+  flex: 0 0 1.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.instagram-icon { color: #b22c68; }
