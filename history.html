@@ -905,7 +905,7 @@ const officialVideos = {
   "2026.11.13|wacci「御節介」「天邪鬼」MV 2作品連続プレミア公開（久保史緒里出演・21:00 JST予定）": {"links": [["〈御節介〉MV", "ELHQhlQy6z0"], ["〈天邪鬼〉MV", "sjj3aOXLmFg"]], "id": "mv-wacci"},
   "2023.06.30|映画「探偵マリコの生涯で一番悲惨な日」初日舞台挨拶＠テアトル新宿": {"links":[["舞台挨拶精華（MAiDiGiTV）","eH-b-RoqH-M"]],"id":"stage-detective-mariko"},
   "2025.03.22|映画「ネムルバカ」公開記念舞台挨拶＠新宿ピカデリー": {"links":[["舞台挨拶精華（NB Press Online）","Oivn6iy8NpY"]],"id":"stage-nemurubaka-shinjuku"},
-  "2026.01.13|映画「ほどなく、お別れです」完成披露試写会・舞台挨拶＠豊洲PIT": {"links":[["舞台挨拶現場影片","https://news.tv-asahi.co.jp/news_geinou/articles/900181701.html","朝日電視台"]],"id":"stage-hodonaku"},
+  "2026.01.13|映画「ほどなく、お別れです」完成披露試写会・舞台挨拶＠豊洲PIT": {"links":[],"id":"stage-hodonaku"},
   "2026.02.06|映画「ほどなく、お別れです」公開（長野玲奈役）": {"links":[["電影預告","6NryebqEnOU"]]},
   "2026.08.05|タクシー映画祭「TAXIATER」公開記念イベント（短編映画「世界は美しいと誰かが言った」）＠TOKYO FMホール": {"links":[["登壇完整談話（シネマトゥデイ）","CS6I6RzTIV4"]],"id":"stage-taxiater"},
   "2026.10.18|映画「巨頭ｵ」予告編・ポスタービジュアル公開": {"links":[["官方電影預告","khJGxyLBb_A"]]},
@@ -951,16 +951,16 @@ function render(){
   if (videoEntry?.links.length) {
     const links = document.createElement('div');
     links.className = 'video-links';
-    for (const [label, video, platform = 'YouTube'] of videoEntry.links) {
+    for (const [label, videoId] of videoEntry.links) {
       const link = document.createElement('a');
-      link.href = video.startsWith('https://') ? video : 'https://www.youtube.com/watch?v=' + video;
+      link.href = 'https://www.youtube.com/watch?v=' + videoId;
       link.target = '_blank';
       link.rel = 'noopener noreferrer';
       const play = document.createElement('span');
       play.setAttribute('aria-hidden', 'true');
       play.textContent = '▶';
-      link.append(play, platform + ' · ' + label);
-      link.setAttribute('aria-label', platform + ' · ' + label + '（開啟新分頁）');
+      link.append(play, 'YouTube · ' + label);
+      link.setAttribute('aria-label', 'YouTube · ' + label + '（開啟新分頁）');
       links.append(link);
     }
     card.append(links);
