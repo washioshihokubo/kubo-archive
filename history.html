@@ -444,6 +444,7 @@ Object.assign(datedSourceLabels, {
   "2023.04.28|映画「左様なら今晩は」Blu-ray発売": "發售資料",
   "2023.11.08|映画「探偵マリコの生涯で一番悲惨な日」Blu-ray＆DVD発売": "發售資料"
 });
+records.push(["2021","2021.07.30","Seventeen 2021年9月号「くぼしが17歳の時にやりたかった5つのコト。」","雜誌"]);
 records.sort((a,b)=>a[1].localeCompare(b[1]));
 const issueDisplayTitles = {
   "2020.04.11|乃木坂46版ミュージカル「美少女戦士セーラームーン」Blu-ray＆DVD発売": "乃木坂46版ミュージカル「美少女戦士セーラームーン」2019 Blu-ray＆DVD発売",
@@ -652,20 +653,20 @@ const magazineCoverage = {
   "2017.04.10|MARQUEE": {"title":"MARQUEE Vol.120「3期生特集（後編）」","source":"https://nogi46p.com/article/19696"},
   "2017.04.21|FLASH スペシャル": {"title":"FLASHスペシャル グラビアBEST 2017GW号「期待の3期生共演グラビア」（山下美月と共演）","source":"https://nogizaka-journal.com/archives/media2017april21/"},
   "2017.06.10|MARQUEE Vol.121（不同官方資料分別記載6月9日與10日發售）": {"title":"MARQUEE Vol.121「私の大好きな乃木坂46ナンバーとMV」（山下美月・与田祐希と掲載）","source":"https://nogi46p.com/article/20252"},
-  "2017.07.03|別冊カドカワ 総力特集 乃木坂46 vol.04": {"title":"別冊カドカワ 総力特集 乃木坂46 vol.04「3期生 巻末グラビア＆座談会」","source":"https://www.kadokawa.co.jp/product/321612000414/"},
-  "2017.08.01|Seventeen 初登場": {"title":"Seventeen 2017年9月号 初登場「新STモデルのすべて♥」","source":"https://nogizaka-journal.com/archives/media-magazine2017august/"},
-  "2017.09.01|Seventeen": {"title":"Seventeen 2017年10月号","source":"https://www.fujisan.co.jp/product/1498/b/list/?limit=45&page=2"},
-  "2017.09.23|B.L.T.": {"title":"B.L.T. 2017年11月号（創刊20周年記念 200名グラビア）","source":"https://bltweb.jp/2017/09/22/blt11_store_20th/"},
-  "2017.09.30|Seventeen 2017年11月号（原稿日期依發售資料更正）": {"title":"Seventeen 2017年11月号「Seventeen夏の学園祭2017 誌上まとめ」","source":"https://nogizaka-journal.com/archives/media2017september30/"},
-  "2017.10.20|AKB新聞": {"title":"月刊AKB48グループ新聞 2017年10月号「乃木坂46新聞」（久保史緒里×中村麗乃）","source":"https://nogizaka-journal.com/archives/media-magazine2017october/"},
-  "2017.11.01|Seventeen": {"title":"Seventeen 2017年12月号「STモデル冬の私服＆バッグの中身 SNAP!SNAP!」","source":"https://nogizaka-journal.com/archives/media-magazine2017november/"},
-  "2017.12.01|Seventeen": {"title":"Seventeen 2018年1月号「恋するクリスマス　シーン別デート服ランキングTop5」","source":"https://nogizaka-journal.com/archives/media-magazine2017december/"},
+  "2017.07.03|別冊カドカワ 総力特集 乃木坂46 vol.04": {"title":"別冊カドカワ 総力特集 乃木坂46 vol.04「3期生 巻末グラビア＆座談会」","officialSource":"https://www.kadokawa.co.jp/product/321612000414/"},
+  "2017.08.01|Seventeen 初登場": {"title":"Seventeen 2017年9月号 初登場「新STモデルのすべて♥」","source":"https://nogizaka-journal.com/archives/media-magazine2017august/","officialSource":"https://seventeen-web.jp/blogs/shiori_kubo/17184/"},
+  "2017.09.01|Seventeen": {"title":"Seventeen 2017年10月号","source":"https://www.fujisan.co.jp/product/1498/b/list/?limit=45&page=2","officialSource":"https://seventeen-web.jp/blogs/shiori_kubo/17235/"},
+  "2017.09.23|B.L.T.": {"title":"B.L.T. 2017年11月号（創刊20周年記念 200名グラビア）","officialSource":"https://bltweb.jp/2017/09/22/blt11_store_20th/"},
+  "2017.09.30|Seventeen 2017年11月号（原稿日期依發售資料更正）": {"title":"Seventeen 2017年11月号「Seventeen夏の学園祭2017 誌上まとめ」","source":"https://nogizaka-journal.com/archives/media2017september30/","officialSource":"https://seventeen-web.jp/blogs/shiori_kubo/17259/"},
+  "2017.10.20|AKB新聞": {"title":"月刊AKB48グループ新聞 2017年10月号「乃木坂46新聞」（久保史緒里×中村麗乃）","source":"https://nogizaka-journal.com/archives/media-magazine2017october/","officialSource":"https://www.nikkansports.com/m/entertainment/akb48/news/amp/201710190000751.html"},
+  "2017.11.01|Seventeen": {"title":"Seventeen 2017年12月号「STモデル冬の私服＆バッグの中身 SNAP!SNAP!」","source":"https://nogizaka-journal.com/archives/media-magazine2017november/","officialSource":"https://seventeen-web.jp/blogs/shiori_kubo/17283/"},
+  "2017.12.01|Seventeen": {"title":"Seventeen 2018年1月号「恋するクリスマス　シーン別デート服ランキングTop5」","source":"https://nogizaka-journal.com/archives/media-magazine2017december/","officialSource":"https://seventeen-web.jp/fashion/f-news/3540/"},
   "2017.12.29|Seventeen": {"title":"Seventeen 2018年2月号「春色トップスはじめましょ♡」","source":"https://nogizaka-journal.com/archives/media-magazine2017december/"},
   "2018.02.01|Seventeen": {"title":"Seventeen 2018年3月号","source":"https://www.fujisan.co.jp/product/1498/b/1622700/"},
-  "2018.02.10|MARQUEE": {"title":"MARQUEE Vol.125 表紙・インタビュー「少女性」","source":"https://nogizaka-journal.com/archives/media-magazine2018february/"},
+  "2018.02.10|MARQUEE": {"title":"MARQUEE Vol.125 表紙・インタビュー「少女性」","source":"https://nogizaka-journal.com/archives/media-magazine2018february/","officialSource":"https://www.nogizaka46.com/s/n46/media/detail/43026"},
   "2018.03.01|Seventeen": {"title":"Seventeen 2018年4月号","source":"https://www.fujisan.co.jp/product/1498/b/1635185/"},
-  "2018.03.16|AKB新聞": {"title":"月刊AKB48グループ新聞 2018年3月号「乃木坂46新聞」（久保史緒里×山下美月 対談）","source":"https://nogizaka-journal.com/archives/media-magazine2018march/"},
-  "2018.03.31|Seventeen／BUBKA with 齋藤飛鳥・山下美月": {"title":"Seventeen 2018年5月号「仁香vs史緒里 スクールヒロイン争奪着まわし」／BUBKA 2018年5月号（齋藤飛鳥・山下美月と対談）","source":"https://nogizaka-journal.com/archives/media-magazine2018march/"},
+  "2018.03.16|AKB新聞": {"title":"月刊AKB48グループ新聞 2018年3月号「乃木坂46新聞」（久保史緒里×山下美月 対談）","source":"https://nogizaka-journal.com/archives/media-magazine2018march/","officialSource":"https://www.nikkansports.com/entertainment/akb48/news/201803150000774.html"},
+  "2018.03.31|Seventeen／BUBKA with 齋藤飛鳥・山下美月": {"title":"Seventeen 2018年5月号「仁香vs史緒里 スクールヒロイン争奪着まわし」／BUBKA 2018年5月号（齋藤飛鳥・山下美月と対談）","source":"https://nogizaka-journal.com/archives/media-magazine2018march/","officialSource":"https://seventeen-web.jp/blogs/shiori_kubo/17432/"},
   "2018.04.28|Seventeen／月刊エンタメ表紙 with 山下美月": {"title":"Seventeen 2018年6月号「創刊50周年ありがとう!! 100年目指していくぞー☆」／月刊エンタメ表紙 with 山下美月","source":"https://nogizaka-journal.com/archives/media-magazine2018april/"},
   "2018.06.01|Seventeen": {"title":"Seventeen 2018年7月号「乙女を悩ます梅雨のお悩み、ズバッと解決！」","source":"https://nogizaka-journal.com/archives/media-magazine2018june/"},
   "2018.06.30|Seventeen／土曜プレミアム ギリギリ昔話（初の単独番組出演）": {"title":"Seventeen 2018年8月号／土曜プレミアム ギリギリ昔話（初の単独番組出演）","source":"https://www.fujisan.co.jp/product/1498/b/list/?limit=45&page=2"},
@@ -676,54 +677,55 @@ const magazineCoverage = {
   "2018.12.01|Seventeen": {"title":"Seventeen 2019年1月号","source":"https://www.fujisan.co.jp/product/1498/b/1755364/"},
   "2018.12.28|Seventeen／乃木坂46×週刊プレイボーイ2018": {"title":"Seventeen 2019年2月号／乃木坂46×週刊プレイボーイ2018","source":"https://www.fujisan.co.jp/product/1498/b/list/?page=3"},
   "2019.02.01|Seventeen／MステSP「シンクロニシティ」": {"title":"Seventeen 2019年3月号／MステSP「シンクロニシティ」","source":"https://www.fujisan.co.jp/product/1498/b/1779659/"},
-  "2019.03.01|Seventeen": {"title":"Seventeen 2019年4月号「トップスカワイイ春まつり!!」","source":"https://nogizaka-journal.com/archives/media-magazine2019march/"},
+  "2019.03.01|Seventeen": {"title":"Seventeen 2019年4月号「トップスカワイイ春まつり!!」","source":"https://nogizaka-journal.com/archives/media-magazine2019march/","officialSource":"https://www.nogizaka46.com/s/n46/media/detail/49303"},
   "2019.04.01|Seventeen": {"title":"Seventeen 2019年5月号「Seventeenモデル17人の新学期制服こーなります宣言っ!!」","source":"https://nogizaka-journal.com/archives/media-magazine2019april/"},
-  "2019.04.30|Seventeen／LINE LIVE「乃木坂46・久保史緒里の乃木坂上り坂」早川聖来": {"title":"Seventeen 2019年6月号／LINE LIVE「乃木坂46・久保史緒里の乃木坂上り坂」早川聖来","source":"https://www.fujisan.co.jp/product/1498/b/list/?page=3"},
+  "2019.04.30|Seventeen／LINE LIVE「乃木坂46・久保史緒里の乃木坂上り坂」早川聖来": {"title":"Seventeen 2019年6月号／LINE LIVE「乃木坂46・久保史緒里の乃木坂上り坂」早川聖来","source":"https://www.fujisan.co.jp/product/1498/b/list/?page=3","officialSource":"https://www.nogizaka46.com/s/n46/media/detail/50280"},
   "2019.06.01|Seventeen": {"title":"Seventeen 2019年7月号","source":"https://www.fujisan.co.jp/product/1498/b/1833474/"},
   "2019.07.01|Seventeen／N46MODE vol.1": {"title":"Seventeen 2019年8月号「真夏のリアル私服全員SNAP祭り!!」／N46MODE vol.1","source":"https://nogizaka-journal.com/archives/media-magazine2019july/"},
-  "2019.08.01|Seventeen": {"title":"Seventeen 2019年9月号","source":"https://www.fujisan.co.jp/product/1498/b/1860393/"},
-  "2019.08.30|Seventeen（2019年10月号；原稿日期經核對更正）": {"title":"Seventeen 2019年10月号","source":"https://www.fujisan.co.jp/product/1498/b/1873847/"},
-  "2019.09.25|週刊少年マガジン ソロ表紙／anan": {"title":"週刊少年マガジン 2019年 No.43 ソロ表紙／anan No.2169「久保史緒里＆田村真佑 × チーズティー」","source":"https://magazineworld.jp/anan/anan-2169/"},
-  "2019.09.26|act guide 2019 Season 3": {"title":"act guide 2019 Season 3「少女漫画の傑作を舞台化、キャストを新たに再演」（ミュージカル『美少女戦士セーラームーン』）","source":"https://www.tvguide.or.jp/news/news-189518/"},
+  "2019.08.01|Seventeen": {"title":"Seventeen 2019年9月号","source":"https://www.fujisan.co.jp/product/1498/b/1860393/","officialSource":"https://www.nogizaka46.com/s/n46/media/detail/51820"},
+  "2019.08.30|Seventeen（2019年10月号；原稿日期經核對更正）": {"title":"Seventeen 2019年10月号","source":"https://www.fujisan.co.jp/product/1498/b/1873847/","officialSource":"https://seventeen-web.jp/blogs/karen_otomo/17986/"},
+  "2019.09.25|週刊少年マガジン ソロ表紙／anan": {"title":"週刊少年マガジン 2019年 No.43 ソロ表紙／anan No.2169「久保史緒里＆田村真佑 × チーズティー」","officialSource":"https://magazineworld.jp/anan/anan-2169/"},
+  "2019.09.26|act guide 2019 Season 3": {"title":"act guide 2019 Season 3 乃木坂46版ミュージカル『美少女戦士セーラームーン』久保史緒里","officialSource":"https://www.tvguide.or.jp/news/news-189518/"},
   "2019.10.01|Seventeen": {"title":"Seventeen 2019年11月号「“NOT同級生フレンド”を作る方法。」","source":"https://nogizaka-journal.com/archives/media-magazine2019oct/"},
-  "2019.11.01|Seventeen": {"title":"Seventeen 2019年12月号「コスメ好きSTモが教える！ MYレコメンコスメ♡」","source":"https://nogizaka-journal.com/archives/media-magazine2019nov/"},
+  "2019.11.01|Seventeen": {"title":"Seventeen 2019年12月号「コスメ好きSTモが教える！ MYレコメンコスメ♡」","source":"https://nogizaka-journal.com/archives/media-magazine2019nov/","officialSource":"https://seventeen-web.jp/beauty/b-news/3318/"},
   "2019.11.30|Seventeen／LINE LIVE「乃木坂46・久保史緒里の乃木坂上り坂」遠藤さくら": {"title":"Seventeen 2020年1月号「SHIFUKU WARS」／LINE LIVE「乃木坂46・久保史緒里の乃木坂上り坂」遠藤さくら","source":"https://nogizaka-journal.com/archives/media-magazine2019nov/"},
-  "2019.12.24|OVERTURE": {"title":"OVERTURE No.021「乃木坂46」特集（久保史緒里、春夏秋冬をテーマにしたグラビア）","source":"https://www.yomuhon.com/archives/85915"},
-  "2019.12.28|Seventeen／BUBKA with 遠藤さくら／MelodiX!スペシャル2019": {"title":"Seventeen 2020年2月号「ガチで全部見せます！ おしゃモのバッグの中身検査」／BUBKA 2020年2月号（遠藤さくらと対談）／MelodiX!スペシャル2019","source":"https://nogizaka-journal.com/archives/media-magazine2019dec/"},
-  "2020.01.29|TV LIFE": {"title":"TV LIFE 2020年2月14日号「坂道発信！」（乃木坂シネマズ～STORY of 46～）","source":"https://www.fujisan.co.jp/product/1747/b/1932146/"},
-  "2020.02.01|Seventeen": {"title":"Seventeen 2020年3月号「3秒！5秒！10秒！ 衝撃の秒速ヘアアレ」","source":"https://nogizaka-journal.com/archives/media-magazine2020feb/"},
-  "2020.02.29|Seventeen／東京ガールズコレクション": {"title":"Seventeen 2020年4月号「コスメヲタモの#成功コスメ」／東京ガールズコレクション","source":"https://nogizaka-journal.com/archives/media-magazine2020feb/"},
+  "2019.12.24|OVERTURE": {"title":"OVERTURE No.021「乃木坂46」特集（久保史緒里、春夏秋冬をテーマにしたグラビア）","source":"https://www.yomuhon.com/archives/85915","officialSource":"https://www.nogizaka46.com/s/n46/media/detail/54125"},
+  "2019.12.28|Seventeen／BUBKA with 遠藤さくら／MelodiX!スペシャル2019": {"title":"Seventeen 2020年2月号「ガチで全部見せます！ おしゃモのバッグの中身検査」／BUBKA 2020年2月号（遠藤さくらと対談）／MelodiX!スペシャル2019","source":"https://nogizaka-journal.com/archives/media-magazine2019dec/","officialSource":"https://seventeen-web.jp/fashion/f-news/9384/"},
+  "2020.01.29|TV LIFE": {"title":"TV LIFE 2020年2月14日号「坂道発信！」（乃木坂シネマズ～STORY of 46～）","officialSource":"https://www.tvlife.jp/latest/258188?view-all=1"},
+  "2020.02.01|Seventeen": {"title":"Seventeen 2020年3月号「3秒！5秒！10秒！ 衝撃の秒速ヘアアレ」","source":"https://nogizaka-journal.com/archives/media-magazine2020feb/","officialSource":"https://www.nogizaka46.com/s/n46/media/detail/54714"},
+  "2020.02.29|Seventeen／東京ガールズコレクション": {"title":"Seventeen 2020年4月号「コスメヲタモの#成功コスメ」／東京ガールズコレクション","source":"https://nogizaka-journal.com/archives/media-magazine2020feb/","officialSource":"https://seventeen-web.jp/beauty/b-news/9846/"},
   "2020.04.01|Seventeen": {"title":"Seventeen 2020年5月号","source":"https://www.fujisan.co.jp/product/1498/b/list/?page=2"},
-  "2020.04.30|Seventeen／BUBKA with 山下美月": {"title":"Seventeen 2020年6・7月合併号「坂道姉妹の初夏LOOK BOOK」／BUBKA with 山下美月","source":"https://www.fujisan.co.jp/product/1498/b/1971214/"},
-  "2020.07.01|Seventeen": {"title":"Seventeen 2020年8月号「STモは今日、何着てる？」","source":"https://nogizaka-journal.com/archives/media-magazine2020jul/"},
-  "2020.07.31|Seventeen": {"title":"Seventeen 2020年9月号「withマスクメイク 4つの最適解をおとどけ」","source":"https://nogizaka-journal.com/archives/media-magazine2020jul/"},
+  "2020.04.30|Seventeen／BUBKA with 山下美月": {"title":"Seventeen 2020年6・7月合併号「坂道姉妹の初夏LOOK BOOK」／BUBKA with 山下美月","source":"https://www.fujisan.co.jp/product/1498/b/1971214/","officialSource":"https://seventeen-web.jp/lifestyle/l-news/15059/"},
+  "2020.07.01|Seventeen": {"title":"Seventeen 2020年8月号「STモは今日、何着てる？」","source":"https://nogizaka-journal.com/archives/media-magazine2020jul/","officialSource":"https://adnavi.shueisha.co.jp/articles/a9582/"},
+  "2020.07.31|Seventeen": {"title":"Seventeen 2020年9月号「withマスクメイク 4つの最適解をおとどけ」","source":"https://nogizaka-journal.com/archives/media-magazine2020jul/","officialSource":"https://www.nogizaka46.com/s/n46/media/detail/57054"},
   "2020.09.01|Seventeen": {"title":"Seventeen 2020年10月号","source":"https://www.fujisan.co.jp/product/1498/b/list/?page=2"},
-  "2020.10.01|Seventeen": {"title":"Seventeen 2020年11月号「全集中の呼吸ダイエットリターンズ」","source":"https://nogizaka-journal.com/archives/media-magazine2020oct/"},
-  "2020.10.30|Seventeen": {"title":"Seventeen 2020年12月号「くぼしのへやぎ。」","source":"https://nogizaka-journal.com/archives/media-magazine2020oct/"},
+  "2020.10.01|Seventeen": {"title":"Seventeen 2020年11月号「全集中の呼吸ダイエットリターンズ」","source":"https://nogizaka-journal.com/archives/media-magazine2020oct/","officialSource":"https://seventeen-web.jp/beauty/bodycare/11539/"},
+  "2020.10.30|Seventeen": {"title":"Seventeen 2020年12月号「くぼしのへやぎ。」","officialSource":"https://seventeen-web.jp/fashion/f-news/11693/"},
   "2020.12.01|Seventeen": {"title":"Seventeen 2021年1月号「Xmasの日に見つけた君は……」","source":"https://nogizaka-journal.com/archives/media-magazine2020dec/"},
-  "2020.12.28|Seventeen": {"title":"Seventeen 2021年2月号「くぼしのアイドル美容まとめ」","source":"https://nogizaka-journal.com/archives/media-magazine2020dec/"},
-  "2021.02.01|Seventeen 初表紙": {"title":"Seventeen 2021年3月号 初表紙（小坂菜緒と共同表紙）「ST神モテ♥モデルズの相手別最強コーデ」","source":"https://nogizaka-journal.com/archives/media-magazine2021feb/"},
-  "2021.03.01|Seventeen": {"title":"Seventeen 2021年4月号「おしゃ姉モ5人が教える♡ 春おしゃアプデPLAN」","source":"https://nogizaka-journal.com/archives/media-magazine2021mar/"},
-  "2021.04.01|Seventeen": {"title":"Seventeen 2021年5月号「くぼしのセットアップ＆デニムでGo！Go！」","source":"https://www.fujisan.co.jp/product/1498/b/list/?page=2"},
-  "2021.04.30|Seventeen（2021年6月号；原稿日期經核對更正）": {"title":"Seventeen 2021年6月号「くぼし＆こさかな 坂道姉妹の大好き夏ワンピLOOK BOOK」","source":"https://www.fujisan.co.jp/product/1498/b/list/?page=2"},
-  "2021.05.12|TV LIFE": {"title":"TV LIFE 2021年5月28日号「坂道発信！」","source":"https://www.fujisan.co.jp/product/1746/b/2109149/"},
-  "2021.06.01|Seventeen": {"title":"Seventeen 2021年7月号「ねおきのくぼし」","source":"https://books.rakuten.co.jp/rb/16742369/"},
-  "2021.06.09|anan／おはよう宮城（6月4日「てれまさむね」內容重播）": {"title":"anan No.2253「私たちが舞台に立つ理由。」（生田絵梨花×久保史緒里）／おはよう宮城（6月4日「てれまさむね」內容重播）","source":"https://magazineworld.jp/anan/anan-2253/"},
-  "2021.07.01|Seventeen／のぎおび": {"title":"Seventeen 2021年8月号「ふたりにっき。」／のぎおび","source":"https://www.fujisan.co.jp/product/1498/b/list/"},
-  "2021.09.01|Seventeen 初ソロ表紙／裏表紙": {"title":"Seventeen 2021年10月号 初ソロ表紙／裏表紙「みんなでくぼしをプロデュース！」","source":"https://www.fujisan.co.jp/product/1498/b/2150935/"},
+  "2020.12.28|Seventeen": {"title":"Seventeen 2021年2月号「くぼしのアイドル美容まとめ」","officialSource":"https://seventeen-web.jp/lifestyle/l-news/13811/"},
+  "2021.02.01|Seventeen 初表紙": {"title":"Seventeen 2021年3月号 初表紙（小坂菜緒と共同表紙）「ST神モテ♥モデルズの相手別最強コーデ」","source":"https://nogizaka-journal.com/archives/media-magazine2021feb/","officialSource":"https://seventeen-web.jp/fashion/f-news/12357/"},
+  "2021.03.01|Seventeen": {"title":"Seventeen 2021年4月号「おしゃ姉モ5人が教える♡ 春おしゃアプデPLAN」","source":"https://nogizaka-journal.com/archives/media-magazine2021mar/","officialSource":"https://www.nogizaka46.com/s/n46/media/detail/60120"},
+  "2021.04.01|Seventeen": {"title":"Seventeen 2021年5月号「くぼしのセットアップ＆デニムでGo！Go！」","source":"https://www.fujisan.co.jp/product/1498/b/list/?page=2","officialSource":"https://seventeen-web.jp/lifestyle/l-news/15059/"},
+  "2021.04.30|Seventeen（2021年6月号；原稿日期經核對更正）": {"title":"Seventeen 2021年6月号「くぼし＆こさかな 坂道姉妹の大好き夏ワンピLOOK BOOK」","officialSource":"https://seventeen-web.jp/lifestyle/l-news/13811/"},
+  "2021.05.12|TV LIFE": {"title":"TV LIFE 2021年5月28日号「坂道発信！」","source":"https://www.fujisan.co.jp/product/1746/b/2109149/","officialSource":"https://www.nogizaka46.com/s/n46/media/detail/61556"},
+  "2021.06.01|Seventeen": {"title":"Seventeen 2021年7月号「ねおきのくぼし」","officialSource":"https://seventeen-web.jp/lifestyle/l-news/13811/"},
+  "2021.06.09|anan／おはよう宮城（6月4日「てれまさむね」內容重播）": {"title":"anan No.2253「私たちが舞台に立つ理由。」（生田絵梨花×久保史緒里）／おはよう宮城（6月4日「てれまさむね」內容重播）","officialSource":"https://magazineworld.jp/anan/anan-2253/"},
+  "2021.07.01|Seventeen／のぎおび": {"title":"Seventeen 2021年8月号「ふたりにっき。」／のぎおび","source":"https://www.fujisan.co.jp/product/1498/b/list/","officialSource":"https://seventeen-web.jp/lifestyle/l-news/15059/"},
+  "2021.09.01|Seventeen 初ソロ表紙／裏表紙": {"title":"Seventeen 2021年10月号 初ソロ表紙／裏表紙「みんなでくぼしをプロデュース！」","officialSource":"https://seventeen-web.jp/lifestyle/l-news/13811/"},
   "2021.12.03|FRIDAY": {"title":"FRIDAY 2021年12月17日号「久保史緒里 天然色ガール」","source":"https://www.fujisan.co.jp/product/2305/b/2124620/"},
-  "2022.05.11|TV LIFE": {"title":"TV LIFE 2022年5月27日号「坂道発信！初夏SP」","source":"https://one-publishing.co.jp/magazines/tv-life22%E5%B9%B45%E6%9C%8827%E6%97%A5%E5%8F%B7/"},
-  "2022.09.07|anan 2022年9月14日号（9月7日発売）": {"title":"anan No.2314 2022年9月14日号「乃木坂46久保史緒里さんのゆるっと芯のある癒し力。」","source":"https://www.fujisan.co.jp/product/103/b/2344767/"},
-  "2023.01.04|日経エンタテインメント！2023年2月号": {"title":"日経エンタテインメント！2023年2月号「久保史緒里　乃木坂46と演技」","source":"https://www.fujisan.co.jp/product/1281679710/b/2264452/"},
+  "2022.05.11|TV LIFE": {"title":"TV LIFE 2022年5月27日号「坂道発信！初夏SP」","officialSource":"https://one-publishing.co.jp/magazines/tv-life22%E5%B9%B45%E6%9C%8827%E6%97%A5%E5%8F%B7/"},
+  "2022.09.07|anan 2022年9月14日号（9月7日発売）": {"title":"anan No.2314 2022年9月14日号「乃木坂46久保史緒里さんのゆるっと芯のある癒し力。」","officialSource":"https://magazineworld.jp/anan/anan-2314/"},
+  "2023.01.04|日経エンタテインメント！2023年2月号": {"title":"日経エンタテインメント！2023年2月号「久保史緒里　乃木坂46と演技」","officialSource":"https://www.nikkeibpm.co.jp/item/ent/631/bn/EN2264452.html"},
   "2023.08.30|TV LIFE": {"title":"TV LIFE 2023年9月15日号「坂道発信！」（いのうえ歌舞伎『天號星』）","source":"https://www.fujisan.co.jp/product/1746/b/2433493/"},
-  "2023.09.08|FINEBOYS": {"title":"FINEBOYS 2023年10月号「僕の知らない彼女。」（久保史緒里）","source":"https://dmagazine.docomo.ne.jp/item/bd74a16729588e0bd4763ed39ac7f1a8ffaac7c1d8ed294109b4840d99a1e568/1000/"},
-  "2024.02.01|クイック・ジャパン170号": {"title":"クイック・ジャパン vol.170 限定版表紙公開（第1特集「サンドウィッチマン」対談・2月20日発売）","source":"https://qjweb.jp/news/105411/"},
-  "2024.11.13|TV LIFE": {"title":"TV LIFE 2024年11月29日号「坂道発信！」（『未来の私にブッかまされる！？』）","source":"https://one-publishing.co.jp/magazines/tv-life24%E5%B9%B411%E6%9C%8829%E6%97%A5%E5%8F%B7/"},
-  "2024.12.17|PICT-UP 152号": {"title":"PICT-UP 2025年2月号（152号）『誰よりもつよく抱きしめて』久保史緒里","source":"https://pict-up.com/shop/contents.html"},
-  "2025.01.28|CLASSY. 2025年3月号": {"title":"CLASSY. 2025年3月号「私たちの取捨選択」","source":"https://classy-online.jp/culture/421876/"},
-  "2025.01.29|anan": {"title":"anan No.2432「Who’s Hot?」久保史緒里","source":"https://magazineworld.jp/anan/anan-2432/"},
-  "2025.02.04|週刊SPA!": {"title":"週刊SPA! 2025年2月11日・18日合併号「今週の顔」久保史緒里","source":"https://www.fujisan.co.jp/product/1431/b/2625352/"},
-  "2025.03.12|TV LIFE": {"title":"TV LIFE 2025年3月28日号「坂道発信！」","source":"https://one-publishing.co.jp/magazines/4910240140359/"},
+  "2023.09.08|FINEBOYS": {"title":"FINEBOYS 2023年10月号「僕の知らない彼女。」（久保史緒里）","source":"https://dmagazine.docomo.ne.jp/item/bd74a16729588e0bd4763ed39ac7f1a8ffaac7c1d8ed294109b4840d99a1e568/1000/","officialSource":"https://fineboys-online.jp/girls/detail.php?id=4664"},
+  "2024.02.01|クイック・ジャパン170号": {"title":"クイック・ジャパン vol.170 限定版表紙公開（第1特集「サンドウィッチマン」対談・2月20日発売）","officialSource":"https://qjweb.jp/news/105411/"},
+  "2024.11.13|TV LIFE": {"title":"TV LIFE 2024年11月29日号「坂道発信！」（『未来の私にブッかまされる！？』）","officialSource":"https://one-publishing.co.jp/magazines/tv-life24%E5%B9%B411%E6%9C%8829%E6%97%A5%E5%8F%B7/"},
+  "2024.12.17|PICT-UP 152号": {"title":"PICT-UP 2025年2月号（152号）『誰よりもつよく抱きしめて』久保史緒里","officialSource":"https://pict-up.com/shop/contents.html"},
+  "2025.01.28|CLASSY. 2025年3月号": {"title":"CLASSY. 2025年3月号「私たちの取捨選択」","officialSource":"https://classy-online.jp/culture/421876/"},
+  "2025.01.29|anan": {"title":"anan No.2432「Who’s Hot?」久保史緒里","officialSource":"https://magazineworld.jp/anan/anan-2432/"},
+  "2025.02.04|週刊SPA!": {"title":"週刊SPA! 2025年2月11日・18日合併号「今週の顔」久保史緒里","source":"https://www.fujisan.co.jp/product/1431/b/2625352/","officialSource":"https://nikkan-spa.jp/magazine/%E9%80%B1%E5%88%8Aspa%EF%BC%812%EF%BC%8F11%E3%83%BB18%E5%90%88%E4%BD%B5%E5%8F%B7%EF%BC%882%EF%BC%8F4%E7%99%BA%E5%A3%B2%EF%BC%89"},
+  "2025.03.12|TV LIFE": {"title":"TV LIFE 2025年3月28日号「坂道発信！」","officialSource":"https://one-publishing.co.jp/magazines/4910240140359/"},
+  "2021.07.30|Seventeen 2021年9月号「くぼしが17歳の時にやりたかった5つのコト。」": {"title":"Seventeen 2021年9月号「くぼしが17歳の時にやりたかった5つのコト。」","officialSource":"https://seventeen-web.jp/lifestyle/l-news/13811/","source":"https://www.fujisan.co.jp/product/1498/b/2144875/"},
 };
 function displayTitle(title,date){
  const coverage = magazineCoverage[`${date}|${title}`];
@@ -1122,15 +1124,19 @@ function render(){
     card.append(badge);
   }
   card.append(title,tag);
-  if(source){const a=document.createElement('a');a.href=source;a.target='_blank';a.rel='noopener noreferrer';a.textContent=(datedSourceLabels[key] || '官方資料')+' ↗';card.append(' · ',a)}
-  const magazineSource = magazineCoverage[key]?.source;
-  if (magazineSource && magazineSource !== source) {
-    const magazineLink = document.createElement('a');
-    magazineLink.href = magazineSource;
-    magazineLink.target = '_blank';
-    magazineLink.rel = 'noopener noreferrer';
-    magazineLink.textContent = '雜誌資料 ↗';
-    card.append(' · ', magazineLink);
+  const magazine = magazineCoverage[key];
+  for (const [url, label] of [
+    [magazine?.officialSource, '雜誌官方資料'],
+    [source === magazine?.officialSource ? null : source, datedSourceLabels[key] || '官方資料'],
+    [magazine?.source === source ? null : magazine?.source, '雜誌補充資料'],
+  ]) {
+    if (!url) continue;
+    const sourceLink = document.createElement('a');
+    sourceLink.href = url;
+    sourceLink.target = '_blank';
+    sourceLink.rel = 'noopener noreferrer';
+    sourceLink.textContent = label + ' ↗';
+    card.append(' · ', sourceLink);
   }
   const videoEntry = officialVideos[key];
   if (videoEntry?.id) event.id = videoEntry.id;
