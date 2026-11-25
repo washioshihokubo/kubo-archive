@@ -35,7 +35,7 @@ function render(){
   $('#result-count').textContent=A.japanese
     ? `${state.year==='all'?'すべての年':state.year+'年'} · 記事${rows.length}件${rows.length>limit?'（'+limit+'件を表示）':''}`
     : `${state.year==='all'?t('全部年份','すべての年'):state.year+' 年'} · ${rows.length} 篇文章${rows.length>limit?'，顯示前 '+limit+' 篇':''}`;
-  $('#topic-note').textContent=state.topic==='all'?t('文章可有多個主題；來源與主題篩選只影響文章。','ひとつの記事に複数のテーマが付くことがあります。掲載元とテーマで絞り込めるのはブログ記事のみです。'):t('目前主題：','選択中のテーマ：')+A.topics[state.topic]+t(' · 標籤依正文整理',' · 記事本文に基づく分類');
+  $('#topic-note').textContent=state.topic==='all'?t('文章可有多個主題；來源與主題篩選只影響文章。','掲載元とテーマはブログ記事の絞り込みに使えます。ひとつの記事に複数のテーマが付くこともあります。'):t('目前主題：','選択中のテーマ：')+A.topics[state.topic]+t(' · 標籤依正文整理',' · 記事本文に基づく分類');
   let last='';
   $('#entries').innerHTML=rows.slice(0,limit).map(x=>{
     const year=x.date.slice(0,4), href=A.escape(A.readerURL(x.id,state));let heading='';
