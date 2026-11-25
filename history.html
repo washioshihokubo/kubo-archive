@@ -142,7 +142,7 @@ for (const r of records) {
  if (r[1] === '2025.08.01' && r[2] === 'Nandary（NHK廣播第1・東北）') r[3] = '廣播';
 }
 sources['「人は夢を二度見る」ラジオ初オンエア（乃木坂46のオールナイトニッポン；3月8日深夜）']='https://www.nogizaka46.com/s/n46/news/detail/66256';
-sources['「人は夢を二度見る」Music Video 公開（久保史緒里・山下美月 Wセンター）']='https://sp.nogizaka46.com/p/news/66292';
+sources['「人は夢を二度見る」Music Video 公開（久保史緒里・山下美月 Wセンター）']='https://www.nogizaka46.com/s/n46/news/detail/66292';
 sources['上海・日本映画週間「ネムルバカ」上映後舞台挨拶']='https://www.nogizaka46.com/s/n46/news/detail/101104';
 sources['上海・日本映画週間 開幕式に登壇']='https://japanese.shanghai.gov.cn/ja-FestivalsCelebrations/20250618/642e7ac34c37468c8dbf473b1ad5a6a6.html';
 records.push(['2025','2025.07.16','NHK連続テレビ小説「あんぱん」出演発表（白鳥玉恵役）','電視']);
@@ -627,7 +627,7 @@ const issueDisplayTitles = {
  '2020.03.21|graduation2020 高校卒業表紙／FNS音楽特別番組':'graduation2020 高校卒業表紙／FNS音楽特別番組「シンクロニシティ」',
  '2021.12.20|CDTVライブ！ライブ！4時間SP':'CDTVライブ！ライブ！4時間SP「サンタが街にやってくる」「恋人がサンタクロース」（生田絵梨花・久保史緒里・賀喜遥香）／乃木坂46「僕は僕を好きになる」「君に叱られた」',
  '2021.04.23–06.11|ドラマ「クロシンリ 彼女が教える禁断の心理術」（クロノサキ役；4月22日深夜首播）':'連続ドラマ初主演「クロシンリ 彼女が教える禁断の心理術」（クロノサキ役；4月22日深夜首播）',
- '2021.02.01|Seventeen 初表紙':'Seventeen 2021年3月号 初表紙（小坂菜緒と共演）',
+ '2021.02.01|Seventeen 初表紙':'Seventeen 2021年3月号 初表紙（小坂菜緒と共同表紙）',
  '2021.09.01|Seventeen 初ソロ表紙／裏表紙':'Seventeen 2021年10月号 初ソロ表紙／裏表紙',
  '2018.08.03|ヤングガンガン ソロ表紙':'ヤングガンガン 2018年 No.16 ソロ表紙',
  '2018.11.07|週刊少年マガジン ソロ表紙':'週刊少年マガジン 2018年 No.49 ソロ表紙',
@@ -698,6 +698,8 @@ function displayTitle(title,date){
   .replace('（首相辭任報導致節目內容變動；本人畫面待確認）','（首相辭任報導致節目內容變動）')
   .replace('（官方預告出演，實際播出待確認）','');
 }
+datedSources["2021.02.01|Seventeen 初表紙"]="https://seventeen-web.jp/youtube/16312/";
+datedSources["2021.09.01|Seventeen 初ソロ表紙／裏表紙"]="https://seventeen-web.jp/lifestyle/l-news/13811/";
 const nav=document.querySelector('#years'),root=document.querySelector('#timeline');
 const query=document.querySelector('#history-query'),category=document.querySelector('#history-category'),count=document.querySelector('#history-count');
 // A curated selection spanning her career; it is independent of event type and source links.
@@ -706,6 +708,11 @@ datedSources['2026.11.10|第51回報知映画賞 新人賞ノミネート（映�
 datedSources['2026.11.11|wacci「御節介」「天邪鬼」MV連続公開・久保史緒里出演発表']='https://wacci.jp/20261111-1/';
 datedSources['2026.11.13|wacci「御節介」「天邪鬼」MV 2作品連続プレミア公開（久保史緒里出演・21:00 JST予定）']='https://wacci.jp/20261111-1/';
 const importantMoments=new Set([
+ "2021.02.01|Seventeen 初表紙",
+ "2021.09.01|Seventeen 初ソロ表紙／裏表紙",
+ "2022.03.11|「価値あるもの」Music Video公開（久保史緒里センター）",
+ "2022.08.19|3期生楽曲「僕が手を叩く方へ」Music Video 公開（久保史緒里センター）",
+ "2023.03.22|「人は夢を二度見る」Music Video 公開（久保史緒里・山下美月 Wセンター）",
  "2025.11.25|久保史緒里 ソロ曲「夢の匂い」配信・Music Video公開",
  '2016.09.04|3期生結成',
  '2016.12.10|3期生お見立て会',
@@ -835,6 +842,7 @@ const officialVideos = {
   "2020.12.31|バナナマンのせっかくグルメ!!": {"links": [["當集節目預告", "ghaaE1VQCAU"]]},
   "2021.01.28|乃木坂46 久保史緒里の宮城・仙台 旅しおり スタジオ篇 vol.2": {"links": [["旅しおり・官方影片", "6qBK8s64QjA"]]},
   "2021.02.01|Seventeen 初表紙": {"links": [["封面拍攝花絮", "y30zqq8bSEo"]]},
+  "2021.09.01|Seventeen 初ソロ表紙／裏表紙": {"links": [["初次單獨封面・官方花絮", "nlaGkBO83tY"]]},
   "2021.02.22|9th YEAR BIRTHDAY LIVE 前夜祭": {"links": [["九週年前夜祭片段", "u25yBFm3wB0"]]},
   "2021.02.23|9th YEAR BIRTHDAY LIVE": {"links":[["九週年演唱會片段","EjsXi6gDEKc"]]},
   "2021.04.18|ノギザカスキッツLIVE／スポーツ漫画みてぇな話": {"links": [["節目幕後特輯", "D0Yu2zxnhLM"]]},
@@ -1065,7 +1073,7 @@ function render(){
  if(!filtered.length){const empty=document.createElement('p');empty.className='notice';empty.textContent='找不到符合條件的紀錄，請試試其他關鍵字或類型。';root.append(empty)}
 }
 query.addEventListener('input',render);category.addEventListener('change',render);
-const linkedCategory = { '#videos': '__videos__', '#tabishiori': '__tabishiori__' }[location.hash];
+const linkedCategory = { '#videos': '__videos__', '#tabishiori': '__tabishiori__', '#important': '__important__' }[location.hash];
 if (linkedCategory) category.value = linkedCategory;
 render();
 if (linkedCategory) {
