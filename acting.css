@@ -19,9 +19,19 @@
   margin: .4em 0;
 }
 .milestone p {
-  font-size: 1rem;
-  line-height: 1.65;
+  color: #211c1e;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.8;
   margin: 0;
+  text-shadow: 0 0 4px var(--paper), 0 0 8px var(--paper);
+}
+.milestone-sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem .85rem;
+  margin-top: .65rem;
+  font-size: .9375rem;
 }
 .milestone a {
   color: #5e3e34;
