@@ -84,7 +84,7 @@
   .video-links { display:grid; }
   .card .video-links a { width:100%; }
 }
-</style></head><body id="top"><header><a href="./">SHIORI KUBO · 時光手帖</a><a href="./#timeline">← 返回文字與演員年表</a></header><main><p class="eyebrow">THE DAYS WE SHARED · 2016—2026</p><h1>她走過的時光</h1><p class="intro">從三期生結成的那一天開始，沿著一條時間線，重訪久保史緒里的舞台、演出和每個值得記住的時刻。</p><div class="history-toolbar"><form class="history-search" role="search" onsubmit="return false"><label>搜尋年表<input id="history-query" type="search" placeholder="輸入活動、節目或日期" autocomplete="off"></label><label>紀錄類型<select id="history-category"><option value="">全部類型</option><option value="__videos__">有官方 YouTube 影片</option><option value="__tabishiori__">宮城・仙台 旅しおり</option></select></label></form><nav class="years" aria-label="年份導覽" id="years"></nav></div><p class="search-count" id="history-count" role="status" aria-live="polite"></p><div class="year-browser">
+</style></head><body id="top"><header><a href="./">SHIORI KUBO · 時光手帖</a><a href="./#timeline">← 返回文字與演員年表</a></header><main><p class="eyebrow">THE DAYS WE SHARED · 2016—2027</p><h1>她走過的時光</h1><p class="intro">從三期生結成的那一天開始，沿著一條時間線，重訪久保史緒里的舞台、演出和每個值得記住的時刻。</p><div class="history-toolbar"><form class="history-search" role="search" onsubmit="return false"><label>搜尋年表<input id="history-query" type="search" placeholder="輸入活動、節目或日期" autocomplete="off"></label><label>紀錄類型<select id="history-category"><option value="">全部類型</option><option value="__videos__">有官方 YouTube 影片</option><option value="__tabishiori__">宮城・仙台 旅しおり</option></select></label></form><nav class="years" aria-label="年份導覽" id="years"></nav></div><p class="search-count" id="history-count" role="status" aria-live="polite"></p><div class="year-browser">
   <nav class="year-dock" aria-label="手機年份導覽">
     <label>目前年份 <select id="mobile-year"></select></label>
     <button id="mobile-important" type="button" aria-pressed="false">重要時刻</button>
@@ -377,6 +377,14 @@ records.push(
   ["2026","2026.08.19","映画「ほどなく、お別れです」Blu-ray＆DVD発売","映像"],
   ["2026","2026.08.26","久保史緒里 卒業コンサート「SHIORI KUBO GRADUATION CONCERT」Blu-ray＆DVD発売","映像"],
   ["2026","2026.09.16","ドラマ「冬のなんかさ、春のなんかね」Blu-ray＆DVD BOX発売","映像"],
+  ["2020","2020.09.09","乃木坂46「ALL MV COLLECTION2～あの時の彼女たち～」Blu-ray＆DVD発売","映像"],
+  ["2022","2022.11.16","乃木坂46「真夏の全国ツアー2021 FINAL！IN TOKYO DOME」Blu-ray＆DVD発売","映像"],
+  ["2023","2023.11.24","大河ドラマ「どうする家康」完全版 第弐集 Blu-ray＆DVD BOX発売","映像"],
+  ["2024","2024.01.26","大河ドラマ「どうする家康」完全版 第参集 Blu-ray＆DVD BOX発売","映像"],
+  ["2024","2024.10.02","連続ドラマW 湊かなえ「落日」DVD-BOX発売","映像"],
+  ["2025","2025.04.25","夜ドラ「未来の私にブッかまされる！？」Blu-ray発売","映像"],
+  ["2026","2026.02.27","連続テレビ小説「あんぱん」完全版 Blu-ray＆DVD BOX3発売","映像"],
+  ["2026","2026.03.13","連続ドラマW「怪物」DVD-BOX発売","映像"],
   ["2027","2027.02.17","ドラマ「告白－25年目の秘密－」Blu-ray＆DVD BOX発売予定","映像"]
 );
 Object.assign(datedSources, {
@@ -406,6 +414,14 @@ Object.assign(datedSources, {
   "2026.08.19|映画「ほどなく、お別れです」Blu-ray＆DVD発売": "https://www.hakuhodody-map.jp/news/post_9762",
   "2026.08.26|久保史緒里 卒業コンサート「SHIORI KUBO GRADUATION CONCERT」Blu-ray＆DVD発売": "https://www.nogizaka46.com/s/n46/news/detail/102092?ima=2746&pri1=202607",
   "2026.09.16|ドラマ「冬のなんかさ、春のなんかね」Blu-ray＆DVD BOX発売": "https://www.ntv.co.jp/fuyunonankasa/articles/5184u6bvtqn5iq37tqqf.html",
+  "2020.09.09|乃木坂46「ALL MV COLLECTION2～あの時の彼女たち～」Blu-ray＆DVD発売": "https://www.nogizaka46.com/s/n46/news/detail/57173?ima=4840&pri1=202007",
+  "2022.11.16|乃木坂46「真夏の全国ツアー2021 FINAL！IN TOKYO DOME」Blu-ray＆DVD発売": "https://www.nogizaka46.com/s/n46/news/detail/65959?ima=0838&pri1=202211",
+  "2023.11.24|大河ドラマ「どうする家康」完全版 第弐集 Blu-ray＆DVD BOX発売": "https://starto.jp/s/p/discography/NSBX-53804?artist=10&ima=0708",
+  "2024.01.26|大河ドラマ「どうする家康」完全版 第参集 Blu-ray＆DVD BOX発売": "https://starto.jp/s/p/discography/NSBX-53805?artist=10&ima=1046&page=1",
+  "2024.10.02|連続ドラマW 湊かなえ「落日」DVD-BOX発売": "https://prtimes.jp/main/html/rd/p/000001717.000031422.html",
+  "2025.04.25|夜ドラ「未来の私にブッかまされる！？」Blu-ray発売": "https://www.nhk-ep.com/products/detail/h54459AA",
+  "2026.02.27|連続テレビ小説「あんぱん」完全版 Blu-ray＆DVD BOX3発売": "https://www.nhk-ep.com/s/products/detail/h54548AA-00-00-00",
+  "2026.03.13|連続ドラマW「怪物」DVD-BOX発売": "https://culture-pub.jp/lineup/kaibutsu/",
   "2027.02.17|ドラマ「告白－25年目の秘密－」Blu-ray＆DVD BOX発売予定": "https://shop.ntv.co.jp/item/1003bAAB0084?areaid=sptestishihara"
 });
 Object.assign(datedSourceLabels, {
@@ -774,14 +790,12 @@ const officialVideos = {
   "2018.12.25|宮城・仙台 旅しおり 松島「おくのほそ道」特別篇（依官方公告更正日期）": {"links": [["旅しおり・官方影片", "t8pDkqYLT1w"]]},
   "2019.01.24–03.28|ドラマ「ザンビ」（花村穂花役；首播1月23日深夜）": {"links": [["官方卡司發表", "3gvTYO4zeAg"]]},
   "2019.05.17|「平行線」MV公開": {"links": [["〈平行線〉MV（短版）", "SIA4taG7pBQ"]]},
-  "2019.05.28|第5弾発表＆舞台「ザンビ」Blu-ray＆DVD発売直前スペシャル SHOWROOM": {"links": [["舞台卡司發表", "gdgeHnKkpYk"]]},
   "2019.07.05|「いつのまにか、ここにいる Documentary of 乃木坂46」公開": {"links": [["紀錄片預告", "oOpY53cfRuQ"]]},
   "2019.07.23|久保史緒里の宮城・仙台 旅しおり 2019 ダイジェスト": {"links": [["旅しおり・官方影片", "mChbw_kHB34"]]},
   "2019.08.01|宮城・仙台 旅しおり 仙台レジャー篇": {"links": [["旅しおり・官方影片", "peGIUmCl7dU"]]},
   "2019.08.02|ドラマ「ザンビ」Blu-ray＆DVD-BOX発売": {"links":[["影碟發售預告","tRYbmSZUSdI"]]},
   "2019.08.16|宮城・仙台 旅しおり 石巻篇": {"links": [["旅しおり・官方影片", "qv3o166IS4g"]]},
   "2019.08.22|B.L.T. SUMMER CANDY 2019 ソロ表紙": {"links": [["封面拍攝花絮", "SRW1qPnuRmA"]]},
-  "2019.08.24|舞台「ザンビ」TEAM BLUE 日テレプラス初放送（8月23日深夜）": {"links": [["舞台卡司發表", "gdgeHnKkpYk"]]},
   "2019.08.29|宮城・仙台 旅しおり 石巻特別篇": {"links": [["旅しおり・官方影片", "QcLIIKeqIqM"]]},
   "2019.09.12|宮城・仙台 旅しおり 多賀城篇": {"links": [["旅しおり・官方影片", "SB7BWOBYIY0"]]},
   "2019.11.22–11.24|乃木坂46版 ミュージカル「美少女戦士セーラームーン」2019 上海公演（月野うさぎ／セーラームーン役）": {"links": [["2019 上海公演宣傳片", "fMkknkPhQyc"]]},
@@ -830,7 +844,7 @@ const officialVideos = {
   "2021.10.15|宮城・仙台 旅しおり 東松島 野蒜篇 官方公告公開": {"links": [["旅しおり・官方影片", "bWMFeAlcYh4"]]},
   "2021.10.24|舞台「夜は短し歩けよ乙女」春・夏／秋・冬ダイジェスト公開": {"links": [["舞台精華・春夏篇", "hFYLVL1PT1k"], ["舞台精華・秋冬篇", "NnwgEwhRd4I"]], "id": "yoruhamijikashi-digest"},
   "2021.11.18|宮城・仙台 旅しおり 2021 ダイジェスト 秋 官方公告公開": {"links": [["旅しおり・官方影片", "CGtizRo2CHA"]]},
-  "2021.11.20–11.21|真夏の全国ツアー2021 FINAL! 東京ドーム": {"links": [["東京巨蛋公演特典預告", "Ji7pSLh_N3M"], ["2021 巡演精華", "41Z_MbjUww4"]]},
+  "2021.11.20–11.21|真夏の全国ツアー2021 FINAL! 東京ドーム": {"links": [["2021 巡演精華", "41Z_MbjUww4"]]},
   "2021.12.03|宮城・仙台 旅しおり 奥松島篇 官方公告公開": {"links": [["旅しおり・官方影片", "3IpP0Z5KISE"]]},
   "2021.12.14–12.15|生田絵梨花卒業コンサート 横浜アリーナ": {"links": [["畢業演唱會影碟預告", "bG9Ib9Sxa-s"]]},
   "2021.12.23|宮城・仙台 旅しおり 利府篇 官方公告公開": {"links": [["旅しおり・官方影片", "CnFPqu_lwZQ"]]},
@@ -931,7 +945,6 @@ const officialVideos = {
   "2025.03.20|映画「ネムルバカ」公開（入巣柚実役）": {"links": [["電影預告", "GVLeoLx6lzY"], ["演員與導演座談", "RXQHuIHIStU"]]},
   "2025.03.24|仙建工業 CM「JOIN！」篇 公開": {"links": [["仙建工業廣告・JOIN! A 篇", "HLW0uCwrzLE"]]},
   "2025.04.20|セレモニアルピッチ": {"links": [["樂天官方開球幕後", "VdYABWvHaaA"]]},
-  "2025.05.17–05.18|乃木坂46 13th YEAR BIRTHDAY LIVE": {"links": [["演唱會精華", "6ezcSLn6Mvg"]]},
   "2025.05.20|WOWOW連続ドラマW「怪物」出演発表（柳美緒役）": {"links": [["劇集預告（30 秒）", "hQJTz2aCI50"]]},
   "2025.07.06|連続ドラマW「怪物」放送開始（柳美緒役）": {"links": [["劇集預告（30 秒）", "hQJTz2aCI50"]]},
   "2025.07.09|宮城・仙台 旅しおり 2025 ダイジェスト 夏": {"links": [["旅しおり・官方影片", "BgWkTOFo7nI"]]},
@@ -963,8 +976,9 @@ const officialVideos = {
   "2024.07.05|舞台「天號星」Blu-ray発売": {"links":[["Blu-ray 宣傳影片","fH_PXD_BUgw"]]},
   "2025.02.12|乃木坂46「12th YEAR BIRTHDAY LIVE」Blu-ray＆DVD発売": {"links":[["十二週年演唱會影碟預告","ZIWsi2lmkpQ"]]},
   "2026.05.13|乃木坂46「13th YEAR BIRTHDAY LIVE」Blu-ray＆DVD発売": {"links":[["十三週年演唱會影碟精華","6ezcSLn6Mvg"]]},
-  "2026.08.19|映画「ほどなく、お別れです」Blu-ray＆DVD発売": {"links":[["Blu-ray／DVD 發售宣傳","X1XDon9BysA"]],"id":"release-hodonaku"},
+  "2026.08.19|映画「ほどなく、お別れです」Blu-ray＆DVD発売": {"links":[["主演談話・Blu-ray／DVD 發售宣傳","X1XDon9BysA"]],"id":"release-hodonaku"},
   "2026.08.26|久保史緒里 卒業コンサート「SHIORI KUBO GRADUATION CONCERT」Blu-ray＆DVD発売": {"links":[["畢業演唱會影碟精華","yoDB5rRvMx8"]],"id":"release-kubo-graduation"},
+  "2022.11.16|乃木坂46「真夏の全国ツアー2021 FINAL！IN TOKYO DOME」Blu-ray＆DVD発売": {"links":[["東京巨蛋演唱會影碟特典預告","Ji7pSLh_N3M"]]},
   "2027.02.17|ドラマ「告白－25年目の秘密－」Blu-ray＆DVD BOX発売予定": {"links":[],"id":"release-kokuhaku"}
 };
 const graduationSoloKey = "2025.11.25|久保史緒里 ソロ曲「夢の匂い」配信・Music Video公開";
