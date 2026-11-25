@@ -74,7 +74,7 @@
       text:'《3人のプリンシパル》是她初次登台的作品；她曾談到從中感受到表演的樂趣。',source:'https://www.nogizaka46.com/s/n46/diary/detail/36765?cd=MEMBER&ima=4459',sourceLabel:'官方公演日報',interview:'https://voisjp.me/news/230257/#:~:text=%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E8%88%9E%E5%8F%B0%E3%80%8E3%E4%BA%BA%E3%81%AE%E3%83%97%E3%83%AA%E3%83%B3%E3%82%B7%E3%83%91%E3%83%AB%E3%80%8F%E3%82%92%E3%82%84%E3%82%89%E3%81%9B%E3%81%A6%E3%81%84%E3%81%9F%E3%81%A0%E3%81%84%E3%81%9F%E6%99%82%E3%81%AB'},
     {
       year: '2017', title: '成為《Seventeen》專屬模特兒',
-      ja: {"title": "『Seventeen』専属モデルに", "text": "2017年7月30日に起用が発表され、8月1日発売の9月号に初登場。2024年3月1日発売の春号で卒業するまで、6年7か月にわたって専属モデルを務めた。", "sourceLabel": "専属モデル起用のお知らせ", "relatedLabel": "『Seventeen』卒業のお知らせ"},
+      ja: {"title": "雑誌「Seventeen」の専属モデルに決定", "text": "2017年7月30日、乃木坂46の3期生として初めてファッション誌の専属モデルになることが発表された。8月1日発売の9月号から6年7か月にわたって活動し、2024年3月1日発売の春号で卒業した。", "sourceLabel": "乃木坂46公式発表", "relatedLabel": "『Seventeen』卒業のお知らせ"},
       text: '2017 年 7 月 30 日宣布成為《Seventeen》專屬模特兒，直到 2024 年 3 月 1 日發行的春號畢業，為期 6 年 7 個月。',
       source: 'https://www.nogizaka46.com/s/n46/news/detail/40059', sourceLabel: '專屬模特兒公告',
       related: {url: 'https://seventeen-web.jp/lifestyle/l-news/14921/', label: '《Seventeen》畢業特輯'},
