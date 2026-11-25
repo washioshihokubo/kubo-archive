@@ -124,15 +124,26 @@
 .instagram-icon { color: #b22c68; }
 
 .archive-home .workspace {
+  position: relative;
   isolation: isolate;
-  clip-path: inset(0);
 }
-.archive-home .workspace::before {
-  content: "";
-  position: fixed;
+.archive-home .workspace-backdrop {
+  position: absolute;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background: linear-gradient(rgba(249, 247, 244, .87), rgba(249, 247, 244, .91)),
-    url("signature-original.png") center 35% / contain no-repeat;
+}
+.archive-home .workspace-backdrop::before {
+  content: "";
+  display: block;
+  position: sticky;
+  top: 0;
+  height: min(100%, 100vh);
+  height: min(100%, 100svh);
+  padding-block: clamp(12px, 4vh, 48px);
+  background: url("signature-original.png") center 35% / contain no-repeat content-box;
+  opacity: .12;
+}
+.archive-home .workspace .acting-card {
+  background: transparent;
 }
