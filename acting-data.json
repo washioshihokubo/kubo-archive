@@ -29,7 +29,12 @@
         "url": "https://www.nogizaka46.com/s/n46/news/detail/36466"
       }
     ],
-    "imageCredit": "圖片由使用者提供；作品圖片權利屬原權利人。"
+    "imageCredit": "圖片由使用者提供；作品圖片權利屬原權利人。",
+    "ja": {
+      "date": "2017年2月2日～12日",
+      "roleDescription": "第2幕の配役は観客の投票で公演ごとに決まる。久保はジョバンニやカムパネルラなどを演じた。",
+      "description": "乃木坂46の3期生による公演。第1幕の演技を見た観客が、『銀河鉄道の夜』を題材とする第2幕に登場する3役を選ぶ。"
+    }
   },
   {
     "id": 2,
@@ -61,7 +66,12 @@
         "url": "https://www.nogizaka46.com/s/n46/news/detail/40647"
       }
     ],
-    "imageCredit": "圖片由使用者提供；作品圖片權利屬原權利人。"
+    "imageCredit": "圖片由使用者提供；作品圖片權利屬原權利人。",
+    "ja": {
+      "date": "2017年10月6日～15日",
+      "roleDescription": "十二人の姫のひとり、汐寝。物語の語り手も務める。",
+      "description": "乃木坂46の3期生が演じる群像劇。塀に囲まれた屋敷に暮らす十二人の姫が、それぞれの運命に向き合う。"
+    }
   },
   {
     "id": 3,
@@ -91,7 +101,12 @@
     ],
     "imageSource": "https://www.tbs.co.jp/tbs-ch/item/o2108/thumbs/title-752.jpg",
     "imageCredit": "圖片出處：作品官方網站／官方公告；權利歸各作品權利人所有。",
-    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。"
+    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。",
+    "ja": {
+      "date": "2018年1月17日～2月4日",
+      "roleDescription": "三姉妹の末っ子。将来に希望を抱き、姉たちとともにモスクワで暮らす日を夢見ている。",
+      "description": "チェーホフの戯曲。地方の町に暮らす三姉妹が、故郷モスクワに思いをはせながら、思いどおりにならない日々を生きる。"
+    }
   },
   {
     "id": 4,
@@ -121,7 +136,12 @@
     ],
     "imageSource": "https://www.ntv.co.jp/zambi/images/stage/img_stage1.png",
     "imageCredit": "圖片出處：作品官方網站／官方公告；權利歸各作品權利人所有。",
-    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。"
+    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。",
+    "ja": {
+      "date": "2018年11月16日～25日",
+      "roleDescription": "二つのチームが同じ役を演じるダブルキャストの公演。久保はTEAM BLUEの鳴沢摩耶を演じた。",
+      "description": "乃木坂46、欅坂46、けやき坂46のメンバーが出演したホラー舞台。極限状態に置かれた登場人物たちの選択を描く。"
+    }
   },
   {
     "id": 5,
@@ -147,7 +167,12 @@
     ],
     "imageSource": "https://www.ntv.co.jp/zambi/images/character/photo_kubo.jpg",
     "imageCredit": "圖片出處：作品官方網站／官方公告；權利歸各作品權利人所有。",
-    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。"
+    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。",
+    "ja": {
+      "date": "2019年1月24日～3月28日",
+      "roleDescription": "フリージア学園の2年生で美術部員。まじめで成績がよく、ぜんそくの持病がある。先川柚月と親しい。",
+      "description": "修学旅行で不思議な村に足を踏み入れた生徒たち。学園に戻った彼女たちの周囲で、次々と異変が起こる。舞台版と同じプロジェクトから生まれたテレビドラマ。"
+    }
   },
   {
     "id": 6,
@@ -173,9 +198,22 @@
       {
         "label": "乃木坂46官方新聞公告",
         "url": "https://www.nogizaka46.com/s/n46/news/detail/51538"
+      },
+      {
+        "label": "10月12日公演取消公告",
+        "url": "https://sailormoon-official.com/stage/news/nogizaka19_1011.php"
+      },
+      {
+        "label": "10月13日公演異動公告",
+        "url": "https://sailormoon-official.com/stage/news/nogizaka19_1012.php"
       }
     ],
-    "imageCredit": "圖片由使用者提供；作品圖片權利屬原權利人。"
+    "imageCredit": "圖片由使用者提供；作品圖片權利屬原權利人。",
+    "ja": {
+      "date": "東京：2019年10月10日～14日／上海：11月22日～24日。台風19号の影響で、東京公演は10月12日の昼夜2公演と13日の昼公演が中止。",
+      "roleDescription": "ごく普通の女の子だった月野うさぎは、黒猫ルナとの出会いをきっかけにセーラームーンに変身する。仲間と力を合わせ、大切な人たちを守るために戦う。",
+      "description": "武内直子の漫画を原作とする乃木坂46版ミュージカル。新たなキャストが5人のセーラー戦士を演じ、東京と上海で上演された。"
+    }
   },
   {
     "id": 7,
@@ -201,7 +239,12 @@
     ],
     "imageSource": "https://www.fujitv.co.jp/nogizakacinemas/images/photo/img_photo09_01.jpg",
     "imageCredit": "圖片出處：作品官方網站／官方公告；權利歸各作品權利人所有。",
-    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。"
+    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。",
+    "ja": {
+      "date": "FOD：2020年2月19日配信／フジテレビ：3月17日深夜（18日未明）放送",
+      "roleDescription": "アンドロイドのメシア。パトカーの中から、街の大型ビジョンに映るニュースを見つめている。",
+      "description": "乃木坂46のメンバーと映像作家が組んだオムニバスの第9話。谷川英司監督が、人工知能と人間の間に緊張が走る社会を描いたSF短編。"
+    }
   },
   {
     "id": 8,
@@ -231,7 +274,12 @@
     ],
     "imageSource": "https://www.bsfuji.tv/kuroshinri/pub/img/index_4.jpg",
     "imageCredit": "圖片出處：作品官方網站／官方公告；權利歸各作品權利人所有。",
-    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。"
+    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。",
+    "ja": {
+      "date": "2021年4月22日～6月10日の各木曜深夜（暦日では4月23日～6月11日）",
+      "roleDescription": "悩みを抱えた人の前にふいに現れる毒舌の女性。人の心理を巧みに操り、相手の選択を思わぬ方向へ導く。",
+      "description": "人間関係に行き詰まった人々が、謎の女性から心理術を教わる。願いがかなうかに見えた日常に意外な結末が待つ、ブラックユーモアを交えたサスペンス。"
+    }
   },
   {
     "id": 9,
@@ -259,7 +307,12 @@
         "url": "https://www.nogizaka46.com/s/n46/news/detail/61136"
       }
     ],
-    "imageCredit": "圖片由使用者提供；作品圖片權利屬原權利人。"
+    "imageCredit": "圖片由使用者提供；作品圖片權利屬原權利人。",
+    "ja": {
+      "date": "2021年6月6日～27日",
+      "roleDescription": "素直で好奇心旺盛な大学生。夜の京都へ繰り出し、行く先々で一風変わった人々に出会う。",
+      "description": "森見登美彦の小説を舞台化。後輩に思いを寄せる「先輩」は、偶然を装って彼女に会おうとする。京都の街を巡る二人は、次々と不思議な出来事に巻き込まれる。"
+    }
   },
   {
     "id": 10,
@@ -293,7 +346,12 @@
     ],
     "imageSource": "https://www.fujitv.co.jp/STMHG/photo/main.jpg",
     "imageCredit": "圖片出處：作品官方網站／官方公告；權利歸各作品權利人所有。",
-    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。"
+    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。",
+    "ja": {
+      "date": "2021年10月8日25時05分（9日午前1時05分）放送",
+      "roleDescription": "フォークデュオのボーカル。音楽を続ける自分の将来に思いを巡らせる。",
+      "description": "時間をテーマにしたオムニバスの一編。京都・先斗町で、フォークデュオが電話で約1分後の自分たちと話せるようになる。"
+    }
   },
   {
     "id": 11,
@@ -323,7 +381,12 @@
     ],
     "imageSource": "https://no.meets.ltd/ann55th_anoyoru/img/og-image.jpg",
     "imageCredit": "圖片出處：作品官方網站／官方公告；權利歸各作品權利人所有。",
-    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。"
+    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。",
+    "ja": {
+      "date": "2022年3月20日・27日",
+      "roleDescription": "『乃木坂46のオールナイトニッポン』のパーソナリティとして特別出演。",
+      "description": "『オールナイトニッポン』55周年記念公演。ニッポン放送の社屋を舞台に、ラジオ局のある一夜を生配信で描いた。"
+    }
   },
   {
     "id": 12,
@@ -353,7 +416,12 @@
     ],
     "imageSource": "https://prcdn.freetls.fastly.net/release_image/30674/511/30674-511-7e02ce738559eb23e078b2ad75b11c1a-1920x1080.jpg?format=jpeg&auto=webp&fit=bounds&width=2400&height=1260",
     "imageCredit": "圖片出處：作品官方網站／官方公告；權利歸各作品權利人所有。",
-    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。"
+    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。",
+    "ja": {
+      "date": "2022年7月15日～9月16日配信",
+      "roleDescription": "そば店の常連客で東京大学法学部の学生。上品な見た目ながら口は辛辣で、持ち前の推理力で塩介と謎を解く。",
+      "description": "『石子と羽男』のスピンオフ。そば店で働く塩介と常連客の甘実が、注文のそばができるまでの間に、客の持ち込む悩みやトラブルを推理する。"
+    }
   },
   {
     "id": 13,
@@ -383,7 +451,12 @@
     ],
     "imageSource": "https://stage.parco.jp/image/parcoplay/store/storage/sakurafumi_stagephoto07s.jpg",
     "imageCredit": "圖片出處：作品官方網站／官方公告；權利歸各作品權利人所有。",
-    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。"
+    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。",
+    "ja": {
+      "date": "東京：2022年9月5日～25日／大阪：10月1日・2日／愛知：10月5日／長野：10月8日",
+      "roleDescription": "吉原で名をはせながら、決して笑顔を見せない花魁・桜雅。久保は、その過去を知る鍵となる笹沖雅沙子も演じる。",
+      "description": "明治の吉原を舞台に、花魁・桜雅とひとりの青年の悲恋を描く。"
+    }
   },
   {
     "id": 14,
@@ -413,7 +486,12 @@
     ],
     "imageSource": "https://sayokon-movie.com/assets/img/og-img.png",
     "imageCredit": "圖片出處：作品官方網站／官方公告；權利歸各作品權利人所有。",
-    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。"
+    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。",
+    "ja": {
+      "date": "2022年11月11日公開",
+      "roleDescription": "生前は恋愛を経験しなかった幽霊。恋人同士の暮らしに興味津々で、陽平と過ごすうちに少しずつ自分の気持ちに気づいていく。",
+      "description": "広島・尾道。恋人と別れた陽平の部屋に、幽霊の愛助が突然姿を現す。ひとりの青年と幽霊の、奇妙で心温まる共同生活が始まる。"
+    }
   },
   {
     "id": 15,
@@ -447,7 +525,12 @@
     ],
     "imageSource": "https://www.nogizaka46.com/files/46/news/66077_1.jpg",
     "imageCredit": "圖片出處：作品官方網站／官方公告；權利歸各作品權利人所有。",
-    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。"
+    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。",
+    "ja": {
+      "date": "久保の出演：2023年5月7日～7月2日",
+      "roleDescription": "織田信長の娘で、徳川家康の嫡男・信康の妻。織田家と徳川家のはざまで、難しい選択を迫られる。",
+      "description": "徳川家康の生涯を新たな視点から描いたNHK大河ドラマ。久保は、徳川家と織田家の関係が大きく揺れ動く時期に登場する。"
+    }
   },
   {
     "id": 16,
@@ -477,7 +560,12 @@
     ],
     "imageSource": "https://www.europe-kikaku.com/river/assets/images/photo-8.png",
     "imageCredit": "圖片出處：作品官方網站／官方公告；權利歸各作品權利人所有。",
-    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。"
+    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。",
+    "ja": {
+      "date": "2023年6月23日公開",
+      "roleDescription": "貴船を訪れた旅人。彼女がなぜここにいるのかが、出来事の謎に関わってくる。",
+      "description": "京都・貴船の料理旅館で、同じ2分間が何度も繰り返される。従業員と宿泊客は、混乱しながらもループの原因を探り始める。"
+    }
   },
   {
     "id": 17,
@@ -507,7 +595,12 @@
     ],
     "imageSource": "https://detective-mariko-movie.jp/images/story_pt2.jpg",
     "imageCredit": "圖片出處：作品官方網站／官方公告；權利歸各作品權利人所有。",
-    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。"
+    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。",
+    "ja": {
+      "date": "2023年6月30日公開",
+      "roleDescription": "ホストの星矢に恋をしているキャバクラ嬢。彼の夢をかなえようと、懸賞金のかかった連続殺人犯の捜索をマリコに依頼する。",
+      "description": "新宿・歌舞伎町でバーを営む探偵マリコに、地球外生命体を捜してほしいという依頼が舞い込む。街で生きる人々の事情が、いくつもの事件を通して交錯する。"
+    }
   },
   {
     "id": 18,
@@ -535,7 +628,12 @@
         "url": "https://www.nogizaka46.com/s/n46/news/detail/66591"
       }
     ],
-    "imageCredit": "圖片由使用者提供；作品圖片權利屬原權利人。"
+    "imageCredit": "圖片由使用者提供；作品圖片權利屬原權利人。",
+    "ja": {
+      "date": "2023年9月10日～10月1日",
+      "roleDescription": "事件の犠牲になった高校生で、被告・立石力輝斗の妹。彼女が生前どんな日々を送っていたのかが、事件を読み解く鍵になる。",
+      "description": "映画監督と脚本家が、15年前の一家殺害事件を映画化しようと調べ始める。取材を重ねるうちに、事件の裏に隠された事実が浮かび上がる。"
+    }
   },
   {
     "id": 19,
@@ -569,7 +667,12 @@
     ],
     "imageSource": "http://www.vi-shinkansen.co.jp/tengohsei/img/shareL.png",
     "imageCredit": "圖片出處：作品官方網站／官方公告；權利歸各作品權利人所有。",
-    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。"
+    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。",
+    "ja": {
+      "date": "東京：2023年9月14日～10月21日／大阪：11月1日～20日。舞台を収録したゲキ×シネ版は2024年4月5日公開。",
+      "roleDescription": "「神降ろし」の力を持つみさき。二人の男の魂が入れ替わる騒動に深く関わる。",
+      "description": "劇団☆新感線による時代劇。こわもてで心根の優しい男と殺し屋の体が入れ替わり、追う者と追われる者が入り乱れる。"
+    }
   },
   {
     "id": 20,
@@ -597,7 +700,12 @@
         "url": "https://www.nogizaka46.com/s/n46/news/detail/100377"
       }
     ],
-    "imageCredit": "圖片由使用者提供；作品圖片權利屬原權利人。"
+    "imageCredit": "圖片由使用者提供；作品圖片權利屬原權利人。",
+    "ja": {
+      "date": "2024年10月7日～11月28日",
+      "roleDescription": "五十嵐頼人の恋人。頼人の変化をきっかけに、凜もまた自分の生き方や二人の将来を見つめ直す。",
+      "description": "市役所職員の頼人が恋人にプロポーズしようとした矢先、30年後の自分を名乗る男が現れる。順調に見えた頼人の人生が、思いもよらない方向へ動き出す。"
+    }
   },
   {
     "id": 21,
@@ -627,7 +735,12 @@
     ],
     "imageSource": "https://prcdn.freetls.fastly.net/release_image/74997/69/74997-69-7215a80a408b7aa2ef424938f08d0597-3900x1954.jpg?format=jpeg&auto=webp&fit=bounds&width=2400&height=1260",
     "imageCredit": "圖片出處：作品官方網站／官方公告；權利歸各作品權利人所有。",
-    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。"
+    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。",
+    "ja": {
+      "date": "2025年2月7日公開",
+      "roleDescription": "書店で働く月菜は良城の恋人。彼の抱える病気を理解しようとする一方、自分の気持ちが揺らぐことにも苦しむ。",
+      "description": "強迫性障害のため、愛する人に触れることができない良城。病気と向き合う二人は、新たな出会いを通して互いを愛するとはどういうことかを問い直す。"
+    }
   },
   {
     "id": 22,
@@ -657,7 +770,12 @@
     ],
     "imageSource": "https://nemurubaka-movie.com/images/story/main.jpg",
     "imageCredit": "圖片出處：作品官方網站／官方公告；權利歸各作品權利人所有。",
-    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。"
+    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。",
+    "ja": {
+      "date": "2025年3月20日公開",
+      "roleDescription": "古本屋でアルバイトをする大学生。バンド活動に打ち込む先輩の鯨井ルカと同じ部屋で暮らしながら、自分にはまだ夢と呼べるものがないと感じている。",
+      "description": "大学の女子寮で同室の先輩と後輩。とりとめのない会話を交わして過ごす二人の日常が、音楽をきっかけに大きく変わっていく。"
+    }
   },
   {
     "id": 23,
@@ -687,7 +805,12 @@
     ],
     "imageSource": "https://www.wowow.co.jp/drama/original/kaibutsu/img/mv.jpg",
     "imageCredit": "圖片出處：作品官方網站／官方公告；權利歸各作品權利人所有。",
-    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。"
+    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。",
+    "ja": {
+      "date": "2025年7月6日放送開始（全10話）",
+      "roleDescription": "柳辰夫の一人娘で大学生。父の幼なじみである警察官の富樫にとっても、わが子のように大切な存在。",
+      "description": "韓国の同名ドラマを日本でリメイク。二人の警察官が連続殺人事件を追ううちに、それぞれが胸にしまってきた過去にも向き合うことになる。"
+    }
   },
   {
     "id": 24,
@@ -717,7 +840,12 @@
     ],
     "imageSource": "https://www.nogizaka46.com/files/46/news/101206_1.jpg",
     "imageCredit": "圖片出處：作品官方網站／官方公告；權利歸各作品權利人所有。",
-    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。"
+    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。",
+    "ja": {
+      "date": "久保の初登場：2025年8月18日放送の第101回",
+      "roleDescription": "人気歌手。柳井嵩が作詞した「手のひらを太陽に」を歌う。",
+      "description": "激動の時代を生きる柳井のぶと嵩を描くNHK連続テレビ小説。夫婦の歩みを通して、嵩が創作に込めた思いをたどる。"
+    }
   },
   {
     "id": 25,
@@ -743,7 +871,12 @@
     ],
     "imageSource": "https://www.vap.co.jp/fuyunonankasa/images/em5a9bp8u2hpmwhuxuzhg8mf51vynh.jpg",
     "imageCredit": "圖片出處：作品官方網站／官方公告；權利歸各作品權利人所有。",
-    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。"
+    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。",
+    "ja": {
+      "date": "2026年2月25日放送の第6話から出演。3月18日放送の第9話にも登場。",
+      "roleDescription": "ゆきおと同じ美容室で働く同僚。紗枝と過ごす時間から、文菜といるときとは違うゆきおの一面が見えてくる。",
+      "description": "小説家・土田文菜の今の暮らしと過去の恋を行き来しながら、誰かを好きになることへのためらいや、人と人との距離を描く。"
+    }
   },
   {
     "id": 26,
@@ -790,7 +923,12 @@
         "announcedAt": "2026-11-10",
         "source": "https://prtimes.jp/main/html/rd/p/000001049.000071317.html"
       }
-    ]
+    ],
+    "ja": {
+      "date": "2026年2月6日公開",
+      "roleDescription": "桂子と正史の娘で、翔一の妹。母の葬儀を前に、父と兄の間に立ちながら、自分なりに母を見送ろうとする。",
+      "description": "葬儀会社の新人と先輩が、さまざまな事情を抱えた家族の葬儀を担う。故人を見送り、遺族に寄り添う仕事を通して、生と死を見つめる物語。"
+    }
   },
   {
     "id": 27,
@@ -816,7 +954,12 @@
     ],
     "imageSource": "https://www.taxiater.com/_next/image?url=%2Ftop%2Fshort-film%2Fstory01-cast-kuboshiori.jpg&w=3840&q=75&dpl=dpl_HnS6m3Z1jDHpnYaZGntvLZEsVLz2",
     "imageCredit": "圖片出處：作品官方網站／官方公告；權利歸各作品權利人所有。",
-    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。"
+    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。",
+    "ja": {
+      "date": "2026年8月3日よりTAXIATERで上映",
+      "roleDescription": "重い病を抱える史花は、2歳の娘・律を連れて家を出る。行くあてもなく乗り込んだタクシーで、母としての自分と向き合う。",
+      "description": "タクシー映画祭「TAXIATER」のために制作された短編。小さな娘を連れた母親の一夜の旅を通して、三人の女性の人生が交差する。"
+    }
   },
   {
     "id": 28,
@@ -842,7 +985,12 @@
     ],
     "imageSource": "https://life-onstage.jp/top_img/main_vis2.jpg",
     "imageCredit": "圖片出處：作品官方網站／官方公告；權利歸各作品權利人所有。",
-    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。"
+    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。",
+    "ja": {
+      "date": "2026年5月9日・10日、ぴあアリーナMM",
+      "roleDescription": "複数のコントに出演し、演目ごとに異なる役を演じる。",
+      "description": "NHKのコント番組『LIFE!』から生まれたステージ公演。内村光良をはじめとする出演者たちが、観客の前でコントを披露する。"
+    }
   },
   {
     "id": 29,
@@ -868,7 +1016,12 @@
     ],
     "imageSource": "https://www.ntv.co.jp/kokuhaku/articles/images/9y6t0yc0pclpghnafb7o0nq81v86o4.jpg",
     "imageCredit": "圖片出處：作品官方網站／官方公告；權利歸各作品權利人所有。",
-    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。"
+    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。",
+    "ja": {
+      "date": "2026年7月期放送（番組の放送時期）",
+      "roleDescription": "野瀬化粧品で広報を担当する若手社員。野瀬麻里子が率いるブランド事業部で働いている。",
+      "description": "25年にわたる片思いが、かつての事件と関係者の秘密に結びついていく。愛情と執着の境目を描くサスペンス。"
+    }
   },
   {
     "id": 30,
@@ -902,7 +1055,12 @@
     ],
     "imageSource": "https://sp.storm-labels.co.jp/mission/assets/images/ogimage.jpg",
     "imageCredit": "圖片出處：作品官方網站／官方公告；權利歸各作品權利人所有。",
-    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。"
+    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。",
+    "ja": {
+      "date": "2026年9月14日配信",
+      "roleDescription": "椿野芸術大学の声楽科で頭角を現し、ミュージカル公演の主役を務める学生。相次いで襲撃の標的になる。",
+      "description": "ドローン爆弾事件を追う刑事の松見奏多は、芸術大学に潜入する。捜査のはずがミュージカルの稽古にのめり込み、事件も舞台もいよいよ本番を迎える。"
+    }
   },
   {
     "id": 31,
@@ -929,7 +1087,12 @@
     ],
     "imageSource": "https://www.ktv.jp/minamidaminami/wp-content/uploads/sites/521/2026/09/5_minami_kantere_OGP.jpg",
     "imageCredit": "圖片出處：作品官方網站／官方公告；權利歸各作品權利人所有。",
-    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。"
+    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。",
+    "ja": {
+      "date": "2026年10月19日放送開始",
+      "roleDescription": "南田南とは司法修習の同期。新人弁護士として、氷見とともに宮地のチームに所属する。",
+      "description": "新人弁護士の南田南が、同僚に支えられながら、独自の視点とひらめきでさまざまな難事件に挑む法廷ドラマ。"
+    }
   },
   {
     "id": 32,
@@ -960,7 +1123,12 @@
     "imageSource": "https://www.production-ig.co.jp/hotnews/2026/081401/images/kousei_mv.jpg",
     "imageCredit": "圖片出處：作品官方網站／官方公告；權利歸各作品權利人所有。",
     "roleNote": "保留個人官網完整角色名，另註電影官網的名稱與職務標示。",
-    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。"
+    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。",
+    "ja": {
+      "date": "2026年10月30日公開",
+      "roleDescription": "主人公の未知と同じ児童施設で働く職員。久保の公式サイトでの役名は「中島唯」。映画公式サイトでは役名を「唯」、キャスト欄では「児童施設の職員」と表記している。",
+      "description": "東京で子どもの居場所づくりに携わる未知は、母のがんを知り、奈良に帰る。母を支えて過ごすなか、自分もやがて母になることと向き合っていく。"
+    }
   },
   {
     "id": 33,
@@ -991,7 +1159,12 @@
     ],
     "imageSource": "https://prcdn.freetls.fastly.net/release_image/4612/2184/4612-2184-4ab6ba790feb430fe204e95fce867fe4-3900x2194.jpg?format=jpeg&auto=webp&fit=bounds&width=2400&height=1260",
     "imageCredit": "圖片出處：作品官方網站／官方公告；權利歸各作品權利人所有。",
-    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。"
+    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。",
+    "ja": {
+      "date": "2026年12月4日配信予定",
+      "roleDescription": "国立法医解剖センターに勤める若手の解剖医。初島晴人との出会いをきっかけに、解剖医としての自分のあり方を考えるようになる。",
+      "description": "元脳外科医の初島晴人が、遺体に残された手がかりを読み解く。原因不明の死と希少疾患のつながりを探る医療ミステリー。"
+    }
   },
   {
     "id": 34,
@@ -1022,7 +1195,12 @@
     ],
     "imageSource": "https://kyoto-o-movie.com/wp-content/themes/kyoto-o-movie_theme/images/img-still-01.jpg",
     "imageCredit": "圖片出處：作品官方網站／官方公告；權利歸各作品權利人所有。",
-    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。"
+    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。",
+    "ja": {
+      "date": "2026年12月25日公開予定",
+      "roleDescription": "高尾春馬の婚約者。父の死の真相を追う春馬とともに山奥へ向かい、不可解な出来事に巻き込まれる。",
+      "description": "インターネット上で語り継がれてきた都市伝説を映画化。山深い土地を訪れた二人が、「巨頭オ」と呼ばれる怪異に近づいていく。"
+    }
   },
   {
     "id": 35,
@@ -1050,7 +1228,12 @@
         "url": "https://shiorikubo.com/s/m19/diary/works/list"
       }
     ],
-    "imageMissingReason": "官方尚未公布此角色劇照。"
+    "imageMissingReason": "官方尚未公布此角色劇照。",
+    "ja": {
+      "date": "2027年春放送予定",
+      "roleDescription": "出演発表時点では、役名と人物設定は公表されていない。",
+      "description": "東京で起きたアイドルの不審死と、北海道でヒグマをめぐって起きた事件。この二つを手がかりに展開するNHKドラマ10のサスペンス。"
+    }
   },
   {
     "id": 36,
@@ -1076,7 +1259,12 @@
     ],
     "imageSource": "https://www.nogizaka46.com/files/46/news/66214_1.jpeg",
     "imageCredit": "圖片出處：作品官方網站／官方公告；權利歸各作品權利人所有。",
-    "imageMissingReason": "音聲演出作品，沒有劇中影像。"
+    "imageMissingReason": "音聲演出作品，沒有劇中影像。",
+    "ja": {
+      "date": "2023年3月1日～4月19日、各水曜深夜",
+      "roleDescription": "美術が好きなしおりは、展覧会の監視員として働く。絵の前に立つ来場者たちの言葉に耳を傾ける。",
+      "description": "展覧会でしおりが出会うのは、美術作品と、それを見に来た人々。監視員の視点から、愛のさまざまなかたちを描くラジオドラマ。"
+    }
   },
   {
     "id": 37,
@@ -1100,7 +1288,12 @@
         "url": "https://shiorikubo.com/s/m19/diary/works/list"
       }
     ],
-    "imageMissingReason": "音聲演出作品，沒有劇中影像。"
+    "imageMissingReason": "音聲演出作品，沒有劇中影像。",
+    "ja": {
+      "date": "NHK-FM：2026年1月3日／NHKラジオ第1：1月13日",
+      "roleDescription": "本編に続き、歌手・白鳥玉恵を演じる。歌声でも、いせたくやをめぐる物語に参加する。",
+      "description": "連続テレビ小説『あんぱん』から生まれたオーディオドラマ。いせたくやのその後を、彼を取り巻く人々と歌を通して描く。"
+    }
   },
   {
     "id": 38,
@@ -1124,7 +1317,12 @@
         "url": "https://www.nogizaka46.com/s/n46/news/detail/55133"
       }
     ],
-    "imageMissingReason": "音聲演出作品，沒有劇中影像。"
+    "imageMissingReason": "音聲演出作品，沒有劇中影像。",
+    "ja": {
+      "date": "久保の出演：2020年4月6日・7日・9日・10日（第1・2・4・5回）。全編の放送期間は4月6日～17日。",
+      "roleDescription": "第1・2回では美弥子、第4・5回では奈津子を演じた。ラジオドラマへの出演も、関西弁での演技もこれが初めて。",
+      "description": "NHK-FM「青春アドベンチャー」の作品。大阪を走り続けてきた路面電車の177号が語り手となり、時代を超えて沿線の人々の人生をたどる。"
+    }
   },
   {
     "id": 39,
@@ -1150,7 +1348,12 @@
     "status": "completed",
     "sortDate": "2023-06-02",
     "verifiedAt": "2026-10-30",
-    "imageMissingReason": "音聲演出作品，沒有劇中影像。"
+    "imageMissingReason": "音聲演出作品，沒有劇中影像。",
+    "ja": {
+      "date": "2023年6月2日放送",
+      "roleDescription": "ラジオパーソナリティとして、第7話冒頭のナレーションを担当した。",
+      "description": "ラジオ局を舞台にしたコメディー。久保は第7話のオープニングに声で出演する。"
+    }
   },
   {
     "id": 40,
@@ -1183,6 +1386,11 @@
     "imageType": "宣傳圖",
     "imageSource": "https://c.cocacola.co.jp/spn/yakan/special/images/hero_img1.png",
     "imageCredit": "圖片出處：作品官方網站／官方公告；權利歸各作品權利人所有。",
-    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。"
+    "imageMissingReason": "目前未取得可核對的官方圖片，請參閱下方作品來源。",
+    "ja": {
+      "date": "第3話：2026年6月15日／第5話：8月13日",
+      "roleDescription": "25歳になったあいは、今もしんのすけに一途。ボディーガードの黒磯とともに登場し、夏祭りを描いたエピソードにも出演する。",
+      "description": "『クレヨンしんちゃん』の登場人物が大人になった姿を実写で描く短編シリーズ。しんのすけたちの日常を通して、家族や友人との絆を描く。"
+    }
   }
 ]
