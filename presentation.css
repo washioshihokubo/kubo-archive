@@ -122,3 +122,17 @@
   height: 1.25rem;
 }
 .instagram-icon { color: #b22c68; }
+
+.archive-home .workspace {
+  isolation: isolate;
+  clip-path: inset(0);
+}
+.archive-home .workspace::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(rgba(249, 247, 244, .87), rgba(249, 247, 244, .91)),
+    url("signature-original.png") center 35% / contain no-repeat;
+}
