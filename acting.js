@@ -4,12 +4,39 @@
   const dialog=$('#acting-dialog'), list=$('#acting-list'); let works=[], view={year:'all',q:'',mode:'all',category:'all',status:'all',sort:'desc'}, opener, limit=6;
   const statusNames={completed:'已上映／播畢／演出',ongoing:'播出中',upcoming:'即將上映／播出',unknown:'狀態待確認'};
   const milestones = [
+    {
+      year: '2016', title: '以三期生身分加入乃木坂46',
+      text: '2016 年 9 月 4 日，15 歲的久保史緒里通過最終甄選，成為乃木坂46三期生的 12 位新成員之一。',
+      source: 'https://www.nogizaka46.com/s/n46/news/detail/34235', sourceLabel: '三期生加入公告',
+    },
     {year:'2017',title:'第一次走上舞台',text:'《3人のプリンシパル》是她初次登台的作品；她曾談到從中感受到表演的樂趣。',source:'https://www.nogizaka46.com/s/n46/diary/detail/36765?cd=MEMBER&ima=4459',sourceLabel:'官方公演日報',interview:'https://voisjp.me/news/230257/#:~:text=%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E8%88%9E%E5%8F%B0%E3%80%8E3%E4%BA%BA%E3%81%AE%E3%83%97%E3%83%AA%E3%83%B3%E3%82%B7%E3%83%91%E3%83%AB%E3%80%8F%E3%82%92%E3%82%84%E3%82%89%E3%81%9B%E3%81%A6%E3%81%84%E3%81%9F%E3%81%A0%E3%81%84%E3%81%9F%E6%99%82%E3%81%AB'},
+    {
+      year: '2017', title: '成為《Seventeen》專屬模特兒',
+      text: '2017 年 7 月 30 日宣布成為《Seventeen》專屬模特兒，直到 2024 年 3 月 1 日發行的春號畢業，為期 6 年 7 個月。',
+      source: 'https://www.nogizaka46.com/s/n46/news/detail/40059', sourceLabel: '專屬模特兒公告',
+      related: {url: 'https://seventeen-web.jp/lifestyle/l-news/14921/', label: '《Seventeen》畢業特輯'},
+    },
     {year:'2020',title:'第一次挑戰廣播劇',text:'《阪堺電車177号の追憶》分飾美弥子與奈津子，首次挑戰廣播劇與關西腔。',source:'https://www.nogizaka46.com/s/n46/news/detail/55133'},
+    {
+      year: '2022', title: '接任《乃木坂46のオールナイトニッポン》第二代主持人',
+      text: '2022 年 2 月 17 日迎來接任後的首播（日本時間 2 月 16 日深夜）。2025 年 1 月 25 日，首場節目活動《久保史緒里の青春文化祭》在橫濱 Arena 舉行，約有 12,000 名聽眾到場。',
+      source: 'https://news.1242.com/article/341264', sourceLabel: '日本放送就任公告',
+      related: {url: 'https://news.1242.com/article/522095', label: '青春文化祭官方報導'},
+    },
     {year:'2022',title:'團體外首次單獨主演',text:'舞台劇《桜文》挑戰花魁桜雅，成為她在團體外首次單獨主演的作品。',source:'https://www.nogizaka46.com/s/n46/news/detail/65603'},
+    {
+      year: '2022', title: '首次電影出演即擔任主演',
+      text: '2022 年 11 月 11 日，《左様なら今晩は》上映。久保史緒里首度出演電影，便以幽靈「愛助」一角擔任主演。',
+      source: 'https://www.nogizaka46.com/s/n46/news/detail/65645', sourceLabel: '電影主演公告',
+    },
     {year:'2023',title:'首次擔任表題曲 Center',text:'2023 年 3 月 29 日發行的乃木坂46第32張單曲〈人は夢を二度見る〉，由她與山下美月共同擔任雙 Center。',source:'https://www.nogizaka46.com/s/n46/news/detail/66292',sourceLabel:'官方公告與 MV'},
     {year:'2023',title:'乃木坂46首位在籍期間單獨出演大河劇',text:'2023 年 5 月 7 日在 NHK 大河劇《どうする家康》第17集〈三方ヶ原合戦〉首次登場，飾演織田信長之女五徳。',source:'https://www.nhk-ondemand.jp/goods/G2023127719SA000/',sourceLabel:'NHK 第17集',interview:'https://www.tokion.jp/2023/09/06/interview-shiori-kubo/'},
-    {year:'2025',title:'畢業，走向新的篇章',text:'2025 年底從乃木坂46畢業，繼續以演員等不同身分展開活動。',source:'https://www.nogizaka46.com/s/n46/page/kubo_graduation'},
+    {
+      year: '2025', title: '畢業，走向新的篇章',
+      text: '2025 年 11 月 25 日公開個人曲〈夢の匂い〉MV，11 月 26、27 日在橫濱 Arena 舉行畢業演唱會。從乃木坂46畢業後，她繼續以演員等不同身分展開活動。',
+      source: 'https://www.nogizaka46.com/s/n46/page/kubo_graduation', sourceLabel: '畢業演唱會特設網站',
+      related: {url: 'https://youtu.be/7bqePXphj2g', label: '〈夢の匂い〉官方 MV'},
+    },
     {year:'2026',title:'報知映画賞・新人賞入圍',text:'電影《ほどなく、お別れです》（長野玲奈役）獲第51回報知映画賞新人賞提名，2026年11月10日正式公布。目前仍為候選名單，尚未公布得獎結果。',source:'https://prtimes.jp/main/html/rd/p/000001049.000071317.html'},
   ];
   function actualStatus(w){const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());if(w.status==='upcoming'&&w.start&&today>=w.start)return 'unknown';return w.status||'unknown';}
@@ -22,7 +49,14 @@
     $('#acting-count').textContent=`${view.year==='all'?'全部年份':view.year+' 年'} · ${shown.length} 筆作品${shown.length>limit?'，顯示前 '+limit+' 筆':''}`;
     list.innerHTML=shown.slice(0,limit).map(w=>`<article class="acting-card">${w.image?`<img class="work-thumb" src="${esc(w.image)}" alt="${esc(w.title)}・${esc(w.imageType)}" loading="lazy" decoding="async">`:`<div class="work-thumb work-thumb-empty" aria-hidden="true">${esc(w.category)}</div>`}<div class="acting-card-meta">${esc(w.year)} <span>${esc(w.category)}</span></div><h4 lang="ja">${esc(w.title)}</h4><p>${esc(w.role)}<br><span class="work-status">${esc(statusLabel(w))}</span>${w.awards?.length?`<br><span class="award-nomination">${esc(w.awards[0].award)}・${esc(w.awards[0].category)}提名</span>`:''}</p><button type="button" data-work="${w.id}" aria-label="查看作品：${esc(w.title)}">查看作品 <span aria-hidden="true">↗</span></button></article>`).join('')||'<p>這個篩選條件下沒有作品。</p>';
     $('#acting-more').hidden=shown.length<=limit;
-    const relevant=milestones.filter(m=>view.year==='all'||m.year===view.year);$('#milestones').hidden=view.mode==='text'||!relevant.length;$('#milestones').innerHTML=relevant.map(m=>`<article class="milestone"><span>${m.year} · 生涯里程碑</span><h3>${esc(m.title)}</h3><p>${esc(m.text)} <a href="${esc(m.source)}" target="_blank" rel="noopener noreferrer">${esc(m.sourceLabel || '來源')} ↗</a>${m.interview ? ` · <a href="${esc(m.interview)}" target="_blank" rel="noopener noreferrer">久保本人訪談 ↗</a>` : ''}</p></article>`).join('');
+    const relevant = milestones.filter(m => view.year === 'all' || m.year === view.year);
+    const milestoneList = $('#milestones');
+    milestoneList.hidden = view.mode === 'text' || !relevant.length;
+    milestoneList.innerHTML = relevant.map(m => `<article class="milestone">
+      <span>${m.year} · 生涯里程碑</span>
+      <h3>${esc(m.title)}</h3>
+      <p>${esc(m.text)} <a href="${esc(m.source)}" target="_blank" rel="noopener noreferrer">${esc(m.sourceLabel || '來源')} ↗</a>${m.interview ? ` · <a href="${esc(m.interview)}" target="_blank" rel="noopener noreferrer">久保本人訪談 ↗</a>` : ''}${m.related ? ` · <a href="${esc(m.related.url)}" target="_blank" rel="noopener noreferrer">${esc(m.related.label)} ↗</a>` : ''}</p>
+    </article>`).join('');
   }
   window.addEventListener('archive-view-change',e=>{view=e.detail;limit=6;render();});
   $('#acting-more').addEventListener('click',()=>{limit+=6;render();});
