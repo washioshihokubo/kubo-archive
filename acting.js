@@ -55,8 +55,7 @@
     milestoneList.innerHTML = relevant.map(m => `<article class="milestone">
       <span>${m.year} · 生涯里程碑</span>
       <h3>${esc(m.title)}</h3>
-      <p>${esc(m.text)}</p>
-      <div class="milestone-sources"><a href="${esc(m.source)}" target="_blank" rel="noopener noreferrer">${esc(m.sourceLabel || '來源')} ↗</a>${m.interview ? `<a href="${esc(m.interview)}" target="_blank" rel="noopener noreferrer">久保本人訪談 ↗</a>` : ''}${m.related ? `<a href="${esc(m.related.url)}" target="_blank" rel="noopener noreferrer">${esc(m.related.label)} ↗</a>` : ''}</div>
+      <p>${esc(m.text)} <a href="${esc(m.source)}" target="_blank" rel="noopener noreferrer">${esc(m.sourceLabel || '來源')} ↗</a>${m.interview ? ` · <a href="${esc(m.interview)}" target="_blank" rel="noopener noreferrer">久保本人訪談 ↗</a>` : ''}${m.related ? ` · <a href="${esc(m.related.url)}" target="_blank" rel="noopener noreferrer">${esc(m.related.label)} ↗</a>` : ''}</p>
     </article>`).join('');
   }
   window.addEventListener('archive-view-change',e=>{view=e.detail;limit=6;render();});
