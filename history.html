@@ -83,12 +83,10 @@
   .year-dock label { gap:.25rem; }
   .video-links { display:grid; }
   .card .video-links a { width:100%; }
-  .year-dock #mobile-videos[aria-pressed=true] { background:#deedf4; border-color:#759cab; }
 }
 </style></head><body id="top"><header><a href="./">SHIORI KUBO · 時光手帖</a><a href="./#timeline">← 返回文字與演員年表</a></header><main><p class="eyebrow">THE DAYS WE SHARED · 2016—2026</p><h1>她走過的時光</h1><p class="intro">從三期生結成的那一天開始，沿著一條時間線，重訪久保史緒里的舞台、演出和每個值得記住的時刻。</p><div class="history-toolbar"><form class="history-search" role="search" onsubmit="return false"><label>搜尋年表<input id="history-query" type="search" placeholder="輸入活動、節目或日期" autocomplete="off"></label><label>紀錄類型<select id="history-category"><option value="">全部類型</option><option value="__videos__">有官方 YouTube 影片</option><option value="__tabishiori__">宮城・仙台 旅しおり</option></select></label></form><nav class="years" aria-label="年份導覽" id="years"></nav></div><p class="search-count" id="history-count" role="status" aria-live="polite"></p><div class="year-browser">
   <nav class="year-dock" aria-label="手機年份導覽">
     <label>目前年份 <select id="mobile-year"></select></label>
-    <button id="mobile-videos" type="button" aria-pressed="false">有影片</button>
     <button id="mobile-important" type="button" aria-pressed="false">重要時刻</button>
   </nav>
   <div class="timeline" id="timeline"></div>
@@ -596,23 +594,19 @@ function jumpToYear(year) {
   document.getElementById('y' + year)?.scrollIntoView({ block: 'start' });
   queueYearSync();
 }
-const mobileVideos = document.querySelector('#mobile-videos');
 function toggleImportant() {
   category.value = category.value === '__important__' ? '' : '__important__';
   render();
 }
 mobileYear.addEventListener('change', () => jumpToYear(mobileYear.value));
-function toggleMobileFilter(value) {
+mobileImportant.addEventListener('click', () => {
   const year = mobileYear.value;
-  category.value = category.value === value ? '' : value;
-  render();
+  toggleImportant();
   if (yearHeadings.length) {
     const next = yearHeadings.find(h => h.id.slice(1) >= year) || yearHeadings[yearHeadings.length - 1];
     jumpToYear(next.id.slice(1));
   }
-}
-mobileImportant.addEventListener('click', () => toggleMobileFilter('__important__'));
-mobileVideos.addEventListener('click', () => toggleMobileFilter('__videos__'));
+});
 window.addEventListener('scroll', queueYearSync, { passive: true });
 window.addEventListener('resize', queueYearSync);
 const officialVideos = {
@@ -858,18 +852,7 @@ function render(){
  });
  count.textContent=`顯示 ${filtered.length} 筆紀錄`;
  nav.replaceChildren();root.replaceChildren();let seen=new Set();
- const videoButton = document.createElement('button');
- videoButton.type = 'button';
- videoButton.textContent = '有影片';
- videoButton.setAttribute('aria-pressed', String(kind === '__videos__'));
- videoButton.addEventListener('click', () => {
-   category.value = kind === '__videos__' ? '' : '__videos__';
-   render();
-   nav.querySelector('.video-filter').focus();
- });
- videoButton.className = 'video-filter';
- nav.append(videoButton);
- const importantButton=document.createElement('button');importantButton.type='button';importantButton.textContent='重要時刻';importantButton.setAttribute('aria-pressed',String(kind==='__important__'));importantButton.addEventListener('click',()=>{toggleImportant();nav.querySelector('button:not(.video-filter)').focus()});nav.append(importantButton);
+ const importantButton=document.createElement('button');importantButton.type='button';importantButton.textContent='重要時刻';importantButton.setAttribute('aria-pressed',String(kind==='__important__'));importantButton.addEventListener('click',()=>{toggleImportant();nav.querySelector('button').focus()});nav.append(importantButton);
  for(const [i,[y,d,t,c]] of filtered.entries()){
   if(!seen.has(y)){seen.add(y);const link=document.createElement('a');link.href=`#y${y}`;link.textContent=y;nav.append(link);const heading=document.createElement('h2');heading.className='year';heading.id=`y${y}`;const label=document.createElement('span');label.textContent=y;heading.append(label);root.append(heading)}
   const event=document.createElement('article');event.className=`event ${i%2?'right':''}`;
@@ -910,7 +893,6 @@ function render(){
  mobileYear.replaceChildren(...Array.from(seen, y => new Option(y, y)));
  mobileYear.disabled = !seen.size;
  if (!seen.size) mobileYear.add(new Option('無結果', ''));
- mobileVideos.setAttribute('aria-pressed', String(kind === '__videos__'));
  mobileImportant.setAttribute('aria-pressed', String(kind === '__important__'));
  queueYearSync();
  if(!filtered.length){const empty=document.createElement('p');empty.className='notice';empty.textContent='找不到符合條件的紀錄，請試試其他關鍵字或類型。';root.append(empty)}
