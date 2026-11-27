@@ -60,6 +60,7 @@
     "保留個人官網完整角色名，另註電影官網的名稱與職務標示。": "役名は久保史緒里の公式サイトに従い、映画公式サイトでの表記と役職を併記しています。",
     "10月12日公演取消公告": "10月12日の公演中止について",
     "10月13日公演異動公告": "10月13日の公演について",
+    "日本放送官方播出資訊": "ニッポン放送の放送案内",
     "官方資料": "公式情報"
 };
   const label = value => japanese ? japaneseLabels[value] ?? value : value;
@@ -155,7 +156,7 @@
     $('#acting-detail').innerHTML=`<p class="eyebrow">${esc(w.year)} · ${esc(label(w.category))} · ${esc(label(statusLabel(w)))}</p><h2 id="acting-dialog-title" lang="ja">${esc(w.title)}</h2><p class="work-lead-role">${esc(label(w.role))}</p>${w.image?`<figure class="acting-photo"><a href="${esc(w.image)}" target="_blank" rel="noopener noreferrer" aria-label="${t('放大','拡大：')}${esc(label(w.imageType))}"><img src="${esc(w.image)}" alt="${esc(w.title)}・${esc(label(w.imageType))}"></a><figcaption>${esc(label(w.imageType))} · ${esc(label(w.imageCredit))}</figcaption></figure>`:`<p class="image-unavailable">${esc(label(w.imageMissingReason))}</p>`}<dl><dt>${t('演出日期','公開・放送・配信・上演日')}</dt><dd lang="${w.detailLang}">${esc(w.date)}</dd><dt>${t('角色簡介','役柄')}</dt><dd lang="${w.detailLang}">${esc(w.roleDescription)}</dd><dt>${t('作品介紹','作品紹介')}</dt><dd lang="${w.detailLang}">${esc(w.description)}</dd></dl>${w.awards?.length?`<section class="acting-awards" aria-label="${t('獎項提名','ノミネート歴')}"><h3>${t('獎項提名','ノミネート歴')}</h3>${w.awards.map(a=>`<p><strong>${esc(a.award)}・${esc(a.category)}</strong> — ${esc(label(a.status))}<br><time>${esc(a.announcedAt)}</time> · <a href="${esc(a.source)}" target="_blank" rel="noopener noreferrer">${t('報知新聞社正式公告','報知新聞社の発表')} ↗</a></p>`).join('')}</section>`:''}${w.roleNote?`<p class="role-note">${t('名稱核對：','役名について：')}${esc(label(w.roleNote))}</p>`:''}<nav class="work-sources" aria-label="${t('作品來源','出典')}">${(w.sources||[{label:'官方資料',url:w.source}]).map(x=>`<a href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">${esc(label(x.label))} ↗</a>`).join('')}</nav><p class="acting-source-note">${t('資料核對：','確認日：')}${esc(w.verifiedAt)} · ${t('預定日期與播出狀態依官方後續公告更新。','日程・放送状況は公式発表に基づき更新します。')}</p>`;
     dialog.showModal();$('#acting-close').focus();});
   $('#acting-close').addEventListener('click',()=>dialog.close());dialog.addEventListener('close',()=>opener?.focus());dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});
-  fetch('acting-data.json?v=japanese-work-details-1')
+  fetch('acting-data.json?v=history-ja-20261127')
     .then(response => {
       if (!response.ok) throw Error('load');
       return response.json();
