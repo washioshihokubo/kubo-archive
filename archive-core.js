@@ -1,7 +1,9 @@
 'use strict';
 window.Archive = (() => {
-  const labels = {official:'乃木坂官方部落格',relay:'3期生接力部落格',seventeen:'Seventeen MODEL’S BLOG'};
-  const topics = {hometown:'宮城・故鄉',third:'三期生・夥伴',live:'音樂・演唱會',acting:'舞台・演技',fashion:'雜誌・模特',books:'書籍・寫真',broadcast:'廣播・節目',baseball:'棒球・運動',milestone:'生日・畢業・紀念',everyday:'日常・心情'};
+  const japanese = document.documentElement.lang === 'ja' || new URLSearchParams(location.search).get('lang') === 'ja' && document.body.classList.contains('reader-page');
+  const t = (zh, ja) => japanese ? ja : zh;
+  const labels = japanese ? {official:'乃木坂46公式ブログ',relay:'3期生リレーブログ',seventeen:'Seventeen MODEL’S BLOG'} : {official:'乃木坂官方部落格',relay:'3期生接力部落格',seventeen:'Seventeen MODEL’S BLOG'};
+  const topics = japanese ? {hometown:'宮城・ふるさと',third:'3期生・仲間',live:'音楽・ライブ',acting:'舞台・演技',fashion:'雑誌・モデル',books:'書籍・写真集',broadcast:'ラジオ・番組',baseball:'野球・スポーツ',milestone:'誕生日・卒業・記念日',everyday:'日常・思い'} : {hometown:'宮城・故鄉',third:'三期生・夥伴',live:'音樂・演唱會',acting:'舞台・演技',fashion:'雜誌・模特',books:'書籍・寫真',broadcast:'廣播・節目',baseball:'棒球・運動',milestone:'生日・畢業・紀念',everyday:'日常・心情'};
   const escape = value => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const normalize = value => String(value).normalize('NFKC').toLocaleLowerCase().replace(/\s+/g,' ').trim();
   const defaults = () => ({year:'all',q:'',source:'all',topic:'all',sort:'desc',mode:'all',category:'all',status:'all'});
@@ -20,11 +22,11 @@ window.Archive = (() => {
     const terms=normalize(state.q).split(' ').filter(Boolean);
     return data.filter(x=>(state.year==='all'||x.date.startsWith(state.year))&&(state.source==='all'||x.source===state.source)&&(state.topic==='all'||x.tags.includes(state.topic))&&terms.every(t=>normalize(`${x.title} ${x.date} ${labels[x.source]} ${x.tags.map(k=>topics[k]).join(' ')}`).includes(t))).sort((a,b)=>(state.sort==='asc'?1:-1)*(a.date.localeCompare(b.date)||a.id.localeCompare(b.id)));
   }
-  function readerURL(id,state) {const p=params(state);p.set('article',id);return 'read.html?'+p;}
-  function listURL(state) {const p=params(state);return './'+(p.size?'?'+p:'')+'#timeline';}
-  function topicURL(topic) {return './?topic='+encodeURIComponent(topic)+'#timeline';}
+  function readerURL(id,state) {const p=params(state);p.set('article',id);if(japanese)p.set('lang','ja');return 'read.html?'+p;}
+  function listURL(state) {const p=params(state);return t('./','index-ja.html')+(p.size?'?'+p:'')+'#timeline';}
+  function topicURL(topic) {return t('./','index-ja.html')+'?topic='+encodeURIComponent(topic)+'#timeline';}
   async function json(path) {const r=await fetch(path+'?v=reading-20261024');if(!r.ok)throw Error('無法讀取資料');return r.json();}
   function readSession(key) {try{return JSON.parse(sessionStorage.getItem(key)||'null')}catch{return null}}
   function saveSession(key,value) {try{sessionStorage.setItem(key,JSON.stringify(value))}catch{}}
-  return {labels,topics,escape,normalize,defaults,readState,params,rows,readerURL,listURL,topicURL,json,readSession,saveSession};
+  return {japanese,t,labels,topics,escape,normalize,defaults,readState,params,rows,readerURL,listURL,topicURL,json,readSession,saveSession};
 })();
